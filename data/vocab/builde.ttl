@@ -12,7 +12,13 @@
 # BIBFRAME Linked Data Extension aka BUILDE 📖🔍
 #
 # This RDF vocabulary encompasses a wide range of classes and properties suitable for describing various
-# types of bibliographic resources, scholarly works, and related entities.
+# types of bibliographic resources, scholarly works, and related entities. BUILDE includes a basic set of 
+# core classes and properties known as the 'lite' layer described here, as well as several extensions:
+#
+#	archive: things found in archives
+#	rare books: things found in rare book libraries
+#	scholar: things found in scholarly research and publishing
+#	library: things found in libraries
 #
 # This vocabulary is ideal for librarians, information scientists, data curators, and developers working
 # in academic and research settings. It can be employed in creating digital libraries, scholarly databases,
