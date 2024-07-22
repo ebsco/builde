@@ -10,36 +10,36 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 # BIBFRAME Linked Data Extension aka BUILDE 📖🔍
-#
+
 # This RDF vocabulary encompasses a wide range of classes and properties suitable for describing various
 # types of bibliographic resources, scholarly works, and related entities. BUILDE includes a basic set of 
 # core classes and properties known as the 'lite' layer described here, as well as several extensions:
-#
+
 #	archive: things found in archives
 #	rare books: things found in rare book libraries
 #	scholar: things found in scholarly research and publishing
 #	library: things found in libraries
-#
+
 # This vocabulary is ideal for librarians, information scientists, data curators, and developers working
 # in academic and research settings. It can be employed in creating digital libraries, scholarly databases,
 # cataloging systems, and other applications requiring structured bibliographic information.
-#
+
 # Key Features:
 # - Compatibility with existing ontologies including Schema.org, SKOS, FOAF, and Dublin Core for enhanced interoperability.
 # - Extension of BIBFRAME from the Library of Congress
 # - Comprehensive coverage of bibliographic and scholarly domains.
 # - Clear, self-explanatory labels and definitions for each class and property.
 # - Hierarchical organization of classes using rdfs:subClassOf for structured representation.
-#
+
 # We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
 # For versioning, updates, and more detailed documentation, please visit [https://bibfra.me/?].
-#
+
 # ------------------------------
 # Created by: EBSCO Information Systems
 # Version: 1.0
-# Date: July 19, 2024
+# Date: July 22, 2024
 # ------------------------------
-#
+
 # BUILDE Classes
 
 bld:Resource a rdfs:Class ;
@@ -314,6 +314,7 @@ bld:rightsStatement a rdf:Property ;
     rdfs:domain bld:Resource .
 
 # Work properties
+
 bld:creator a rdf:Property ;
     rdfs:label "creator"@en ;
     rdfs:comment "Entity (or entities) responsible with the creation of the origin resource."@en ;
@@ -377,6 +378,7 @@ bld:isVersionOf a rdf:Property ;
     rdfs:domain bld:Work .
 
 # Instance properties
+
 bld:provider a rdf:Property ;
     rdfs:label "provider"@en ;
     rdfs:range bld:ProviderAgent ;
@@ -426,6 +428,7 @@ bld:instantiates a rdf:Property ;
     rdfs:domain bld:Instance .
 
 ## Item properties
+
 bld:itemizes a rdf:Property ;
     rdfs:label "itemizes"@en ;
     rdfs:comment "Instance for which the described Item is an example."@en ;
@@ -441,6 +444,7 @@ bld:heldBy a rdf:Property ;
     rdfs:domain bld:Item .
 
 ## Authority properties
+
 bld:name a rdf:Property ;
     rdfs:label "name"@en ;
     rdfs:range rdfs:Literal ;
@@ -456,6 +460,7 @@ bld:nameAlternative a rdf:Property ;
     rdfs:domain bld:Authority .
 
 ## Agent properties
+
 bld:email a rdf:Property ;
     rdfs:label "The agent's e-mail address."@en ;
     rdfs:range rdfs:Literal ;
@@ -610,6 +615,7 @@ bld:why a rdf:Property ;
     rdfs:range bld:Concept .
 
 ## CopyrightEvent related properties
+
 bld:license a rdf:Property ;
     rdfs:label "license"@en ;
     rdfs:comment "License associated with the rights event associated with a Work."@en ;
@@ -644,6 +650,7 @@ bld:copyrightNote a rdf:Property ;
     rdfs:range rdfs:Literal .
 
 ## ProviderEvent properties
+
 bld:providerAgent a rdf:Property ;
     rdfs:label "provider agent"@en ;
     rdfs:comment "Agent associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
@@ -672,6 +679,7 @@ bld:providerNote a rdf:Property ;
     rdfs:range rdfs:Literal .
 
 ## Annotation properties
+
 bld:body a rdf:Property ;
     rdfs:label "body"@en ;
     rdfs:comment "Body of an annotation."@en ;
@@ -691,6 +699,7 @@ bld:source a rdf:Property ;
     rdfs:range rdf:Resource .
 
 ## Collection properties
+
 bld:primary a rdf:Property ;
     rdfs:label "primary work"@en ;
     rdfs:comment "Primary work associated with a Collection."@en ;
@@ -704,6 +713,7 @@ bld:memberOf a rdf:Property ;
     rdfs:range rdf:Work .
 
 ## PostalAddress properties
+
 bld:street a rdf:Property ;
     rdfs:label "street address"@en ;
     rdfs:comment "The street address."@en ;
