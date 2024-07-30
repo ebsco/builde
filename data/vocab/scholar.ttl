@@ -34,7 +34,8 @@
 # ------------------------------
 # Created by: EBSCO Information Systems
 # Version: 1.0
-# Date: July 26, 2024
+# Created: November 11, 2023
+# Updated: July 26, 2024
 # ------------------------------
 
 ## BF Scholar Classes (from Crossref)
