@@ -399,11 +399,6 @@ scholar:ActionEvent a rdfs:Class ;
     rdfs:subClassOf bf:Event .
 
 ## BF Scholar Identifier Classes
-
-scholar:EbscoID a rdfs:Class ;
-	rdfs:label "EBSCO ID"@en ;
-	rdfs:comment "An EBSCO ID associated with an article, person, or organization."@en ;
-    rdfs:subClassOf bf:Identifier .
 	
 scholar:DOI a rdfs:Class ;
 	rdfs:label "DOI"@en ;
@@ -449,12 +444,6 @@ scholar:fainId a rdf:Property ;
     rdfs:comment "A unique identifier for a funding award."@en ;
     rdfs:domain scholar:FundingAward ;
     rdfs:range rdfs:Literal .
-
-scholar:ebscoId a rdf:Property ;
-	rdfs:label "ebsco ID"@en ;
-	rdfs:comment "A unique identifier for a EBSCO linked data resources."@en ;
-	rdfs:domain scholar:FundingAward ;
-	rdfs:range rdfs:Literal .
 	
 scholar:doi a rdf:Property ;
 	rdfs:label "doi"@en ;
