@@ -73,7 +73,7 @@ bld:Concept a rdfs:Class ;
 bld:Authority a rdfs:Class ;
     rdfs:label "Authority"@en ;
     rdfs:comment "Credible, curated description of a person, place or thing."@en ;
-	rdfs:subClassOf bld:Resource .
+    rdfs:subClassOf bld:Resource .
 
 bld:Topic a rdfs:Class ;
     rdfs:label "Topic"@en ;
@@ -143,15 +143,15 @@ bld:Archive a rdfs:Class ;
 bld:Identifier a rdfs:Class ;
     rdfs:label "Identifier"@en ;
     rdfs:comment "A string or number that identifies either a unique resource or class of resources."@en ;
-	skos:note "Example identifiers include ISBN, ISSN, and MESH."@en ;
-	owl:sameAs bf:Identifier ;
+    skos:note "Example identifiers include ISBN, ISSN, and MESH."@en ;
+    owl:sameAs bf:Identifier ;
     rdfs:subClassOf bld:Resource .
 
 bld:Annotation a rdfs:Class ;
-	rdfs:label "Annotation"@en ;
-	rdfs:comment "Annotation, provides for loosely attached information about a resource"@en ;
+    rdfs:label "Annotation"@en ;
+    rdfs:comment "Annotation, provides for loosely attached information about a resource"@en ;
     rdfs:subClassOf bld:Resource ;
-	owl:sameAs oa:Annotation .
+    owl:sameAs oa:Annotation .
 
 bld:Category a rdfs:Class ;
     rdfs:label "Category"@en ;
@@ -179,14 +179,14 @@ bld:ProviderEvent a rdfs:Class ;
     rdfs:subClassOf bld:Event .
 
 bld:CopyrightEvent a rdfs:Class ;
-	rdfs:label "Copyright Event"@en ;
-	rdfs:comment "Copyright event associated with the intellectual property of an Instance."@en ;
+    rdfs:label "Copyright Event"@en ;
+    rdfs:comment "Copyright event associated with the intellectual property of an Instance."@en ;
     owl:sameAs bf:CopyrightRegistration ;
     rdfs:subClassOf bld:Event .
 
 bld:Event a rdfs:Class ;
-	rdfs:label "Event"@en ;
-	rdfs:comment "Significant occurrence or happening."@en ;
+    rdfs:label "Event"@en ;
+    rdfs:comment "Significant occurrence or happening."@en ;
     owl:sameAs bf:Event , schema:Event ;
     rdfs:subClassOf bld:Resource .
 
@@ -203,23 +203,30 @@ bld:Series a rdfs:Class ;
     rdfs:subClassOf bld:Collection .
 
 bld:List a rdfs:Class ;
-	rdfs:label "List"@en ;
-	rdfs:comment "An ordered / unordered group of related resources."@en ;
+    rdfs:label "List"@en ;
+    rdfs:comment "An ordered / unordered group of related resources."@en ;
     owl:sameAs schema:ItemList ;
     rdfs:subClassOf bld:Collection .
 
 bld:PostalAddress a rdfs:Class ;
     rdfs:label "Postal Address"@en ;
-	owl:sameAs schema:PostalAddress ;
+    owl:sameAs schema:PostalAddress ;
     rdfs:comment "The mailing address."@en ;
     rdfs:subClassOf bld:Resource .
 
 # Resource properties (used by any BUILDE Class)
+
+bld:hasInstance a rdf:Property ;
+    rdfs:label "has instance"@en ;
+    rdfs:comment "Relationship used to connect Works to Instances."@en ;
+    rdfs:range bld:Instance ;
+    rdfs:domain bld:Resource .
+
 bld:audience a rdf:Property ;
-	rdfs:label "audience"@en ;
-	rdfs:comment "Class of user for which the content of a resource is intended, or for whom the content is considered suitable."@en ;
-	skos:note "A target audience can be formed of people of a certain age group, gender, marital status, etc. Other groups, although not the main focus, may also be interested. The value of this property is intended to be a code list."@en ;
-	rdfs:range rdfs:Literal ;
+    rdfs:label "audience"@en ;
+    rdfs:comment "Class of user for which the content of a resource is intended, or for whom the content is considered suitable."@en ;
+    skos:note "A target audience can be formed of people of a certain age group, gender, marital status, etc. Other groups, although not the main focus, may also be interested. The value of this property is intended to be a code list."@en ;
+    rdfs:range rdfs:Literal ;
     rdfs:domain bld:Resource .
 
 bld:authorityLink a rdf:Property ;
@@ -274,8 +281,8 @@ bld:image a rdf:Property ;
     rdfs:domain bld:Resource .
 
 bld:language a rdf:Property ;
-	rdfs:label "language"@en ;
-	rdfs:comment "Language associated with the resource."@en ;
+    rdfs:label "language"@en ;
+    rdfs:comment "Language associated with the resource."@en ;
     owl:equivalentProperty bf:language, dc:language ;
     rdfs:range bld:LanguageCategory ;
     rdfs:domain bld:Resource .
@@ -372,8 +379,8 @@ bld:titleAlternative a rdf:Property ;
     ] .
 
 bld:isVersionOf a rdf:Property ;
-	rdfs:label "is version of"@en ;
-	rdfs:comment "Work of which this is a version."@en ;
+    rdfs:label "is version of"@en ;
+    rdfs:comment "Work of which this is a version."@en ;
     rdfs:range bld:Work ;
     rdfs:domain bld:Work .
 
@@ -413,8 +420,8 @@ bld:extent a rdf:Property ;
     rdfs:domain bld:Instance .
 
 bld:dimensions a rdf:Property ;
-	rdfs:label "dimensions"@en ;
-	rdfs:comment "Measurement of size."@en ;
+    rdfs:label "dimensions"@en ;
+    rdfs:comment "Measurement of size."@en ;
     owl:equivalentProperty bf:dimensions ;
     rdfs:range rdfs:Literal ;
     rdfs:domain bld:Instance .
@@ -608,8 +615,8 @@ bld:when a rdf:Property ;
     rdfs:range bld:Literal .
 
 bld:why a rdf:Property ;
-	rdfs:label "why"@en ;
-	rdfs:comment "Concept associated with an Event."@en ;
+    rdfs:label "why"@en ;
+    rdfs:comment "Concept associated with an Event."@en ;
     rdfs:subPropertyOf bld:Resource ;
     rdfs:domain bld:Event ;
     rdfs:range bld:Concept .
@@ -673,8 +680,8 @@ bld:providerDate a rdf:Property ;
     rdfs:range rdfs:Literal .
 
 bld:providerNote a rdf:Property ;
-	rdfs:label "provider note"@en ;
-	rdfs:comment "Note associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
+    rdfs:label "provider note"@en ;
+    rdfs:comment "Note associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
     rdfs:domain bld:ProviderEvent ;
     rdfs:range rdfs:Literal .
 
@@ -693,8 +700,8 @@ bld:target a rdf:Property ;
     rdfs:range rdf:Resource .
 
 bld:source a rdf:Property ;
-	rdfs:label "source"@en ;
-	rdfs:comment "Provides for loosely attached information about a Resource."@en ;
+    rdfs:label "source"@en ;
+    rdfs:comment "Provides for loosely attached information about a Resource."@en ;
     rdfs:domain bld:Annotation ;
     rdfs:range rdf:Resource .
 
