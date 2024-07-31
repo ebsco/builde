@@ -12,7 +12,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-# Lite and Scholar BIBFRAME Extensions 📖🔍
+# BUILDE Scholar Extension 📖🔍
 #
 # This RDF vocabulary encompasses a wide range of classes and properties suitable for describing various
 # types of bibliographic resources, scholarly works, and related entities.
@@ -34,716 +34,12 @@
 # ------------------------------
 # Created by: EBSCO Information Systems
 # Version: 1.0
-# Date: November 11, 2023
+# Created: November 11, 2023
+# Updated: July 26, 2024
 # ------------------------------
-#
-# BF Lite Classes
-
-bf:Resource a rdfs:Class ;
-    rdfs:label "Resource"@en ;
-    rdfs:comment "Most generic Bibframe entity."@en ;
-    owl:sameAs schema:Thing .
-
-bf:Instance a rdfs:Class ;
-	rdfs:label "Instance"@en ;
-	rdfs:comment "A material embodiment of a distinct intellectual or artistic creation."@en ;
-    rdfs:subClassOf bf:Resource ;
-    owl:sameAs loc:Instance .
-
-bf:Item a rdfs:Class ;
-    rdfs:label "Item"@en ;
-    rdfs:comment "An Item represents a specific, individual, material embodiment of a distinct intellectual or artistic creation."@en ;
-    owl:sameAs loc:Item ;
-    rdfs:subClassOf bf:Resource .
-
-bf:Work a rdfs:Class ;
-    rdfs:label "Work"@en ;
-    rdfs:comment "A distinct intellectual or artistic creation."@en ;
-    owl:sameAs loc:Work ;
-    rdfs:subClassOf bf:Resource .
-
-bf:Concept a rdfs:Class ;
-    rdfs:label "Concept"@en ;
-    rdfs:comment "Term describing the subject, aboutness, idea or notion of a resource."@en ;
-    rdfs:subClassOf skos:Concept .
-
-bf:Authority a rdfs:Class ;
-    rdfs:label "Authority"@en ;
-    rdfs:comment "Credible, curated description of a person, place or thing."@en ;
-	rdfs:subClassOf bf:Resource .
-
-bf:Topic a rdfs:Class ;
-    rdfs:label "Topic"@en ;
-    rdfs:comment "Subject term describing a general concept, event or object."@en ;
-    owl:sameAs loc:Topic ;
-    rdfs:subClassOf bf:Authority .
-
-bf:Temporal a rdfs:Class ;
-    rdfs:label "Temporal"@en ;
-    rdfs:comment "Used to denote context for the chronological continued progress of existence and events in the past, present, and future."@en ;
-    rdfs:subClassOf bf:Authority .
-
-bf:Place a rdfs:Class ;
-    rdfs:label "Place"@en ;
-    rdfs:comment "Geographic location."@en ;
-    owl:sameAs schema:Place , loc:Place ;
-    rdfs:subClassOf bf:Authority .
-
-bf:Agent a rdfs:Class ;
-    rdfs:label "Agent"@en ;
-    rdfs:comment "Entity (e.g. person, organization, etc.) associated with a resource."@en ;
-    owl:sameAs loc:Agent ;
-    rdfs:subClassOf bf:Authority .
-
-bf:Meeting a rdfs:Class ;
-    rdfs:label "Meeting"@en ;
-    rdfs:comment "Formal gathering of people for a particular purpose."@en ;
-    owl:sameAs loc:Meeting ;
-    rdfs:subClassOf bf:Agent .
-
-bf:Organization a rdfs:Class ;
-    rdfs:label "Organization"@en ;
-    rdfs:comment "Unit of people, e.g., an institution, an association, or corporate body."@en ;
-    owl:sameAs loc:Organization ;
-    rdfs:subClassOf bf:Agent .
-
-bf:Family a rdfs:Class ;
-    rdfs:label "Family"@en ;
-    rdfs:comment "Social unit related by birth, marriage, adoption, civil union, or similar relationship."@en ;
-    owl:sameAs loc:Family ;
-    rdfs:subClassOf bf:Agent .
-
-bf:Person a rdfs:Class ;
-    rdfs:label "Person"@en ;
-    rdfs:comment "Individual (alive, dead, undead, or fictional) in relation to a resource."@en ;
-    owl:sameAs loc:Person , foaf:Person , schema:Person ;
-    rdfs:subClassOf bf:Agent .
-
-bf:Library a rdfs:Class ;
-    rdfs:label "Library"@en ;
-    rdfs:comment "Organization responsible for the care of a collection of literary, musical, artistic, or reference materials, such as books, manuscripts, recordings, or films."@en ;
-    owl:sameAs schema:Library ;
-    rdfs:subClassOf bf:Organization .
-
-bf:Museum a rdfs:Class ;
-    rdfs:label "Museum"@en ;
-    rdfs:comment "Organization that holds artifacts and other objects of scientific, artistic, cultural, historical, or other importance."@en ;
-    owl:sameAs schema:Museum ;
-    rdfs:subClassOf bf:Organization .
-
-bf:Archive a rdfs:Class ;
-    rdfs:label "Archive"@en ;
-    rdfs:comment "Organization responsible for the documents, photos, rare books, and artifacts selected for access and preservation."@en ;
-    owl:sameAs schema:ArchiveOrganization ;
-    rdfs:subClassOf bf:Organization .
-
-bf:Identifier a rdfs:Class ;
-    rdfs:label "Identifier"@en ;
-    rdfs:comment "A string or number that identifies either a unique resource or class of resources."@en ;
-	skos:note "Example identifiers include ISBN, ISSN, and MESH."@en ;
-	owl:sameAs loc:Identifier ;
-    rdfs:subClassOf bf:Resource .
-
-bf:Annotation a rdfs:Class ;
-	rdfs:label "Annotation"@en ;
-	rdfs:comment "Annotation, provides for loosely attached information about a resource"@en ;
-    rdfs:subClassOf bf:Resource ;
-	owl:sameAs oa:Annotation .
-
-bf:Category a rdfs:Class ;
-    rdfs:label "Category"@en ;
-    rdfs:comment "List of things regarded as having particular shared characteristics"@en ;
-    owl:sameAs schema:Enumeration ;
-    rdfs:subClassOf bf:Resource .
-
-bf:LanguageCategory a rdfs:Class ;
-    rdfs:label "Language Category"@en ;
-    rdfs:comment "List of languages"@en ;
-    owl:sameAs loc:Language ;
-    rdfs:subClassOf bf:Category ;
-    skos:note "A controlled vocabulary."@en .
-
-bf:Form a rdfs:Class ;
-    rdfs:label "Form"@en ;
-    rdfs:comment "Category or genre that describes what the resource is."@en ;
-    owl:sameAs loc:GenreForm ;
-    rdfs:subClassOf bf:Category .
-
-bf:ProviderEvent a rdfs:Class ;
-    rdfs:label "Provider Event"@en ;
-    rdfs:comment "Event associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
-    owl:sameAs loc:ProvisionActivity ;
-    rdfs:subClassOf bf:Event .
-
-bf:CopyrightEvent a rdfs:Class ;
-	rdfs:label "Copyright Event"@en ;
-	rdfs:comment "Copyright event associated with the intellectual property of an Instance."@en ;
-    owl:sameAs loc:CopyrightRegistration ;
-    rdfs:subClassOf bf:Event .
-
-bf:Event a rdfs:Class ;
-	rdfs:label "Event"@en ;
-	rdfs:comment "Significant occurrence or happening."@en ;
-    owl:sameAs loc:Event , schema:Event ;
-    rdfs:subClassOf bf:Resource .
-
-bf:Collection a rdfs:Class ;
-    rdfs:label "Collection"@en ;
-    rdfs:comment "Aggregation or gathering of works."@en ;
-    owl:sameAs loc:Collection ;
-    rdfs:subClassOf bf:Work .
-
-bf:Series a rdfs:Class ;
-    rdfs:label "Series"@en ;
-    rdfs:comment "Set of related resources, especially of a specified kind."@en ;
-    owl:sameAs schema:CreativeWorkSeries ;
-    rdfs:subClassOf bf:Collection .
-
-bf:List a rdfs:Class ;
-	rdfs:label "List"@en ;
-	rdfs:comment "An ordered / unordered group of related resources."@en ;
-    owl:sameAs schema:ItemList ;
-    rdfs:subClassOf bf:Collection .
-
-bf:PostalAddress a rdfs:Class ;
-    rdfs:label "Postal Address"@en ;
-	owl:sameAs schema:PostalAddress ;
-    rdfs:comment "The mailing address."@en ;
-    rdfs:subClassOf bf:Resource .
-
-# Resource properties (used by any BF Lite Class)
-bf:audience a rdf:Property ;
-	rdfs:label "audience"@en ;
-	rdfs:comment "Class of user for which the content of a resource is intended, or for whom the content is considered suitable."@en ;
-	skos:note "A target audience can be formed of people of a certain age group, gender, marital status, etc. Other groups, although not the main focus, may also be interested. The value of this property is intended to be a code list."@en ;
-	rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Resource .
-
-bf:authorityLink a rdf:Property ;
-    rdfs:label "authority link"@en ;
-    rdfs:comment "Actionable IRI linking to an authoritative controlled vocabulary."@en ;
-    rdfs:subPropertyOf bf:link ;
-    rdfs:domain bf:Resource .
-
-bf:wikipediaArticle a rdf:Property ;
-    rdfs:label "wikipedia article"@en ;
-    rdfs:comment "Actionable IRI linking to an authoritative Wikipedia article."@en ;
-    rdfs:subPropertyOf bf:link ;
-    rdfs:domain bf:Resource .
-
-bf:controlCode a rdf:Property ;
-    rdfs:label "control code"@en ;
-    rdfs:comment "Alphanumeric string or indicator used to find and identify the resource."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Resource .
-
-bf:date a rdf:Property ;
-    rdfs:label "date"@en ;
-    rdfs:comment "Date associated with the resource."@en ;
-    owl:equivalentProperty loc:date, dc:date ;
-    rdfs:domain bf:Resource .
-
-bf:note a rdf:Property ;
-    rdfs:label "note"@en ;
-    rdfs:comment "Additional descriptive information associated with the resource."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Resource .
-
-bf:description a rdf:Property ;
-    rdfs:label "description"@en ;
-    rdfs:comment "Description of the resource."@en ;
-    owl:equivalentProperty schema:description, dc:description ;
-    rdfs:subPropertyOf bf:note ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Resource .
-
-bf:equivalent  a rdf:Property ;
-    rdfs:label "equivalent"@en ;
-    rdfs:comment "actionable IRI linking to a Real World Object."@en ;
-    owl:equivalentProperty schema:sameAs ;
-    rdfs:subPropertyOf bf:link ;
-    rdfs:domain bf:Resource .
-
-bf:image a rdf:Property ;
-    rdfs:label "image"@en ;
-    rdfs:comment "IRI that points to an image of the resource."@en ;
-    owl:equivalentProperty schema:image ;
-    rdfs:domain bf:Resource .
-
-bf:language a rdf:Property ;
-	rdfs:label "language"@en ;
-	rdfs:comment "Language associated with the resource."@en ;
-    owl:equivalentProperty loc:language, dc:language ;
-    rdfs:range bf:LanguageCategory ;
-    rdfs:domain bf:Resource .
-
-bf:label a rdf:Property ;
-    rdfs:label "label"@en ;
-    rdfs:comment "Text string representing the name of resource."@en ;
-    owl:equivalentProperty schema:name, rdfs:label ;
-    rdfs:range bf:Literal ;
-    rdfs:domain bf:Resource .
-
-bf:prefLabel a rdf:Property ;
-    rdfs:label "preferred label"@en ;
-    rdfs:comment "Preferred human readable label of the resource."@en ;
-    owl:equivalentProperty skos:prefLabel ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Resource ;
-    rdfs:subPropertyOf bf:label .
-
-bf:link a rdf:Property ;
-    rdfs:label "link"@en ;
-    rdfs:comment "IRI of a resource."@en ;
-    owl:equivalentProperty schema:url .
-
-bf:related a rdf:Property ;
-    rdfs:label "related"@en ;
-    rdfs:comment "Resource related to the origin resource."@en ;
-    rdfs:range bf:Resource ;
-    owl:equivalentProperty dc:related .
-
-bf:rightsStatement a rdf:Property ;
-    rdfs:label "rights statement"@en ;
-    rdfs:comment "Rights statement associated with the origin resource."@en ;
-    owl:equivalentProperty dc:rights ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Resource .
-
-# Work properties
-bf:creator a rdf:Property ;
-    rdfs:label "creator"@en ;
-    rdfs:comment "Entity (or entities) responsible with the creation of the origin resource."@en ;
-    rdfs:subPropertyOf bf:contributor ;
-    owl:equivalentProperty dc:creator , schema:creator ;
-    rdfs:range bf:Agent ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Work bf:Instance)
-    ] .
-
-bf:contributor a rdf:Property ;
-    rdfs:label "contributor"@en ;
-    rdfs:comment "Entity (or entities) who contribute to the origin resource."@en ;
-    rdfs:range bf:Agent ;
-    owl:equivalentProperty dc:contributor , schema:contributor ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Work bf:Instance)
-    ] .
-
-bf:genre a rdf:Property ;
-    rdfs:label "genre"@en ;
-    rdfs:comment "Category of artistic composition characterized by similarities in form, style, or subject matter."@en ;
-    rdfs:subPropertyOf bf:Authority ;
-    rdfs:range bf:Form ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Work bf:Instance)
-    ] .
-
-bf:subject a rdf:Property ;
-    rdfs:label "subject"@en ;
-    rdfs:comment "Index term, subject term, subject heading, or descriptor, a term for information retrieval which captures the essence of the topic of a resource."@en ;
-    rdfs:range bf:Concept ;
-    rdfs:domain bf:Work .
-
-bf:title a rdf:Property ;
-    rdfs:label "title"@en ;
-    rdfs:range rdfs:Literal ;
-    owl:equivalentProperty dc:title ;
-    rdfs:comment "Title of the resource."@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Work bf:Instance)
-    ] .
-
-bf:titleAlternative a rdf:Property ;
-    rdfs:label "title alternative"@en ;
-    rdfs:comment "Alternative title of the resource."@en ;
-    rdfs:subPropertyOf bf:title ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Work bf:Instance)
-    ] .
-
-bf:isVersionOf a rdf:Property ;
-	rdfs:label "is version of"@en ;
-	rdfs:comment "Work of which this is a version."@en ;
-    rdfs:range bf:Work ;
-    rdfs:domain bf:Work .
-
-# Instance properties
-bf:provider a rdf:Property ;
-    rdfs:label "provider"@en ;
-    rdfs:range bf:ProviderAgent ;
-    rdfs:comment "Provider associated with the carrier."@en ;
-    rdfs:domain bf:Instance .
-
-bf:copyright a rdf:Property ;
-    rdfs:label "copyright"@en ;
-    rdfs:range bf:CopyrightAgent ;
-    rdfs:comment "Copyright event associated with the Instance."@en ;
-    rdfs:domain bf:Instance .
-
-bf:format a rdf:Property ;
-    rdfs:label "format"@en ;
-    owl:equivalentProperty dc:format , loc:carrier ;
-    rdfs:comment "File format or physical medium of an instance."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Instance .
-
-bf:medium a rdf:Property ;
-    rdfs:label "medium"@en ;
-    owl:equivalentProperty loc:media ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "Medium of the Instance."@en ;
-    rdfs:domain bf:Instance .
-
-bf:extent a rdf:Property ;
-    rdfs:label "extent"@en ;
-    owl:equivalentProperty loc:extent ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "Number of physical pages, volumes, cassettes, total playing time, etc., of of each type of unit."@en ;
-    rdfs:domain bf:Instance .
-
-bf:dimensions a rdf:Property ;
-	rdfs:label "dimensions"@en ;
-	rdfs:comment "Measurement of size."@en ;
-    owl:equivalentProperty loc:dimensions ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Instance .
-
-bf:instantiates a rdf:Property ;
-    rdfs:label "instantiates"@en ;
-    rdfs:comment "Work the resource instantiates or manifests."@en ;
-    rdfs:range bf:Work ;
-    owl:equivalentProperty loc:instanceOf ;
-    rdfs:subPropertyOf bf:related ;
-    rdfs:domain bf:Instance .
-
-## Item properties
-bf:itemizes a rdf:Property ;
-    rdfs:label "itemizes"@en ;
-    rdfs:comment "Instance for which the described Item is an example."@en ;
-    owl:equivalentProperty loc:itemOf ;
-    rdfs:range rdf:Instance ;
-    rdfs:domain bf:Item .
-
-bf:heldBy a rdf:Property ;
-    rdfs:label "held by"@en ;
-    rdfs:comment "Agent holding the item or from which it is available."@en ;
-    owl:equivalentProperty loc:heldBy ;
-    rdfs:range rdf:Agent ;
-    rdfs:domain bf:Item .
-
-## Authority properties
-bf:name a rdf:Property ;
-    rdfs:label "name"@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "Name of an authority."@en ;
-    rdfs:subPropertyOf bf:label ;
-    rdfs:domain bf:Authority .
-
-bf:nameAlternative a rdf:Property ;
-    rdfs:label "alternative name"@en ;
-    rdfs:range rdfs:Literal ;
-    owl:equivalentProperty schema:alternateName ;
-    rdfs:comment "Alias for a resource."@en ;
-    rdfs:domain bf:Authority .
-
-## Agent properties
-bf:email a rdf:Property ;
-    rdfs:label "The agent's e-mail address."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "Address that identifies an email box to which email messages are delivered to an Agent."@en ;
-    rdfs:domain bf:Agent .
-
-bf:placeAssociated a rdf:Property ;
-    rdfs:label "associated place."@en ;
-    rdfs:comment "The place associated with an Agent."@en ;
-    rdfs:range bf:Place ;
-    rdfs:domain bf:Agent .
-
-bf:placeResidence a rdf:Property ;
-    rdfs:label "place of residence."@en ;
-    rdfs:comment "The Agent's place of residence."@en ;
-    rdfs:range bf:Place ;
-    rdfs:domain bf:Agent .
-
-bf:address  a rdf:Property ;
-    rdfs:label "address"@en ;
-    rdfs:comment "The Agent's physical address."@en ;
-    rdfs:range bf:PostalAddress ;
-    rdfs:domain bf:Agent .
-
-## Person properties
-bf:dateBirth a rdf:Property ;
-    rdfs:label "birth date"@en ;
-    rdfs:comment "Birth date associated with the person."@en ;
-    owl:equivalentProperty schema:birthDate ;
-    rdfs:subPropertyOf bf:date ;
-    skos:note "Recommended ISO 8601 date."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Person .
-
-bf:dateDeath a rdf:Property ;
-    rdfs:label "death date"@en ;
-    rdfs:comment "Death date associated with the Person."@en ;
-    owl:equivalentProperty schema:deathDate ;
-    rdfs:subPropertyOf bf:date ;
-    skos:note "Recommended ISO 8601 date"@en ;
-    rdfs:range rdfs:Literal .
-
-bf:givenName a rdf:Property ;
-    rdfs:label "given name"@en ;
-    rdfs:comment "First name of a Person, also known as forename."@en ;
-    owl:equivalentProperty schema:givenName ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Person .
-
-bf:familyName a rdf:Property ;
-    rdfs:label "family name"@en ;
-    rdfs:comment "Last name of a Person, also known as surname."@en ;
-    owl:equivalentProperty schema:familyName ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Person .
-
-bf:gender a rdf:Property ;
-    rdfs:label "gender"@en ;
-    rdfs:comment "Gender of the Person. While male (M) and female (F) may be used, other text strings are also acceptable for people who do not identify as a binary gender."@en ;
-    owl:equivalentProperty schema:gender ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Person .
-
-bf:placeBirth a rdf:Property ;
-    rdfs:label "place of birth"@en ;
-    rdfs:comment "The Person's place of birth."@en ;
-    rdfs:range bf:Place ;
-    rdfs:domain bf:Person .
-
-bf:placeDeath a rdf:Property ;
-    rdfs:label "place of death"@en ;
-    rdfs:comment "An Person's place of death."@en ;
-    rdfs:domain bf:Person ;
-    rdfs:range bf:Place .
-
-## Family, Meeting, and/or Organization related properties
-bf:dateStart a rdf:Property ;
-    rdfs:label "start date"@en ;
-    rdfs:comment "Start date associated with a Resource."@en ;
-    owl:equivalentProperty schema:startDate ;
-    rdfs:subPropertyOf bf:date ;
-    skos:note "Recommended ISO 8601 date"@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Family bf:Meeting bf:Organization)
-    ] .
-
-bf:dateEnd a rdf:Property ;
-    rdfs:label "end date"@en ;
-    rdfs:comment "End date associated with a Resource."@en ;
-    owl:equivalentProperty schema:endDate ;
-    rdfs:subPropertyOf bf:date ;
-    skos:note "Recommended ISO 8601 date."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Family bf:Meeting bf:Organization)
-    ] .
-
-bf:subOrganization a rdf:Property ;
-	rdfs:label "sub organization"@en ;
-	rdfs:comment "A relationship between two Organizations where the first includes the second, e.g., as a subsidiary."@en ;
-    rdfs:subPropertyOf bf:related ;
-    rdfs:domain bf:Organization ;
-    rdfs:range bf:Resource .
-
-## Concept properies
-bf:focus a rdf:Property ;
-    rdfs:label "focus"@en ;
-    rdfs:comment "Underlying or focal entity associated with a Concept."@en ;
-    rdfs:domain bf:Concept ;
-    rdfs:range bf:Resource .
-
-bf:subFocus a rdf:Property ;
-    rdfs:label "subfocus"@en ;
-    rdfs:comment "Qualifier or modifer used to describe an additional underlying focal entity associated with a Concept."@en ;
-    rdfs:subPropertyOf bf:focus ;
-    rdfs:domain bf:Concept ;
-    rdfs:range bf:Resource .
-
-## Event properties
-bf:who a rdf:Property ;
-    rdfs:label "who"@en ;
-    rdfs:comment "Person or thing related to an Event."@en ;
-    rdfs:domain bf:Event ;
-    rdfs:range bf:Agent .
-
-bf:what a rdf:Property ;
-    rdfs:label "what"@en ;
-    rdfs:comment "Resource related to an Event."@en ;
-    rdfs:domain bf:Event ;
-    rdfs:range bf:Resource .
-
-bf:where a rdf:Property ;
-    rdfs:label "where"@en ;
-    rdfs:comment "Place associated with an Event."@en ;
-    rdfs:domain bf:Event ;
-    rdfs:range bf:Place .
-
-bf:when a rdf:Property ;
-    rdfs:label "when"@en ;
-    rdfs:comment "Date associated with an Event."@en ;
-    rdfs:domain bf:Event ;
-    rdfs:range bf:Literal .
-
-bf:why a rdf:Property ;
-	rdfs:label "why"@en ;
-	rdfs:comment "Concept associated with an Event."@en ;
-    rdfs:subPropertyOf bf:Resource ;
-    rdfs:domain bf:Event ;
-    rdfs:range bf:Concept .
-
-## CopyrightEvent related properties
-bf:license a rdf:Property ;
-    rdfs:label "license"@en ;
-    rdfs:comment "License associated with the rights event associated with a Work."@en ;
-    rdfs:domain bf:CopyrightEvent ;
-    rdfs:range bf:Resource .
-
-bf:copyrightAgent a rdf:Property ;
-    rdfs:label "copyright agent"@en ;
-    rdfs:comment "Agent associated with the copyright of an Instance"@en ;
-    rdfs:subPropertyOf bf:who ;
-    rdfs:domain bf:CopyrightEvent ;
-    rdfs:range bf:Agent .
-
-bf:copyrightPlace a rdf:Property ;
-    rdfs:label "copyright place"@en ;
-    rdfs:comment "Place associated with the copyright of an Instance"@en ;
-    rdfs:subPropertyOf bf:where ;
-    rdfs:domain bf:CopyrightEvent ;
-    rdfs:range bf:Place .
-
-bf:copyrightDate a rdf:Property ;
-    rdfs:label "copyright date"@en ;
-    rdfs:comment "Date associated with the copyright of an Instance."@en ;
-    rdfs:subPropertyOf bf:date ;
-    rdfs:domain bf:CopyrightEvent ;
-    rdfs:range rdfs:Literal .
-
-bf:copyrightNote a rdf:Property ;
-    rdfs:label "copyright note"@en ;
-    rdfs:comment "Note associated with the copyright of an Instance."@en ;
-    rdfs:domain bf:CopyrightEvent ;
-    rdfs:range rdfs:Literal .
-
-## ProviderEvent properties
-bf:providerAgent a rdf:Property ;
-    rdfs:label "provider agent"@en ;
-    rdfs:comment "Agent associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
-    rdfs:subPropertyOf bf:who ;
-    rdfs:domain bf:ProviderEvent ;
-    rdfs:range bf:Agent .
-
-bf:providerPlace a rdf:Property ;
-    rdfs:label "provider place"@en ;
-    rdfs:comment "Place associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
-    rdfs:subPropertyOf bf:where ;
-    rdfs:domain bf:ProviderEvent ;
-    rdfs:range bf:Place .
-
-bf:providerDate a rdf:Property ;
-    rdfs:label "provider date"@en ;
-    rdfs:comment "Date associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
-    rdfs:subPropertyOf bf:date ;
-    rdfs:domain bf:ProviderEvent ;
-    rdfs:range rdfs:Literal .
-
-bf:providerNote a rdf:Property ;
-	rdfs:label "provider note"@en ;
-	rdfs:comment "Note associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
-    rdfs:domain bf:ProviderEvent ;
-    rdfs:range rdfs:Literal .
-
-## Annotation properties
-bf:body a rdf:Property ;
-    rdfs:label "body"@en ;
-    rdfs:comment "Body of an annotation."@en ;
-    rdfs:domain bf:Annotation ;
-    rdfs:range rdfs:Literal .
-
-bf:target a rdf:Property ;
-    rdfs:label "target"@en ;
-    rdfs:comment "Target of an annotation."@en ;
-    rdfs:domain bf:Annotation ;
-    rdfs:range rdf:Resource .
-
-bf:source a rdf:Property ;
-	rdfs:label "source"@en ;
-	rdfs:comment "Provides for loosely attached information about a Resource."@en ;
-    rdfs:domain bf:Annotation ;
-    rdfs:range rdf:Resource .
-
-## Collection properties
-bf:primary a rdf:Property ;
-    rdfs:label "primary work"@en ;
-    rdfs:comment "Primary work associated with a Collection."@en ;
-    rdfs:domain bf:Collection ;
-    rdfs:range rdf:Work .
-
-bf:memberOf a rdf:Property ;
-    rdfs:label "member of"@en ;
-    rdfs:comment "Member of a Collection."@en ;
-    rdfs:domain bf:Collection ;
-    rdfs:range rdf:Work .
-
-## PostalAddress properties
-bf:street a rdf:Property ;
-    rdfs:label "street address"@en ;
-    rdfs:comment "The street address."@en ;
-    owl:equivalentProperty schema:streetAddress ;
-    rdfs:domain bf:PostalAddress ;
-    rdfs:range rdfs:Literal .
-
-bf:city a rdf:Property ;
-    rdfs:label "locality"@en ;
-    rdfs:comment "Incorporated municipality or city, usually governed by a mayor and a board of aldermen or councilmen."@en ;
-    rdfs:domain bf:PostalAddress ;
-    owl:equivalentProperty schema:addressLocality ;
-    rdfs:range rdfs:Literal .
-
-bf:region a rdf:Property ;
-    rdfs:label "state"@en ;
-    rdfs:comment "Type of polity, state, or region that is an organized political community living under a single system of government."@en ;
-    owl:equivalentProperty schema:addressRegion ;
-    rdfs:domain bf:PostalAddress ;
-    rdfs:range rdfs:Literal .
-
-bf:country a rdf:Property ;
-    rdfs:label "country"@en ;
-    rdfs:comment "Nation with its own government, occupying a particular territory."@en ;
-    owl:equivalentProperty schema:addressCountry ;
-    rdfs:domain bf:PostalAddress ;
-    rdfs:range rdfs:Literal .
-
-bf:zipcode a rdf:Property ;
-    rdfs:label "zipcode"@en ;
-    rdfs:comment "The postal code."@en ;
-    owl:equivalentProperty schema:postalCode ;
-    rdfs:domain bf:PostalAddress ;
-    rdfs:range rdfs:Literal .
-
-## BF Scholar Identifier Classes
-
-scholar:EbscoID a rdfs:Class ;
-	rdfs:label "EBSCO ID"@en ;
-	rdfs:comment "An EBSCO ID associated with an article, person, or organization."@en ;
-    rdfs:subClassOf bf:Identifier .
 
 ## BF Scholar Classes (from Crossref)
+
 scholar:Journal a rdfs:Class ;
 	rdfs:label "Journal"@en ;
 	rdfs:comment "A publication that issues periodic releases containing multiple scholarly articles."@en ;
@@ -837,6 +133,36 @@ scholar:Award a rdfs:Class ;
 	rdfs:comment "A recognition or honor awarded typically for academic, artistic, or scientific achievement."@en ;
     rdfs:subClassOf bf:Resource .
 
+scholar:SubAward a rdfs:Class ;
+	rdfs:label "Subaward"@en ;
+	rdfs:comment "A subaward is a financial or contractual agreement made by the primary recipient (or "prime") of a grant, contract, or cooperative agreement to a secondary recipient, referred to as a subrecipient or subawardee."@en ;
+    rdfs:subClassOf bf:Award .
+
+scholar:Grant a rdfs:Class ;
+	rdfs:label "Grant"@en ;
+	rdfs:comment "A grant is a sum of money given by an organization, especially a government, to a person or entity for a specific purpose that does not require repayment."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:CooperativeAgreement a rdfs:Class ;
+	rdfs:label "Grant"@en ;
+	rdfs:comment "A cooperative agreement is a form of financial assistance provided by a federal agency to a recipient to carry out a public purpose of support or stimulation, where substantial involvement is expected between the agency and the recipient during the performance of the contemplated activity."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:DirectPayment a rdfs:Class ;
+	rdfs:label "Direct Payment"@en ;
+	rdfs:comment "A direct payment is a transfer of funds from one party directly to another without the need for intermediaries, typically made electronically for the purpose of settling debts, transactions, or fulfilling financial obligations."@en ;
+	rdfs:subClassOf bf:Resource .
+
+scholar:Loan a rdfs:Class ;
+	rdfs:label "Loan"@en ;
+	rdfs:comment "A loan is a sum of money borrowed by one party from another, which must be repaid with interest over a defined period."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:Insurance a rdfs:Class ;
+	rdfs:label "Insurance"@en ;
+	rdfs:comment "Insurance is a contract represented by a policy, in which an individual or entity receives financial protection or reimbursement against losses from an insurance company."@en ;
+    rdfs:subClassOf bf:Resource .
+
 scholar:FundingAward a rdfs:Class ;
 	rdfs:label "Funding Award"@en ;
 	rdfs:comment "Financial support provided for research or a scholarly project."@en ;
@@ -847,7 +173,240 @@ scholar:Agency a rdfs:Class ;
 	rdfs:comment "An administrative unit or organization, often governmental, with a specific purpose or function."@en ;
     rdfs:subClassOf bf:Organization .
 
-## Crossref properties for Person
+scholar:Program a rdfs:Class ;
+	rdfs:label "Program"@en ;
+	rdfs:comment "A program refers to a structured set of activities designed to achieve specific outcomes or objectives, often related to research, education, or community service."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:Nonprofit a rdfs:Class ;
+	rdfs:label "Nonprofit"@en ;
+	rdfs:comment "An organization dedicated to furthering a particular social cause or advocating for a shared point of view, not for profit."@en ;
+    rdfs:subClassOf bf:Organization .
+	
+scholar:Facility a rdfs:Class ;
+	rdfs:label "Facility"@en ;
+	rdfs:comment "A place, amenity, or piece of equipment provided for a particular purpose within the scholarly context, such as research laboratories or lecture halls."@en ;
+    rdfs:subClassOf bf:Place .
+
+scholar:Company a rdfs:Class ;
+	rdfs:label "Company"@en ;
+	rdfs:comment "A legal entity formed by a group of individuals to engage in and operate a business—commercial or industrial—enterprise."@en ;
+    rdfs:subClassOf bf:Organization .
+
+scholar:Healthcare a rdfs:Class ;
+	rdfs:label "Healthcare Organization"@en ;
+	rdfs:comment "A field involved in the maintenance or improvement of health via the prevention, diagnosis, treatment, recovery, or cure of disease, illness, injury, and other physical and mental impairments in people."@en ;
+    rdfs:subClassOf bf:Organization .
+
+scholar:University a rdfs:Class ;
+	rdfs:label "University"@en ;
+	rdfs:comment "An institution of higher learning providing facilities for teaching and research and authorized to grant academic degrees."@en ;
+    rdfs:subClassOf bf:Organization .
+
+scholar:Consortia a rdfs:Class ;
+	rdfs:label "Consortia"@en ;
+	rdfs:comment "An association or combination of businesses, financial institutions, universities, or other organizations who pool resources and expertise to achieve a common goal."@en ;
+    rdfs:subClassOf bf:Organization .
+
+scholar:Faculty a rdfs:Class ;
+	rdfs:label "Faculty"@en ;
+	rdfs:comment "academic staff of a university or college, including professors, lecturers, and researchers, who are responsible for teaching and conducting research."@en ;
+    rdfs:subClassOf bf:Person .
+
+scholar:School a rdfs:Class ;
+	rdfs:label "School"@en ;
+	rdfs:comment "An institution for educating children or a department or faculty of a college concerned with a particular subject."@en ;
+    rdfs:subClassOf bf:Organization .
+
+scholar:Department a rdfs:Class ;
+	rdfs:label "Department"@en ;
+	rdfs:comment "A division of a larger organization such as a university, dealing with a specific subject of study or research."@en ;
+    rdfs:subClassOf bf:Organization .
+	
+scholar:College a rdfs:Class ;
+	rdfs:label "College"@en ;
+	rdfs:comment "An educational institution or a constituent part of one that awards degrees in various academic disciplines."@en ;
+    rdfs:subClassOf bf:Organization .
+
+scholar:BookReview a rdfs:Class ;
+	rdfs:label "Book Review"@en ;
+	rdfs:comment "A book review is a critical evaluation of a book, often published in a periodical, that discusses its content, style, and merit."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Chapter a rdfs:Class ;
+	rdfs:label "Chapter"@en ;
+	rdfs:comment "A main division of a book, typically with a number or title."@en ;
+    rdfs:subClassOf bf:Work .
+	
+scholar:Part a rdfs:Class ;
+	rdfs:label "Part"@en ;
+	rdfs:comment "A division within a book or publication that may contain chapters or other sections."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Repository a rdfs:Class ;
+	rdfs:label "Repository"@en ;
+	rdfs:comment "A central location in which data is stored and managed, often used in the context of academic and scholarly research for the storage of datasets, publications, and digital archives."@en ;
+    rdfs:subClassOf bf:Resource .
+	
+scholar:Magazine a rdfs:Class ;
+	rdfs:label "Magazine"@en ;
+	rdfs:comment "A periodical publication containing articles and illustrations, typically covering a particular subject or area of interest."@en ;
+    rdfs:subClassOf bf:Resource .
+	
+scholar:Trade a rdfs:Class ;
+	rdfs:label "Trade"@en ;
+	rdfs:comment "A trade publication is a magazine or journal dedicated to topics relevant to a specific industry or professional field, aimed at professionals within that field."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Artifact a rdfs:Class ;
+    rdfs:label "Artifact"@en ;
+    rdfs:comment "An object made by a human being, typically an item of cultural or historical interest."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Thesis a rdfs:Class ;
+    rdfs:label "Thesis"@en ;
+    rdfs:comment "A document submitted in support of candidature for an academic degree or professional qualification presenting the author's research and findings."@en ;
+    rdfs:subClassOf scholar:Report .
+
+scholar:Abstract a rdfs:Class ;
+    rdfs:label "Abstract"@en ;
+    rdfs:comment "A brief summary of a research article, thesis, review, conference proceeding, or any in-depth analysis of a particular subject or discipline."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:AnnualReport a rdfs:Class ;
+    rdfs:label "Annual Report"@en ;
+    rdfs:comment "A comprehensive report on a company's activities throughout the preceding year."@en ;
+    rdfs:subClassOf scholar:Report .
+
+scholar:Citation a rdfs:Class ;
+    rdfs:label "Citation"@en ;
+    rdfs:comment "A reference to a book, paper, or author, especially in scholarly work."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:CurriculumVitae a rdfs:Class ;
+    rdfs:label "Curriculum Vitae"@en ;
+    rdfs:comment "A written overview of a person's experience and other qualifications for a job opportunity."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:Editorial a rdfs:Class ;
+    rdfs:label "Editorial"@en ;
+    rdfs:comment "An article written by the editor or senior staff of a publication expressing an opinion on a topical issue."@en ;
+    rdfs:subClassOf scholar:Article .
+
+scholar:Exhibition a rdfs:Class ;
+    rdfs:label "Exhibition"@en ;
+    rdfs:comment "A public display of works of art or items of interest, held in an art gallery or museum or at a trade fair."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:ExtensionPublication a rdfs:Class ;
+    rdfs:label "Extension Publication"@en ;
+    rdfs:comment "A publication intended to provide university research findings and education to the community, often through cooperative extension services."@en ;
+    rdfs:subClassOf scholar:Report .
+
+scholar:Handbook a rdfs:Class ;
+    rdfs:label "Handbook"@en ;
+    rdfs:comment "A book giving information such as facts on a particular subject or instructions for operating a machine or system."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:InstructionalPlan a rdfs:Class ;
+    rdfs:label "Instructional Plan"@en ;
+    rdfs:comment "A detailed description designed to teach a particular subject or activity."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:LearningObject a rdfs:Class ;
+    rdfs:label "Learning Object"@en ;
+    rdfs:comment "A resource, usually digital and online, used to support learning objectives."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:MajorPaper a rdfs:Class ;
+    rdfs:label "Major Paper"@en ;
+    rdfs:comment "A significant academic paper written as part of a graduate program, reflecting the outcome of research or study."@en ;
+    rdfs:subClassOf scholar:Report .
+
+scholar:MastersProject a rdfs:Class ;
+    rdfs:label "Masters Project"@en ;
+    rdfs:comment "A comprehensive project undertaken as part of the requirement for a master's degree."@en ;
+    rdfs:subClassOf scholar:Report .
+
+scholar:Patent a rdfs:Class ;
+    rdfs:label "Patent"@en ;
+    rdfs:comment "A government authority or license conferring a right or title for a set period, especially the sole right to exclude others from making, using, or selling an invention."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Poster a rdfs:Class ;
+    rdfs:label "Poster"@en ;
+    rdfs:comment "A large printed picture, photograph, or notice used to advertise something or as a decoration."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Presentation a rdfs:Class ;
+    rdfs:label "Presentation"@en ;
+    rdfs:comment "A talk or speech given to a live or virtual audience about a particular topic."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:PressRelease a rdfs:Class ;
+    rdfs:label "Press Release"@en ;
+    rdfs:comment "An official statement issued to newspapers and other news media for the purpose of providing information, an official announcement, or making a public statement."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Proposal a rdfs:Class ;
+    rdfs:label "Proposal"@en ;
+    rdfs:comment "A plan or suggestion, especially a formal or written one, put forward for consideration by others."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Software a rdfs:Class ;
+    rdfs:label "Software"@en ;
+    rdfs:comment "A program or set of programs that instruct a computer to perform specific tasks."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:SpecialReport a rdfs:Class ;
+    rdfs:label "Special Report"@en ;
+    rdfs:comment "A detailed and comprehensive analysis on a specific topic or event."@en ;
+    rdfs:subClassOf scholar:Report .
+
+scholar:Summary a rdfs:Class ;
+    rdfs:label "Summary"@en ;
+    rdfs:comment "A brief statement or account covering the main points of a larger work or article."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:SlideShow a rdfs:Class ;
+    rdfs:label "Slide Show"@en ;
+    rdfs:comment "A presentation of a series of still images on a projection screen or electronic display device, typically in a prearranged sequence."@en ;
+    rdfs:subClassOf bf:Work .
+
+scholar:Publisher a rdfs:Class ;
+    rdfs:label "Publisher"@en ;
+    rdfs:comment "An entity responsible for making the resource available, including companies, organizations, or individuals."@en ;
+    rdfs:subClassOf bf:ProviderAgent .
+
+scholar:Policy a rdfs:Class ;
+    rdfs:label "Policy"@en ;
+    rdfs:comment "A course or principle of action adopted or proposed by an organization or individual."@en ;
+    rdfs:subClassOf bf:Resource .
+
+scholar:OpenAccessPolicy a rdfs:Class ;
+    rdfs:label "Open Access Policy"@en ;
+    rdfs:comment "A policy that promotes open access to scholarly works and resources."@en ;
+    rdfs:subClassOf scholar:Policy .
+
+scholar:DepositAccess a rdfs:Class ;
+    rdfs:label "Deposit Access"@en ;
+    rdfs:comment "Policies or guidelines related to the depositing of scholarly works into repositories or archives."@en ;
+    rdfs:subClassOf scholar:Policy .
+
+scholar:ActionEvent a rdfs:Class ;
+    rdfs:label "Action Event"@en ;
+    rdfs:comment "Represents an action or event within the lifecycle of a scholarly activity, such as the awarding of a grant, submission of a paper, or any other significant occurrence that has implications for the research or academic work."@en ;
+    rdfs:subClassOf bf:Event .
+
+## BF Scholar Identifier Classes
+	
+scholar:DOI a rdfs:Class ;
+	rdfs:label "DOI"@en ;
+	rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
+    rdfs:subClassOf bf:Identifier .
+
+## Scholar Properties for Person
+
 scholar:orcid a rdf:Property ;
     rdfs:label "ORCID"@en ;
     rdfs:comment "An ORCID persistent digital identifier for a researcher."@en ;
@@ -866,24 +425,35 @@ scholar:suffix a rdf:Property ;
     rdfs:domain bf:Person ;
     rdfs:range rdfs:Literal  .
 
+scholar:interest a rdf:Property ;
+    rdfs:label "interest"@en ;
+    rdfs:comment "Specifies the interest or research area of an individual or entity in the context of scholarly work."@en ;
+    rdfs:range bf:Concept ;
+    rdfs:domain bf:Person .
+
+scholar:discipline a rdf:Property ;
+    rdfs:label "discipline"@en ;
+    rdfs:comment "A field of study or academic discipline related to a person."@en ;
+    rdfs:range bf:Concept ;
+    rdfs:domain bf:Person .
+
 ## Crossref ID properties
+
 scholar:fainId a rdf:Property ;
-    rdfs:label "FAIN ID"@en ;
+    rdfs:label "fain ID"@en ;
     rdfs:comment "A unique identifier for a funding award."@en ;
     rdfs:domain scholar:FundingAward ;
     rdfs:range rdfs:Literal .
-
-scholar:ebscoId a rdf:Property ;
-	rdfs:label "EBSCO ID"@en ;
-	rdfs:comment "A unique identifier for a EBSCO linked data resources."@en ;
-	rdfs:domain scholar:FundingAward ;
+	
+scholar:doi a rdf:Property ;
+	rdfs:label "doi"@en ;
+	rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
+	rdfs:domain scholar:Article ;
 	rdfs:range rdfs:Literal ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (bf:Article bf:Person bf:Organization)
-    ] .
-
+    rdfs:range rdfs:Literal .
+	
 ## Crossref property for Award
+
 scholar:award a rdf:Property ;
     rdfs:label "award"@en ;
     rdfs:comment "An award associated with a person, organization, or resource."@en ;
@@ -891,55 +461,143 @@ scholar:award a rdf:Property ;
     rdfs:domain bf:Agent ;
     rdfs:range scholar:Award .
 
-## Wikidata properties for Person (added for National Library of Estonia)
+## Scholar properties for Work, Article, and Award
 
-bf:hasOccupation a rdf:Property ;
-    rdfs:label "occupation"@en ;
-    rdfs:comment "The main vocation, job, or employment activity of an individual."@en ;
-    owl:equivalentProperty schema:hasOccupation ;
-    rdfs:domain bf:Person ;
-    rdfs:range rdfs:Literal  .
+scholar:cites a rdf:Property ;
+    rdfs:label "cites"@en ;
+    rdfs:comment "Links the citing work to the cited work."@en ;
+    rdfs:domain bf:Work ;
+    rdfs:range bf:Work .
 
-bf:education a rdf:Property ;
-    rdfs:label "education"@en ;
-    rdfs:comment "Educational background or the highest level of formal education attained by an individual"@en ;
-    rdfs:domain bf:Person ;
-    rdfs:range rdfs:Literal  .
+scholar:citedBy a rdf:Property ;
+    rdfs:label "citedBy"@en ;
+    rdfs:comment "Links cited work to the citing work."@en ;
+    rdfs:domain bf:Work ;
+    rdfs:range bf:Work .
 
-## Library.Link Identifier Classes (used for National Library of Estonia)
+scholar:citedByCount a rdf:Property ;
+    rdfs:label "cited by count"@en ;
+    rdfs:comment "The number of times a Work has been cited."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain bf:Work .
 
-link:VIAF a rdfs:Class ;
-	rdfs:label "VIAF"@en ;
-	rdfs:comment "A VIAF (Virtual International Authority File) identifier linking the records of a person, organization, or title across various national and institutional authority files."@en ;
-	rdfs:subClassOf bf:Identifier .
+scholar:citationCount a rdf:Property ;
+    rdfs:label "citation count"@en ;
+    rdfs:comment "The number of citations used by a Work."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain bf:Work .
 
-link:ORCID a rdfs:Class ;
-	rdfs:label "ORCID"@en ;
-	rdfs:comment "A persistent digital identifier from ORCID that distinguishes individual researchers and scholars."@en ;
-	rdfs:subClassOf bf:Identifier .
+scholar:articleVersion a rdf:Property ;
+    rdfs:label "article version"@en ;
+    rdfs:comment "Specifies the version of the article in context, such as preprint, postprint, or published version."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain scholar:Article .
 
-link:LCCN a rdfs:Class ;
-	rdfs:label "LCCN"@en ;
-	rdfs:comment "A Library of Congress Control Number (LCCN)."@en ;
-    owl:sameAs loc:Lccn ;
-	rdfs:subClassOf bf:Identifier .
+scholar:articleLocation a rdf:Property ;
+    rdfs:label "article location"@en ;
+    rdfs:comment "Location where the article can be accessed, such as a URL or physical location in a library."@en ;
+    rdfs:range bf:link ;
+    rdfs:domain scholar:Article .
 
-## BF Lite + Library Identifier properties (used for National Library of Estonia)
+scholar:action a rdf:Property ;
+    rdfs:label "action"@en ;
+    rdfs:comment "An action taken in the context of an award, such as granting, renewing, or revising."@en ;
+    rdfs:range bf:Resource ;
+    rdfs:domain scholar:Award .
 
-library:viafId a rdf:Property ;
-	rdfs:label "viafID"@en ;
-	rdfs:comment "Relationship to the VIAF Identifier."@en ;
-	rdfs:domain bf:Resource ;
-	rdfs:range link:VIAF  .
+scholar:actionOf a rdf:Property ;
+    rdfs:label "action of"@en ;
+    rdfs:comment "The award or program to which an action pertains."@en ;
+    rdfs:range [
+        a owl:Class ;
+        owl:unionOf (scholar:Award scholar:Program)
+    ] .
+    rdfs:domain scholar:ActionEvent .
 
-library:lccn a rdf:Property ;
-	rdfs:label "lccn"@en ;
-	rdfs:comment "Relationship to the LCCN Identifier."@en ;
-	rdfs:domain bf:Resource ;
-	rdfs:range link:LCCN  .
+scholar:fundedBy a rdf:Property ;
+    rdfs:label "funded by"@en ;
+    rdfs:comment "Specifies the entity that provides funding for an award or project."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain scholar:Award .
 
-library:gndId a rdf:Property ;
-	rdfs:label "gndId"@en ;
-	rdfs:comment "Relationship to the GND Identifier."@en ;
-	rdfs:domain bf:Resource ;
-	rdfs:range link:GND  .
+scholar:awardedBy a rdf:Property ;
+    rdfs:label "awarded by"@en ;
+    rdfs:comment "The entity responsible for awarding a grant, fellowship, or honor."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain scholar:Award .
+
+scholar:recipient a rdf:Property ;
+    rdfs:label "recipient"@en ;
+    rdfs:comment "The individual or organization that receives an award or grant."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain scholar:Award .
+
+scholar:awardedTo a rdf:Property ;
+    rdfs:label "awarded to"@en ;
+    rdfs:comment "Indicates the recipient of an award."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain scholar:Award .
+
+scholar:isSubAwardOf a rdf:Property ;
+    rdfs:label "is sub award of"@en ;
+    rdfs:comment "Indicates that an award is a sub-award of a larger grant or funding mechanism."@en ;
+    rdfs:range scholar:Award ;
+    rdfs:domain scholar:SubAward .
+
+scholar:coAwardedTo a rdf:Property ;
+    rdfs:label "co-awarded to"@en ;
+    rdfs:comment "Indicates additional recipients who are co-awarded a grant or honor."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain scholar:Award .
+	
+scholar:supportedBy a rdf:Property ;
+    rdfs:label "supported by"@en ;
+    rdfs:comment "Identifies the supporting entity or funding source for a project, publication, or award."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain scholar:Award .
+
+### Publisher Policy Edges
+
+scholar:providerPolicy a rdf:Property ;
+    rdfs:label "provider policy"@en ;
+    rdfs:comment "A policy specified by the provider or publisher regarding the dissemination or usage of the content."@en ;
+    rdfs:range bf:Policy ;
+    rdfs:domain bf:Instance .
+
+scholar:providerDepositLocation a rdf:Property ;
+    rdfs:label "provider deposit location"@en ;
+    rdfs:comment "The location where the provider deposits the scholarly content, such as an institutional or subject repository."@en ;
+    rdfs:range bf:Repository ;
+    rdfs:domain bf:Instance .
+
+scholar:copyrightOwner a rdf:Property ;
+    rdfs:label "copyright owner"@en ;
+    rdfs:comment "The entity that holds the copyright of the scholarly content."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain bf:Instance .
+
+### Scholar Agency and Program properties
+
+scholar:fundingAgency a rdf:Property ;
+    rdfs:label "funding agency"@en ;
+    rdfs:comment "The agency or organization that provides funding for the research or project."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain bf:Work .
+
+scholar:awardingAgency a rdf:Property ;
+    rdfs:label "awarding agency"@en ;
+    rdfs:comment "The agency or organization that awards a grant, prize, or recognition."@en ;
+    rdfs:range bf:Agent ;
+    rdfs:domain bf:Work .
+
+scholar:programOf a rdf:Property ;
+    rdfs:label "program of"@en ;
+    rdfs:comment "Associates a project or research with a larger program or initiative."@en ;
+    rdfs:range bf:Program ;
+    rdfs:domain bf:Work .
+
+scholar:officer a rdf:Property ;
+    rdfs:label "officer"@en ;
+    rdfs:comment "A person holding an official position in an organization, typically related to oversight or management of a program or project."@en ;
+    rdfs:range bf:Program ;
+    rdfs:domain bf:Work .
