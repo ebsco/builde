@@ -697,13 +697,13 @@ bld:body a rdf:Property ;
 bld:target a rdf:Property ;
     rdfs:label "target"@en ;
     rdfs:comment "Target of an annotation."@en ;
-    rdfs:domain bld:Annotation ;
+    rdfs:domain bf:Annotation ;
     rdfs:range rdfs:Resource .
 
-bld:source a rdf:Property ;
-    rdfs:label "source"@en ;
-    rdfs:comment "Provides for loosely attached information about a Resource."@en ;
-    rdfs:domain bld:Annotation ;
+bf:source a rdf:Property ;
+	rdfs:label "source"@en ;
+	rdfs:comment "Provides for loosely attached information about a Resource."@en ;
+    rdfs:domain bf:Annotation ;
     rdfs:range rdfs:Resource .
 
 ## Collection properties
