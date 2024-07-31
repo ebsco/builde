@@ -607,7 +607,7 @@ bld:researchOrganizationRegistry a rdf:Property ;
 	rdfs:label "research organization registry"@en ;
 	rdfs:comment "The link to the organization's research organization registry page. "@en ;
     rdfs:domain bld:Organization ;
-    rdfs:subPropertyOf bld:link ;
+    rdfs:subPropertyOf bld:link .
 
 ## Concept properies
 bld:focus a rdf:Property ;
