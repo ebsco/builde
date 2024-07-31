@@ -135,7 +135,7 @@ scholar:Award a rdfs:Class ;
 
 scholar:SubAward a rdfs:Class ;
 	rdfs:label "Subaward"@en ;
-	rdfs:comment "A subaward is a financial or contractual agreement made by the primary recipient (or "prime") of a grant, contract, or cooperative agreement to a secondary recipient, referred to as a subrecipient or subawardee."@en ;
+	rdfs:comment "A subaward is a financial or contractual agreement made by the primary recipient (or \"prime\") of a grant, contract, or cooperative agreement to a secondary recipient, referred to as a subrecipient or subawardee."@en ;
     rdfs:subClassOf bf:Award .
 
 scholar:Grant a rdfs:Class ;
@@ -529,7 +529,7 @@ scholar:actionOf a rdf:Property ;
     rdfs:range [
         a owl:Class ;
         owl:unionOf (scholar:Award scholar:Program)
-    ] .
+    ] ;
     rdfs:domain scholar:ActionEvent .
 
 scholar:fundedBy a rdf:Property ;
