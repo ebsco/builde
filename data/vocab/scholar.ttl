@@ -511,7 +511,7 @@ scholar:actionOf a rdf:Property ;
     rdfs:range [
         a owl:Class ;
         owl:unionOf (scholar:Award scholar:Program)
-    ] .
+    ] ;
     rdfs:domain scholar:ActionEvent .
 
 scholar:fundedBy a rdf:Property ;
