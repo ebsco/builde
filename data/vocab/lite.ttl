@@ -321,6 +321,33 @@ bld:rightsStatement a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:domain bld:Resource .
 
+bld:type a rdf:Property ;
+    rdfs:label "type"@en ;
+    rdfs:comment "Text string representing the type of resource."@en ;
+    owl:equivalentProperty dc:type ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain bld:Resource .
+
+bld:createdDate a rdf:Property ;
+    rdfs:label "created date"@en ;
+    rdfs:comment "The date a Resource was created."@en ;
+    rdfs:subPropertyOf bld:date ;
+    rdfs:domain bld:Resource ;
+    rdfs:range rdfs:Literal .
+
+bld:updatedDate a rdf:Property ;
+    rdfs:label "updated date"@en ;
+    rdfs:comment "The date a Resource was last updated."@en ;
+    rdfs:subPropertyOf bld:date ;
+    rdfs:domain bld:Resource ;
+    rdfs:range rdfs:Literal .
+
+bld:updated a rdf:Property ;
+    rdfs:label "updated"@en ;
+    rdfs:comment "A boolean value that represents whether or not a Resource has been updated."@en ;
+    rdfs:domain bld:Resource ;
+    rdfs:range rdfs:Literal .
+
 # Work properties
 
 bld:creator a rdf:Property ;
@@ -575,6 +602,12 @@ bld:subOrganization a rdf:Property ;
     rdfs:subPropertyOf bld:related ;
     rdfs:domain bld:Organization ;
     rdfs:range bld:Resource .
+
+bld:researchOrganizationRegistry a rdf:Property ;
+	rdfs:label "research organization registry"@en ;
+	rdfs:comment "The link to the organization's research organization registry page. "@en ;
+    rdfs:domain bld:Organization ;
+    rdfs:subPropertyOf bld:link ;
 
 ## Concept properies
 bld:focus a rdf:Property ;
