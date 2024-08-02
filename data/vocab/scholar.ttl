@@ -437,6 +437,24 @@ scholar:discipline a rdf:Property ;
     rdfs:range lite:Concept ;
     rdfs:domain lite:Person .
 
+scholar:ror a rdf:Property ;
+    rdfs:label "research organization registry ID"@en ;
+    rdfs:comment "An organization's Research Organization Registry open persistent identifier."@en ;
+    rdfs:domain scholar:Organization ;
+    rdfs:range rdfs:Literal  .
+
+scholar:worksCount a rdf:Property ;
+    rdfs:label "works count"@en ;
+    rdfs:comment "The number of works associated with a person."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain bf:Person .
+
+scholar:countsByYear a rdf:Property ;
+    rdfs:label "counts by year"@en ;
+    rdfs:comment "The number of works associated with a person organized by year."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain bf:Person .
+
 ## Crossref ID properties
 
 scholar:fainId a rdf:Property ;
