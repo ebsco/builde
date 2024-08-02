@@ -436,6 +436,11 @@ scholar:discipline a rdf:Property ;
     rdfs:comment "A field of study or academic discipline related to a person."@en ;
     rdfs:range bf:Concept ;
     rdfs:domain bf:Person .
+    bld:ror a rdf:Property ;
+    rdfs:label "research organization registry ID"@en ;
+    rdfs:comment "An organization's Research Organization Registry open persistent identifier."@en ;
+    rdfs:domain bld:Organization ;
+    rdfs:range rdfs:Literal  .
 
 scholar:worksCount a rdf:Property ;
     rdfs:label "works count"@en ;
