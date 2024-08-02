@@ -321,18 +321,18 @@ lite:rightsStatement a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Resource .
 
-bld:createdDate a rdf:Property ;
+lite:createdDate a rdf:Property ;
     rdfs:label "created date"@en ;
     rdfs:comment "The date a Resource was created."@en ;
-    rdfs:subPropertyOf bld:date ;
-    rdfs:domain bld:Resource ;
+    rdfs:subPropertyOf lite:date ;
+    rdfs:domain lite:Resource ;
     rdfs:range rdfs:Literal .
 
-bld:updatedDate a rdf:Property ;
+lite:updatedDate a rdf:Property ;
     rdfs:label "updated date"@en ;
     rdfs:comment "The date a Resource was last updated."@en ;
-    rdfs:subPropertyOf bld:date ;
-    rdfs:domain bld:Resource ;
+    rdfs:subPropertyOf lite:date ;
+    rdfs:domain lite:Resource ;
     rdfs:range rdfs:Literal .
 
 # Work properties
