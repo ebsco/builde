@@ -437,7 +437,7 @@ scholar:discipline a rdf:Property ;
     rdfs:range bf:Concept ;
     rdfs:domain bf:Person .
 
-bf:ror a rdf:Property ;
+scholar:ror a rdf:Property ;
     rdfs:label "research organization registry ID"@en ;
     rdfs:comment "An organization's Research Organization Registry open persistent identifier."@en ;
     rdfs:domain bf:Organization ;
