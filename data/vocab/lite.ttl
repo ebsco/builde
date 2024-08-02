@@ -321,12 +321,6 @@ bld:rightsStatement a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:domain bld:Resource .
 
-bld:type a rdf:Property ;
-    rdfs:label "type"@en ;
-    rdfs:comment "Text string representing the type of resource."@en ;
-    owl:equivalentProperty dc:type ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain bld:Resource .
 
 bld:createdDate a rdf:Property ;
     rdfs:label "created date"@en ;
