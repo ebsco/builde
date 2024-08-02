@@ -590,12 +590,6 @@ bld:subOrganization a rdf:Property ;
     rdfs:domain bld:Organization ;
     rdfs:range bld:Resource .
 
-    bld:ror a rdf:Property ;
-    rdfs:label "research organization registry ID"@en ;
-    rdfs:comment "An organization's Research Organization Registry open persistent identifier."@en ;
-    rdfs:domain bld:Organization ;
-    rdfs:range rdfs:Literal  .
-
 ## Concept properies
 bld:focus a rdf:Property ;
     rdfs:label "focus"@en ;
