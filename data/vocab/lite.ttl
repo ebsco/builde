@@ -336,12 +336,6 @@ bld:updatedDate a rdf:Property ;
     rdfs:domain bld:Resource ;
     rdfs:range rdfs:Literal .
 
-bld:updated a rdf:Property ;
-    rdfs:label "updated"@en ;
-    rdfs:comment "A boolean value that represents whether or not a Resource has been updated."@en ;
-    rdfs:domain bld:Resource ;
-    rdfs:range rdfs:Literal .
-
 # Work properties
 
 bld:creator a rdf:Property ;
