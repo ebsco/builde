@@ -556,6 +556,12 @@ scholar:supportedBy a rdf:Property ;
     rdfs:range bf:Agent ;
     rdfs:domain scholar:Award .
 
+scholar:isRetracted a rdf:Property ;
+    rdfs:label "is retracted"@en ;
+    rdfs:comment "Indicates whether an article has been officially withdrawn from publication due to issues such as errors or ethical concerns."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain scholar:Article .
+
 ### Publisher Policy Edges
 
 scholar:providerPolicy a rdf:Property ;
