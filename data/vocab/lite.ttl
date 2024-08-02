@@ -321,7 +321,6 @@ bld:rightsStatement a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:domain bld:Resource .
 
-
 bld:createdDate a rdf:Property ;
     rdfs:label "created date"@en ;
     rdfs:comment "The date a Resource was created."@en ;
