@@ -1,6 +1,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix bld: <http://bibfra.me/vocab/lite/> .
+@prefix lite: <http://bibfra.me/vocab/lite/> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -43,8 +43,8 @@
 
 # BUILDE Relation Properties
 
-bld:isPartOf a rdf:Property ;
+lite:isPartOf a rdf:Property ;
     rdfs:label "is part of"@en ;
     rdfs:comment "Relationship that connects things that are part of other things."@en ;
-    rdfs:range bld:Resource ;
-    rdfs:domain bld:Resource .
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "precommit": "ttl data/vocab/lite.ttl data/vocab/relation.ttl data/vocab/scholar.ttl",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.4",
+    "turtle-validator": "^1.1.1"
+  }
+}
