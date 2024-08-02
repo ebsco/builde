@@ -455,12 +455,6 @@ scholar:countsByYear a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:domain bf:Person .
 
-scholar:worksLink a rdf:Property ;
-    rdfs:label "works link"@en ;
-    rdfs:comment "The link to the works associated with a person."@en ;
-    rdfs:range bf:link ;
-    rdfs:domain bf:Person .
-
 ## Crossref ID properties
 
 scholar:fainId a rdf:Property ;
