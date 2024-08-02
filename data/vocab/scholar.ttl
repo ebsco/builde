@@ -452,7 +452,7 @@ scholar:worksCount a rdf:Property ;
 scholar:countsByYear a rdf:Property ;
     rdfs:label "counts by year"@en ;
     rdfs:comment "The number of works associated with a person organized by year."@en ;
-    rdfs:subClassOf bf:List .
+    rdfs:range rdfs:Literal ;
     rdfs:domain bf:Person .
 
 scholar:worksLink a rdf:Property ;
