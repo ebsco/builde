@@ -492,9 +492,9 @@ scholar:award a rdf:Property ;
 
 ## Scholar properties for Work, Article, and Award
 
-scholar:articleVersion a rdf:Property ;
-    rdfs:label "article version"@en ;
-    rdfs:comment "Specific iteration or form of a scholarly article that has been made available to the public."@en ;
+scholar:isRetracted a rdf:Property ;
+    rdfs:label "is retracted"@en ;
+    rdfs:comment "Indicates whether an article has been formally withdrawn from publication due to errors or other significant issues."@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain bf:Article .
 
@@ -531,6 +531,12 @@ scholar:articleVersion a rdf:Property ;
 scholar:articleLocation a rdf:Property ;
     rdfs:label "article location"@en ;
     rdfs:comment "Location where the article can be accessed, such as a URL or physical location in a library."@en ;
+    rdfs:range bf:link ;
+    rdfs:domain scholar:Article .
+
+scholar:xLink a rdf:Property ;
+    rdfs:label "X link"@en ;
+    rdfs:comment "Link that directs users to a specific page or content on the social media platform X, which was previously known as Twitter."@en ;
     rdfs:range bf:link ;
     rdfs:domain scholar:Article .
 
