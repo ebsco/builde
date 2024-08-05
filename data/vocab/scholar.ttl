@@ -481,6 +481,12 @@ scholar:award a rdf:Property ;
 
 ## Scholar properties for Work, Article, and Award
 
+scholar:articleVersion a rdf:Property ;
+    rdfs:label "article version"@en ;
+    rdfs:comment "Specific iteration or form of a scholarly article that has been made available to the public."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain bf:Article .
+
 scholar:cites a rdf:Property ;
     rdfs:label "cites"@en ;
     rdfs:comment "Links the citing work to the cited work."@en ;
