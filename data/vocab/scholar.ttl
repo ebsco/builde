@@ -80,6 +80,17 @@ scholar:Dataset a rdfs:Class ;
     owl:sameAs schema:Dataset ;
 	rdfs:subClassOf lite:Work .
 
+scholar:Dissertation a rdfs:Class ;
+	rdfs:label "Dissertation"@en ;
+	rdfs:comment "Formal document presenting original research conducted by a candidate for a doctoral degree, demonstrating the candidate's expertise and contribution to their field of study."@en ;
+    owl:sameAs schema:Thesis ;
+	rdfs:subClassOf bf:Work .
+
+scholar:Libguide a rdfs:Class ;
+	rdfs:label "Libguide"@en ;
+	rdfs:comment "Online research guide created by librarians to provide curated resources, information, and instructional content on a specific subject or topic to assist library users."@en ;
+	rdfs:subClassOf bf:Work .
+
 scholar:GovernmentDocument a rdfs:Class ;
 	rdfs:label "Government Document"@en ;
 	rdfs:comment "An official publication issued by a government or international body."@en ;
@@ -481,6 +492,12 @@ scholar:award a rdf:Property ;
 
 ## Scholar properties for Work, Article, and Award
 
+scholar:isRetracted a rdf:Property ;
+    rdfs:label "is retracted"@en ;
+    rdfs:comment "Indicates whether an article has been formally withdrawn from publication due to errors or other significant issues."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain bf:Article .
+
 scholar:cites a rdf:Property ;
     rdfs:label "cites"@en ;
     rdfs:comment "Links the citing work to the cited work."@en ;
@@ -515,6 +532,12 @@ scholar:articleLocation a rdf:Property ;
     rdfs:label "article location"@en ;
     rdfs:comment "Location where the article can be accessed, such as a URL or physical location in a library."@en ;
     rdfs:range lite:link ;
+    rdfs:domain scholar:Article .
+
+scholar:xLink a rdf:Property ;
+    rdfs:label "X link"@en ;
+    rdfs:comment "Link that directs users to a specific page or content on the social media platform X, which was previously known as Twitter."@en ;
+    rdfs:range bf:link ;
     rdfs:domain scholar:Article .
 
 scholar:action a rdf:Property ;
