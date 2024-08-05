@@ -86,6 +86,11 @@ scholar:Dissertation a rdfs:Class ;
     owl:sameAs schema:Thesis ;
 	rdfs:subClassOf bf:Work .
 
+scholar:Libguide a rdfs:Class ;
+	rdfs:label "Libguide"@en ;
+	rdfs:comment "Online research guide created by librarians to provide curated resources, information, and instructional content on a specific subject or topic to assist library users."@en ;
+	rdfs:subClassOf bf:Work .
+
 scholar:GovernmentDocument a rdfs:Class ;
 	rdfs:label "Government Document"@en ;
 	rdfs:comment "An official publication issued by a government or international body."@en ;
