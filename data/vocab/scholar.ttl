@@ -80,6 +80,12 @@ scholar:Dataset a rdfs:Class ;
     owl:sameAs schema:Dataset ;
 	rdfs:subClassOf bf:Work .
 
+scholar:Dissertation a rdfs:Class ;
+	rdfs:label "Dissertation"@en ;
+	rdfs:comment "Formal document presenting original research conducted by a candidate for a doctoral degree, demonstrating the candidate's expertise and contribution to their field of study."@en ;
+    owl:sameAs schema:Thesis ;
+	rdfs:subClassOf bf:Work .
+
 scholar:GovernmentDocument a rdfs:Class ;
 	rdfs:label "Government Document"@en ;
 	rdfs:comment "An official publication issued by a government or international body."@en ;
