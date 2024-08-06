@@ -458,13 +458,13 @@ scholar:worksCount a rdf:Property ;
     rdfs:label "works count"@en ;
     rdfs:comment "The number of works associated with a person."@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Person .
+    rdfs:domain lite:Resource .
 
 scholar:countsByYear a rdf:Property ;
     rdfs:label "counts by year"@en ;
     rdfs:comment "The number of works associated with a person organized by year."@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Person .
+    rdfs:domain lite:Resource .
 
 ## Crossref ID properties
 
@@ -514,7 +514,7 @@ scholar:citedByCount a rdf:Property ;
     rdfs:label "cited by count"@en ;
     rdfs:comment "The number of times a Work has been cited."@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Work .
+    rdfs:domain lite:Resource .
 
 scholar:citationCount a rdf:Property ;
     rdfs:label "citation count"@en ;
