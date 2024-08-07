@@ -239,6 +239,12 @@ scholar:College a rdfs:Class ;
 	rdfs:comment "An educational institution or a constituent part of one that awards degrees in various academic disciplines."@en ;
     rdfs:subClassOf lite:Organization .
 
+scholar:ror a rdf:Property ;
+    rdfs:label "research organization registry ID"@en ;
+    rdfs:comment "An organization's Research Organization Registry open persistent identifier."@en ;
+    rdfs:domain scholar:Organization ;
+    rdfs:range rdfs:Literal  .
+
 scholar:BookReview a rdfs:Class ;
 	rdfs:label "Book Review"@en ;
 	rdfs:comment "A book review is a critical evaluation of a book, often published in a periodical, that discusses its content, style, and merit."@en ;
@@ -448,23 +454,11 @@ scholar:discipline a rdf:Property ;
     rdfs:range lite:Concept ;
     rdfs:domain lite:Person .
 
-scholar:ror a rdf:Property ;
-    rdfs:label "research organization registry ID"@en ;
-    rdfs:comment "An organization's Research Organization Registry open persistent identifier."@en ;
-    rdfs:domain scholar:Organization ;
-    rdfs:range rdfs:Literal  .
-
-scholar:worksCount a rdf:Property ;
-    rdfs:label "works count"@en ;
-    rdfs:comment "The number of works associated with a person."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Resource .
-
-scholar:countsByYear a rdf:Property ;
-    rdfs:label "counts by year"@en ;
-    rdfs:comment "The number of works associated with a person organized by year."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Resource .
+scholar:mostCitedWork a rdf:Property ;
+    rdfs:label "most cited work"@en ;
+    rdfs:comment "Title of the most cited work by a person."@en ;
+    rdfs:range lite:Work ;
+    rdfs:domain lite:Person .
 
 ## Crossref ID properties
 
@@ -513,6 +507,18 @@ scholar:citedBy a rdf:Property ;
 scholar:citedByCount a rdf:Property ;
     rdfs:label "cited by count"@en ;
     rdfs:comment "The number of times a Work has been cited."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Resource .
+
+scholar:worksCount a rdf:Property ;
+    rdfs:label "works count"@en ;
+    rdfs:comment "The number of works associated with a resource."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Resource .
+
+scholar:countsByYear a rdf:Property ;
+    rdfs:label "counts by year"@en ;
+    rdfs:comment "The number of works associated with a resource organized by year."@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Resource .
 
