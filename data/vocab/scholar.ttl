@@ -84,12 +84,12 @@ scholar:Dissertation a rdfs:Class ;
 	rdfs:label "Dissertation"@en ;
 	rdfs:comment "Formal document presenting original research conducted by a candidate for a doctoral degree, demonstrating the candidate's expertise and contribution to their field of study."@en ;
     owl:sameAs schema:Thesis ;
-	rdfs:subClassOf bf:Work .
+	rdfs:subClassOf lite:Work .
 
 scholar:Libguide a rdfs:Class ;
 	rdfs:label "Libguide"@en ;
 	rdfs:comment "Online research guide created by librarians to provide curated resources, information, and instructional content on a specific subject or topic to assist library users."@en ;
-	rdfs:subClassOf bf:Work .
+	rdfs:subClassOf lite:Work .
 
 scholar:GovernmentDocument a rdfs:Class ;
 	rdfs:label "Government Document"@en ;
@@ -484,13 +484,13 @@ scholar:award a rdf:Property ;
     rdfs:domain lite:Agent ;
     rdfs:range scholar:Award .
 
-## Scholar properties for Work, Article, and Award
+## Scholar properties for Work, Article, Award, and Journal
 
 scholar:isRetracted a rdf:Property ;
     rdfs:label "is retracted"@en ;
     rdfs:comment "Indicates whether an article has been formally withdrawn from publication due to errors or other significant issues."@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:domain bf:Article .
+    rdfs:domain lite:Article .
 
 scholar:cites a rdf:Property ;
     rdfs:label "cites"@en ;
@@ -543,7 +543,7 @@ scholar:articleLocation a rdf:Property ;
 scholar:xLink a rdf:Property ;
     rdfs:label "X link"@en ;
     rdfs:comment "Link that directs users to a specific page or content on the social media platform X, which was previously known as Twitter."@en ;
-    rdfs:range bf:link ;
+    rdfs:range lite:link ;
     rdfs:domain scholar:Article .
 
 scholar:action a rdf:Property ;
@@ -646,6 +646,18 @@ scholar:copyrightOwner a rdf:Property ;
     rdfs:comment "The entity that holds the copyright of the scholarly content."@en ;
     rdfs:range lite:Agent ;
     rdfs:domain lite:Instance .
+
+scholar:issue a rdf:Property ;
+    rdfs:label "issue"@en ;
+    rdfs:comment "Specific issue of a journal within a series of published volumes."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Journal .
+
+scholar:volume a rdf:Property ;
+    rdfs:label "issue"@en ;
+    rdfs:comment "Specific volume of a journal in which a set of issues is published."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Journal .
 
 ### Scholar Agency and Program properties
 
