@@ -650,8 +650,8 @@ scholar:copyrightOwner a rdf:Property ;
 scholar:issue a rdf:Property ;
     rdfs:label "issue"@en ;
     rdfs:comment "Specific issue of a journal within a series of published volumes."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Journal .
+    rdfs:domain lite:Journal ;
+    rdfs:range rdfs:Literal .
 
 scholar:volume a rdf:Property ;
     rdfs:label "issue"@en ;
