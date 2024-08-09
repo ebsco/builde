@@ -656,8 +656,8 @@ scholar:issue a rdf:Property ;
 scholar:volume a rdf:Property ;
     rdfs:label "issue"@en ;
     rdfs:comment "Specific volume of a journal in which a set of issues is published."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Journal .
+    rdfs:domain lite:Journal ;
+    rdfs:range rdfs:Literal .
 
 ### Scholar Agency and Program properties
 
