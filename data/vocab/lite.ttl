@@ -269,6 +269,12 @@ lite:date a rdf:Property ;
     owl:equivalentProperty bf:date, dc:date ;
     rdfs:domain lite:Resource .
 
+lite:place a rdf:Property ;
+    rdfs:label "place"@en ;
+    rdfs:comment "Place associated with a resource"@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
+
 lite:note a rdf:Property ;
     rdfs:label "note"@en ;
     rdfs:comment "Additional descriptive information associated with the resource."@en ;

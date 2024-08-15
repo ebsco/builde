@@ -1,0 +1,61 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lite: <http://bibfra.me/vocab/lite/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bflc: <http://bibfra.me/vocab/bflc/> .
+@prefix lc: <http://id.loc.gov/ontologies/bflc/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix library: <http://bibfra.me/vocab/library/> .
+
+# BIBFRAME Linked Data Extension aka BUILDE Relation 📖🔍
+
+# This RDF vocabulary encompasses a wide range of classes and properties suitable for describing various
+# types of bibliographic resources, scholarly works, and related entities. BUILDE includes a basic set of 
+# core classes and properties known as the 'bflc' layer described here, as well as several extensions:
+
+#	archive: things found in archives
+#	rare books: things found in rare book libraries
+#	scholar: things found in scholarly research and publishing
+#	library: things found in libraries
+
+# This vocabulary is ideal for librarians, information scientists, data curators, and developers working
+# in academic and research settings. It can be employed in creating digital libraries, scholarly databases,
+# cataloging systems, and other applications requiring structured bibliographic information.
+
+# Key Features:
+# - Compatibility with existing ontologies including Schema.org, SKOS, FOAF, and Dublin Core for enhanced interoperability.
+# - Extension of BIBFRAME from the Library of Congress
+# - Comprehensive coverage of bibliographic and scholarly domains.
+# - Clear, self-explanatory labels and definitions for each class and property.
+# - Hierarchical organization of classes using rdfs:subClassOf for structured representation.
+
+# We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
+# For versioning, updates, and more detailed documentation, please visit [https://bibfra.me/?].
+
+# ------------------------------
+# Created by: EBSCO Information Systems
+# Version: 1.0
+# Created: August 15, 2024
+# Updated: August 15, 2024
+# ------------------------------
+
+# BUILDE BFLC Properties
+
+bflc:projectedProvisionDate a rdf:Property ;
+    rdfs:label "projected provision date"@en ;
+    rdfs:comment "Projected date of publication of the resource."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty lc:projectedProvisionDate .
+
+bflc:nonSortNum a rdf:Property ;
+    rdfs:label "non sort number"@en ;
+    rdfs:comment "Number of initial label characters to skip for indexing and sorting."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain library:Title ;
+    owl:equivalentProperty lc:nonSortNum .
