@@ -460,19 +460,24 @@ scholar:mostCitedWork a rdf:Property ;
     rdfs:range lite:Work ;
     rdfs:domain lite:Person .
 
-## Crossref ID properties
+## ID properties
 
 scholar:fainId a rdf:Property ;
     rdfs:label "fain ID"@en ;
     rdfs:comment "A unique identifier for a funding award."@en ;
     rdfs:domain scholar:FundingAward ;
     rdfs:range rdfs:Literal .
+
+scholar:openalexID a rdf:Property ;
+    rdfs:label "openalex ID"@en ;
+    rdfs:comment "A unique identifier used in the OpenAlex database to reference various scholarly entities, such as works, authors, institutions, publishers, and topics."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 	
 scholar:doi a rdf:Property ;
 	rdfs:label "doi"@en ;
 	rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
 	rdfs:domain scholar:Article ;
-	rdfs:range rdfs:Literal ;
     rdfs:range rdfs:Literal .
 	
 ## Crossref property for Award
