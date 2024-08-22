@@ -1,6 +1,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lite: <http://bibfra.me/vocab/lite/> .
+@prefix rel: <http://bibfra.me/vocab/relation/> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -43,8 +44,171 @@
 
 # BUILDE Relation Properties
 
-lite:isPartOf a rdf:Property ;
+rel:absorbed a rdf:Property ;
+    rdfs:label "absorbed"@en ;
+    rdfs:comment "Work that has been incorporated into another Work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:absorbedBy a rdf:Property ;
+    rdfs:label "absorbed by"@en ;
+    rdfs:comment "Resource was absorbed by another resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:absorbedInPart a rdf:Property ;
+    rdfs:label "absorbed in part"@en ;
+    rdfs:comment "Work that has been partially incorporated into another work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:absorbedInPartBy a rdf:Property ;
+    rdfs:label "absorbed in part by"@en ;
+    rdfs:comment "Resource was partially absorbed by another resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:changedBackTo a rdf:Property ;
+    rdfs:label "changed back to"@en ;
+    rdfs:comment "Work that has been changed back into another work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:continueBy a rdf:Property ;
+    rdfs:label "continue by"@en ;
+    rdfs:comment "Work whose content continues an earlier work under a new title."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:continues a rdf:Property ;
+    rdfs:label "continues"@en ;
+    rdfs:comment "Work that is continued by the content of a later work under a new title."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:continuesInPart a rdf:Property ;
+    rdfs:label "continues in part"@en ;
+    rdfs:comment "Work that split into two or more separate works with new titles."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:continuedInPartBy a rdf:Property ;
+    rdfs:label "continued in part by"@en ;
+    rdfs:comment "Content of a previous resource is partially continued in a new resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:hasBasis a rdf:Property ;
+    rdfs:label "has basis"@en ;
+    rdfs:comment "Trarget resource is the basis of the source resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:hasDerivative a rdf:Property ;
+    rdfs:label "has derivative"@en ;
+    rdfs:comment "Target resource is a modification of the source resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:hasExpression a rdf:Property ;
+    rdfs:label "has expression"@en ;
+    rdfs:comment "Resource has a related expression. For use to connect Works under FRBR/RDA rules."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:hasEquivalent a rdf:Property ;
+    rdfs:label "has equivalent"@en ;
+    rdfs:comment "Embodies the same as the resource being described."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:hasPart a rdf:Property ;
+    rdfs:label "has part"@en ;
+    rdfs:comment "Resource that is included either physically or logically contained in the described resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:isAdaptationOf a rdf:Property ;
+    rdfs:label "is adaptation of"@en ;
+    rdfs:comment "Source resource is an adaptation of the target resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:isBasedOn a rdf:Property ;
+    rdfs:label "is based on"@en ;
+    rdfs:comment "Source resource is based on the target resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:isDerivativeOf a rdf:Property ;
+    rdfs:label "is derivative of"@en ;
+    rdfs:comment "Source resource is a modification of the target resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:isPartOf a rdf:Property ;
     rdfs:label "is part of"@en ;
     rdfs:comment "Relationship that connects things that are part of other things."@en ;
     rdfs:range lite:Resource ;
     rdfs:domain lite:Resource .
+
+rel:hasAdaptation a rdf:Property ;
+    rdfs:label "has adaptation"@en ;
+    rdfs:comment "Target resource is an adaptation of the source resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:mergesWith a rdf:Property ;
+    rdfs:label "merges with"@en ;
+    rdfs:comment "Two or more resources combine to create a single resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:mergedWith a rdf:Property ;
+    rdfs:label "merged with"@en ;
+    rdfs:comment "One of two or more works that come together to form a new work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:separatedFrom a rdf:Property ;
+    rdfs:label "separated from"@en ;
+    rdfs:comment "Work that spun off a part of its content to form a new work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:splitInto a rdf:Property ;
+    rdfs:label "split into"@en ;
+    rdfs:comment "One of two or more works resulting from the division of an earlier work into separate works."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:supersedes a rdf:Property ;
+    rdfs:label "supersedes"@en ;
+    rdfs:comment "Earlier work whose content has been replaced by a later work, usually because the later work contains updated or new information."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:supersededBy a rdf:Property ;
+    rdfs:label "superseded by"@en ;
+    rdfs:comment "Later Work used in place of an earlier work, usually because the later work contains updated or new information."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:supersedesInPart a rdf:Property ;
+    rdfs:label "supersedes in part"@en ;
+    rdfs:comment "Earlier work whose content has been partially replaced by a later work, usually because the later work contains updated or new information."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:supersededInPartBy a rdf:Property ;
+    rdfs:label "superseded in part by"@en ;
+    rdfs:comment "Resource has been partially superseded by another resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:unionOf a rdf:Property ;
+    rdfs:label "union of"@en ;
+    rdfs:comment "One of two or more works which came together to form a new work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
