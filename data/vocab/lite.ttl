@@ -8,6 +8,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
 
 # BIBFRAME Linked Data Extension aka BUILDE 📖🔍
 
@@ -32,14 +33,16 @@
 # - Hierarchical organization of classes using rdfs:subClassOf for structured representation.
 
 # We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
-# For versioning, updates, and more detailed documentation, please visit [https://bibfra.me/?].
+# For versioning, updates, and more detailed documentation, please visit https://bibfra.me/.
 
-# ------------------------------
-# Created by: EBSCO Information Systems
-# Version: 1.0
-# Created: July 22, 2024
-# Updated: July 30, 2024
-# ------------------------------
+lite: a rdfs:Vocabulary ;
+    rdfs:label "Builde" ;
+    rdfs:comment "BIBFRAME Linked Data Extension aka BUILDE" ;
+    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:created "2024-07-22"^^xsd:date ;
+    dc:issued "2024-08-22"^^xsd:date ;
+    dc:modified "2024-08-22"^^xsd:date ;
+    owl:versionInfo "1.0" .
 
 # BUILDE Classes
 
