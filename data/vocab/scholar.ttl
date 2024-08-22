@@ -44,50 +44,50 @@ scholar: a rdfs:Vocabulary ;
 ## BF Scholar Classes (from Crossref)
 
 scholar:Journal a rdfs:Class ;
-	rdfs:label "Journal"@en ;
-	rdfs:comment "A publication that issues periodic releases containing multiple scholarly articles."@en ;
-	owl:sameAs schema:Periodical ;
+    rdfs:label "Journal"@en ;
+    rdfs:comment "A publication that issues periodic releases containing multiple scholarly articles."@en ;
+    owl:sameAs schema:Periodical ;
     rdfs:subClassOf lite:Work .
 
 scholar:Article a rdfs:Class ;
-	rdfs:label "Article"@en ;
-	rdfs:comment "A written composition on a specific topic, typically published in a journal or magazine."@en ;
-	owl:sameAs schema:ScholarlyArticle ;
+    rdfs:label "Article"@en ;
+    rdfs:comment "A written composition on a specific topic, typically published in a journal or magazine."@en ;
+    owl:sameAs schema:ScholarlyArticle ;
     rdfs:subClassOf lite:Work .
 
 scholar:BlogEntry a rdfs:Class ;
-	rdfs:label "Blog Entry"@en ;
-	rdfs:comment "An individual post or entry in a blog, often informal or conversational in style."@en ;
-	owl:sameAs schema:Blog ;
+    rdfs:label "Blog Entry"@en ;
+    rdfs:comment "An individual post or entry in a blog, often informal or conversational in style."@en ;
+    owl:sameAs schema:Blog ;
     rdfs:subClassOf lite:Work .
 
 scholar:ConferencePaper a rdfs:Class ;
-	rdfs:label "Conference Paper"@en ;
-	rdfs:comment "A paper presented at a conference and often subsequently published in conference proceedings."@en ;
-	owl:sameAs schema:Blog ;
-	rdfs:subClassOf scholar:Article .
+    rdfs:label "Conference Paper"@en ;
+    rdfs:comment "A paper presented at a conference and often subsequently published in conference proceedings."@en ;
+    owl:sameAs schema:Blog ;
+    rdfs:subClassOf scholar:Article .
 
 scholar:ConferenceProceeding a rdfs:Class ;
-	rdfs:label "Conference Proceeding"@en ;
-	rdfs:comment "A collection of academic papers presented at a professional association meeting or conference."@en ;
+    rdfs:label "Conference Proceeding"@en ;
+    rdfs:comment "A collection of academic papers presented at a professional association meeting or conference."@en ;
     rdfs:subClassOf lite:Work .
 
 scholar:Database a rdfs:Class ;
-	rdfs:label "Database"@en ;
-	rdfs:comment "An organized collection of data or information, often electronic."@en ;
+    rdfs:label "Database"@en ;
+    rdfs:comment "An organized collection of data or information, often electronic."@en ;
     rdfs:subClassOf lite:Work .
 
 scholar:Dataset a rdfs:Class ;
-	rdfs:label "Dataset"@en ;
-	rdfs:comment "A body of structured information describing some topic(s) of interest."@en ;
+    rdfs:label "Dataset"@en ;
+    rdfs:comment "A body of structured information describing some topic(s) of interest."@en ;
     owl:sameAs schema:Dataset ;
-	rdfs:subClassOf lite:Work .
+    rdfs:subClassOf lite:Work .
 
 scholar:Dissertation a rdfs:Class ;
-	rdfs:label "Dissertation"@en ;
-	rdfs:comment "Formal document presenting original research conducted by a candidate for a doctoral degree, demonstrating the candidate's expertise and contribution to their field of study."@en ;
+    rdfs:label "Dissertation"@en ;
+    rdfs:comment "Formal document presenting original research conducted by a candidate for a doctoral degree, demonstrating the candidate's expertise and contribution to their field of study."@en ;
     owl:sameAs schema:Thesis ;
-	rdfs:subClassOf lite:Work .
+    rdfs:subClassOf lite:Work .
 
 scholar:Libguide a rdfs:Class ;
 	rdfs:label "Libguide"@en ;
@@ -95,151 +95,151 @@ scholar:Libguide a rdfs:Class ;
 	rdfs:subClassOf lite:Work .
 
 scholar:GovernmentDocument a rdfs:Class ;
-	rdfs:label "Government Document"@en ;
-	rdfs:comment "An official publication issued by a government or international body."@en ;
-	rdfs:subClassOf scholar:Report .
+    rdfs:label "Government Document"@en ;
+    rdfs:comment "An official publication issued by a government or international body."@en ;
+    rdfs:subClassOf scholar:Report .
 
 scholar:Newspaper a rdfs:Class ;
-	rdfs:label "Newspaper"@en ;
-	rdfs:comment "A publication containing news, articles, advertisements, and other content, usually issued daily or weekly."@en ;
-	owl:sameAs schema:Newspaper ;
+    rdfs:label "Newspaper"@en ;
+    rdfs:comment "A publication containing news, articles, advertisements, and other content, usually issued daily or weekly."@en ;
+    owl:sameAs schema:Newspaper ;
     rdfs:subClassOf lite:Work .
 
 scholar:Periodical a rdfs:Class ;
-	rdfs:label "Periodical"@en ;
-	rdfs:comment "A publication released at regular intervals, such as journals, magazines, or newspapers."@en ;
-	owl:sameAs schema:Periodical ;
+    rdfs:label "Periodical"@en ;
+    rdfs:comment "A publication released at regular intervals, such as journals, magazines, or newspapers."@en ;
+    owl:sameAs schema:Periodical ;
     rdfs:subClassOf lite:Work .
 
 scholar:PrimarySourceDocument a rdfs:Class ;
-	rdfs:label "Primary Source Document"@en ;
-	rdfs:comment "An original document or firsthand account relevant to historical or research study."@en ;
+    rdfs:label "Primary Source Document"@en ;
+    rdfs:comment "An original document or firsthand account relevant to historical or research study."@en ;
     rdfs:subClassOf lite:Work .
 
 scholar:Report a rdfs:Class ;
-	rdfs:label "Report"@en ;
-	rdfs:comment "A formal account or statement describing the findings of some individual or group."@en ;
-	owl:sameAs schema:Report ;
+    rdfs:label "Report"@en ;
+    rdfs:comment "A formal account or statement describing the findings of some individual or group."@en ;
+    owl:sameAs schema:Report ;
     rdfs:subClassOf lite:Work .
 
 scholar:Review a rdfs:Class ;
-	rdfs:label "Review"@en ;
-	rdfs:comment "A critical assessment or analysis of a subject or work, especially in the form of an article."@en ;
-	rdfs:subClassOf scholar:Article .
+    rdfs:label "Review"@en ;
+    rdfs:comment "A critical assessment or analysis of a subject or work, especially in the form of an article."@en ;
+    rdfs:subClassOf scholar:Article .
 
 scholar:TradePublication a rdfs:Class ;
-	rdfs:label "Trade Publication"@en ;
-	rdfs:comment "A periodical publication targeted towards professionals in a specific industry."@en ;
-	rdfs:subClassOf scholar:Periodical .
+    rdfs:label "Trade Publication"@en ;
+    rdfs:comment "A periodical publication targeted towards professionals in a specific industry."@en ;
+    rdfs:subClassOf scholar:Periodical .
 
 scholar:Wires a rdfs:Class ;
-	rdfs:label "WIRES"@en ;
-	rdfs:comment "A work within the Wiley Interdisciplinary Reviews series, characterized as a peer-reviewed, expert-authored review article that spans multiple interdisciplinary fields. This work is tailored to various audiences, including students, interdisciplinary collaborators, and experts, offering comprehensive overviews, specific technological insights, and up-to-date knowledge in respective fields."@en ;
+    rdfs:label "WIRES"@en ;
+    rdfs:comment "A work within the Wiley Interdisciplinary Reviews series, characterized as a peer-reviewed, expert-authored review article that spans multiple interdisciplinary fields. This work is tailored to various audiences, including students, interdisciplinary collaborators, and experts, offering comprehensive overviews, specific technological insights, and up-to-date knowledge in respective fields."@en ;
     rdfs:subClassOf lite:Work .
 
 scholar:WorkingPaper a rdfs:Class ;
-	rdfs:label "Working Paper"@en ;
-	rdfs:comment "A preliminary scientific or technical paper often published to share ideas about a topic before formal publication."@en ;
-	rdfs:subClassOf scholar:Article .
+    rdfs:label "Working Paper"@en ;
+    rdfs:comment "A preliminary scientific or technical paper often published to share ideas about a topic before formal publication."@en ;
+    rdfs:subClassOf scholar:Article .
 
 scholar:Award a rdfs:Class ;
-	rdfs:label "Award"@en ;
-	rdfs:comment "A recognition or honor awarded typically for academic, artistic, or scientific achievement."@en ;
+    rdfs:label "Award"@en ;
+    rdfs:comment "A recognition or honor awarded typically for academic, artistic, or scientific achievement."@en ;
     rdfs:subClassOf lite:Resource .
 
 scholar:SubAward a rdfs:Class ;
-	rdfs:label "Subaward"@en ;
-	rdfs:comment "A subaward is a financial or contractual agreement made by the primary recipient (or \"prime\") of a grant, contract, or cooperative agreement to a secondary recipient, referred to as a subrecipient or subawardee."@en ;
+    rdfs:label "Subaward"@en ;
+    rdfs:comment "A subaward is a financial or contractual agreement made by the primary recipient (or \"prime\") of a grant, contract, or cooperative agreement to a secondary recipient, referred to as a subrecipient or subawardee."@en ;
     rdfs:subClassOf lite:Award .
 
 scholar:Grant a rdfs:Class ;
-	rdfs:label "Grant"@en ;
-	rdfs:comment "A grant is a sum of money given by an organization, especially a government, to a person or entity for a specific purpose that does not require repayment."@en ;
+    rdfs:label "Grant"@en ;
+    rdfs:comment "A grant is a sum of money given by an organization, especially a government, to a person or entity for a specific purpose that does not require repayment."@en ;
     rdfs:subClassOf lite:Resource .
 
 scholar:CooperativeAgreement a rdfs:Class ;
-	rdfs:label "Grant"@en ;
-	rdfs:comment "A cooperative agreement is a form of financial assistance provided by a federal agency to a recipient to carry out a public purpose of support or stimulation, where substantial involvement is expected between the agency and the recipient during the performance of the contemplated activity."@en ;
+    rdfs:label "Grant"@en ;
+    rdfs:comment "A cooperative agreement is a form of financial assistance provided by a federal agency to a recipient to carry out a public purpose of support or stimulation, where substantial involvement is expected between the agency and the recipient during the performance of the contemplated activity."@en ;
     rdfs:subClassOf lite:Resource .
 
 scholar:DirectPayment a rdfs:Class ;
-	rdfs:label "Direct Payment"@en ;
-	rdfs:comment "A direct payment is a transfer of funds from one party directly to another without the need for intermediaries, typically made electronically for the purpose of settling debts, transactions, or fulfilling financial obligations."@en ;
-	rdfs:subClassOf lite:Resource .
+    rdfs:label "Direct Payment"@en ;
+    rdfs:comment "A direct payment is a transfer of funds from one party directly to another without the need for intermediaries, typically made electronically for the purpose of settling debts, transactions, or fulfilling financial obligations."@en ;
+    rdfs:subClassOf lite:Resource .
 
 scholar:Loan a rdfs:Class ;
-	rdfs:label "Loan"@en ;
-	rdfs:comment "A loan is a sum of money borrowed by one party from another, which must be repaid with interest over a defined period."@en ;
+    rdfs:label "Loan"@en ;
+    rdfs:comment "A loan is a sum of money borrowed by one party from another, which must be repaid with interest over a defined period."@en ;
     rdfs:subClassOf lite:Resource .
 
 scholar:Insurance a rdfs:Class ;
-	rdfs:label "Insurance"@en ;
-	rdfs:comment "Insurance is a contract represented by a policy, in which an individual or entity receives financial protection or reimbursement against losses from an insurance company."@en ;
+    rdfs:label "Insurance"@en ;
+    rdfs:comment "Insurance is a contract represented by a policy, in which an individual or entity receives financial protection or reimbursement against losses from an insurance company."@en ;
     rdfs:subClassOf lite:Resource .
 
 scholar:FundingAward a rdfs:Class ;
-	rdfs:label "Funding Award"@en ;
-	rdfs:comment "Financial support provided for research or a scholarly project."@en ;
+    rdfs:label "Funding Award"@en ;
+    rdfs:comment "Financial support provided for research or a scholarly project."@en ;
     rdfs:subClassOf lite:Award .
 
 scholar:Agency a rdfs:Class ;
-	rdfs:label "Agency"@en ;
-	rdfs:comment "An administrative unit or organization, often governmental, with a specific purpose or function."@en ;
+    rdfs:label "Agency"@en ;
+    rdfs:comment "An administrative unit or organization, often governmental, with a specific purpose or function."@en ;
     rdfs:subClassOf lite:Organization .
 
 scholar:Program a rdfs:Class ;
-	rdfs:label "Program"@en ;
-	rdfs:comment "A program refers to a structured set of activities designed to achieve specific outcomes or objectives, often related to research, education, or community service."@en ;
+    rdfs:label "Program"@en ;
+    rdfs:comment "A program refers to a structured set of activities designed to achieve specific outcomes or objectives, often related to research, education, or community service."@en ;
     rdfs:subClassOf lite:Resource .
 
 scholar:Nonprofit a rdfs:Class ;
-	rdfs:label "Nonprofit"@en ;
-	rdfs:comment "An organization dedicated to furthering a particular social cause or advocating for a shared point of view, not for profit."@en ;
+    rdfs:label "Nonprofit"@en ;
+    rdfs:comment "An organization dedicated to furthering a particular social cause or advocating for a shared point of view, not for profit."@en ;
     rdfs:subClassOf lite:Organization .
 	
 scholar:Facility a rdfs:Class ;
-	rdfs:label "Facility"@en ;
-	rdfs:comment "A place, amenity, or piece of equipment provided for a particular purpose within the scholarly context, such as research laboratories or lecture halls."@en ;
+    rdfs:label "Facility"@en ;
+    rdfs:comment "A place, amenity, or piece of equipment provided for a particular purpose within the scholarly context, such as research laboratories or lecture halls."@en ;
     rdfs:subClassOf lite:Place .
 
 scholar:Company a rdfs:Class ;
-	rdfs:label "Company"@en ;
-	rdfs:comment "A legal entity formed by a group of individuals to engage in and operate a business—commercial or industrial—enterprise."@en ;
+    rdfs:label "Company"@en ;
+    rdfs:comment "A legal entity formed by a group of individuals to engage in and operate a business—commercial or industrial—enterprise."@en ;
     rdfs:subClassOf lite:Organization .
 
 scholar:Healthcare a rdfs:Class ;
-	rdfs:label "Healthcare Organization"@en ;
-	rdfs:comment "A field involved in the maintenance or improvement of health via the prevention, diagnosis, treatment, recovery, or cure of disease, illness, injury, and other physical and mental impairments in people."@en ;
+    rdfs:label "Healthcare Organization"@en ;
+    rdfs:comment "A field involved in the maintenance or improvement of health via the prevention, diagnosis, treatment, recovery, or cure of disease, illness, injury, and other physical and mental impairments in people."@en ;
     rdfs:subClassOf lite:Organization .
 
 scholar:University a rdfs:Class ;
-	rdfs:label "University"@en ;
-	rdfs:comment "An institution of higher learning providing facilities for teaching and research and authorized to grant academic degrees."@en ;
+    rdfs:label "University"@en ;
+    rdfs:comment "An institution of higher learning providing facilities for teaching and research and authorized to grant academic degrees."@en ;
     rdfs:subClassOf lite:Organization .
 
 scholar:Consortia a rdfs:Class ;
-	rdfs:label "Consortia"@en ;
-	rdfs:comment "An association or combination of businesses, financial institutions, universities, or other organizations who pool resources and expertise to achieve a common goal."@en ;
+    rdfs:label "Consortia"@en ;
+    rdfs:comment "An association or combination of businesses, financial institutions, universities, or other organizations who pool resources and expertise to achieve a common goal."@en ;
     rdfs:subClassOf lite:Organization .
 
 scholar:Faculty a rdfs:Class ;
-	rdfs:label "Faculty"@en ;
-	rdfs:comment "academic staff of a university or college, including professors, lecturers, and researchers, who are responsible for teaching and conducting research."@en ;
+    rdfs:label "Faculty"@en ;
+    rdfs:comment "academic staff of a university or college, including professors, lecturers, and researchers, who are responsible for teaching and conducting research."@en ;
     rdfs:subClassOf lite:Person .
 
 scholar:School a rdfs:Class ;
-	rdfs:label "School"@en ;
-	rdfs:comment "An institution for educating children or a department or faculty of a college concerned with a particular subject."@en ;
+    rdfs:label "School"@en ;
+    rdfs:comment "An institution for educating children or a department or faculty of a college concerned with a particular subject."@en ;
     rdfs:subClassOf lite:Organization .
 
 scholar:Department a rdfs:Class ;
-	rdfs:label "Department"@en ;
-	rdfs:comment "A division of a larger organization such as a university, dealing with a specific subject of study or research."@en ;
+    rdfs:label "Department"@en ;
+    rdfs:comment "A division of a larger organization such as a university, dealing with a specific subject of study or research."@en ;
     rdfs:subClassOf lite:Organization .
 	
 scholar:College a rdfs:Class ;
-	rdfs:label "College"@en ;
-	rdfs:comment "An educational institution or a constituent part of one that awards degrees in various academic disciplines."@en ;
+    rdfs:label "College"@en ;
+    rdfs:comment "An educational institution or a constituent part of one that awards degrees in various academic disciplines."@en ;
     rdfs:subClassOf lite:Organization .
 
 scholar:ror a rdf:Property ;
@@ -249,33 +249,33 @@ scholar:ror a rdf:Property ;
     rdfs:range rdfs:Literal  .
 
 scholar:BookReview a rdfs:Class ;
-	rdfs:label "Book Review"@en ;
-	rdfs:comment "A book review is a critical evaluation of a book, often published in a periodical, that discusses its content, style, and merit."@en ;
+    rdfs:label "Book Review"@en ;
+    rdfs:comment "A book review is a critical evaluation of a book, often published in a periodical, that discusses its content, style, and merit."@en ;
     rdfs:subClassOf lite:Work .
 
 scholar:Chapter a rdfs:Class ;
-	rdfs:label "Chapter"@en ;
-	rdfs:comment "A main division of a book, typically with a number or title."@en ;
+    rdfs:label "Chapter"@en ;
+    rdfs:comment "A main division of a book, typically with a number or title."@en ;
     rdfs:subClassOf lite:Work .
 	
 scholar:Part a rdfs:Class ;
-	rdfs:label "Part"@en ;
-	rdfs:comment "A division within a book or publication that may contain chapters or other sections."@en ;
+    rdfs:label "Part"@en ;
+    rdfs:comment "A division within a book or publication that may contain chapters or other sections."@en ;
     rdfs:subClassOf lite:Work .
 
 scholar:Repository a rdfs:Class ;
-	rdfs:label "Repository"@en ;
-	rdfs:comment "A central location in which data is stored and managed, often used in the context of academic and scholarly research for the storage of datasets, publications, and digital archives."@en ;
+    rdfs:label "Repository"@en ;
+    rdfs:comment "A central location in which data is stored and managed, often used in the context of academic and scholarly research for the storage of datasets, publications, and digital archives."@en ;
     rdfs:subClassOf lite:Resource .
 	
 scholar:Magazine a rdfs:Class ;
-	rdfs:label "Magazine"@en ;
-	rdfs:comment "A periodical publication containing articles and illustrations, typically covering a particular subject or area of interest."@en ;
+    rdfs:label "Magazine"@en ;
+    rdfs:comment "A periodical publication containing articles and illustrations, typically covering a particular subject or area of interest."@en ;
     rdfs:subClassOf lite:Resource .
 	
 scholar:Trade a rdfs:Class ;
-	rdfs:label "Trade"@en ;
-	rdfs:comment "A trade publication is a magazine or journal dedicated to topics relevant to a specific industry or professional field, aimed at professionals within that field."@en ;
+    rdfs:label "Trade"@en ;
+    rdfs:comment "A trade publication is a magazine or journal dedicated to topics relevant to a specific industry or professional field, aimed at professionals within that field."@en ;
     rdfs:subClassOf lite:Work .
 
 scholar:Artifact a rdfs:Class ;
@@ -421,8 +421,8 @@ scholar:ActionEvent a rdfs:Class ;
 ## BF Scholar Identifier Classes
 	
 scholar:DOI a rdfs:Class ;
-	rdfs:label "DOI"@en ;
-	rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
+    rdfs:label "DOI"@en ;
+    rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
     rdfs:subClassOf lite:Identifier .
 
 ## Scholar Properties for Person
@@ -431,7 +431,7 @@ scholar:orcid a rdf:Property ;
     rdfs:label "ORCID"@en ;
     rdfs:comment "An ORCID persistent digital identifier for a researcher."@en ;
     rdfs:domain lite:Person ;
-	rdfs:range link:ORCID  .
+    rdfs:range link:ORCID  .
 
 scholar:affiliation a rdf:Property ;
     rdfs:label "affiliation"@en ;
@@ -472,10 +472,10 @@ scholar:fainId a rdf:Property ;
     rdfs:range rdfs:Literal .
 	
 scholar:doi a rdf:Property ;
-	rdfs:label "doi"@en ;
-	rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
-	rdfs:domain scholar:Article ;
-	rdfs:range rdfs:Literal ;
+    rdfs:label "doi"@en ;
+    rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
+    rdfs:domain scholar:Article ;
+    rdfs:range rdfs:Literal ;
     rdfs:range rdfs:Literal .
 	
 ## Crossref property for Award
