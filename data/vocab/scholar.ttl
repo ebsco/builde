@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lite: <http://bibfra.me/vocab/lite/> .
 @prefix scholar: <http://bibfra.me/vocab/scholar/> .
+@prefix rel: <http://bibfra.me/vocab/relation/> .
 @prefix library: <http://bibfra.me/vocab/marc/> .
 @prefix link: <http://library.link/identifier/> .
 @prefix dc: <http://purl.org/dc/terms/> .
@@ -634,9 +635,10 @@ scholar:lastAuthor a rdf:Property ;
 
 scholar:publishedIn a rdf:Property ;
     rdfs:label "published in"@en ;
-    rdfs:comment "Identifies the author listed last in a multi-authored article, often signifying a senior or supervising role in the research."@en ;
-    rdfs:range lite:Person ;
-    rdfs:domain scholar:Article .
+    rdfs:comment "Relates an article or paper to the journal where it was published."@en ;
+    rdfs:range lite:Article ;
+    rdfs:subPropertyOf rel:isPartOf ;
+    rdfs:domain scholar:Journal .
 
 ### Publisher Policy Edges
 
