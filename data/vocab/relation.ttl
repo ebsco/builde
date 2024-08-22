@@ -1,6 +1,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lite: <http://bibfra.me/vocab/lite/> .
+@prefix rel: <http://bibfra.me/vocab/relation/> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,6 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
 
 # BIBFRAME Linked Data Extension aka BUILDE Relation 📖🔍
 
@@ -34,12 +36,14 @@
 # We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
 # For versioning, updates, and more detailed documentation, please visit [https://bibfra.me/?].
 
-# ------------------------------
-# Created by: EBSCO Information Systems
-# Version: 1.0
-# Created: July 30, 2024
-# Updated: July 30, 2024
-# ------------------------------
+rel: a rdfs:Vocabulary ;
+    rdfs:label "Builde Relation" ;
+    rdfs:comment "Builde vocabulary for relationships between resources" ;
+    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:created "2024-07-22"^^xsd:date ;
+    dc:issued "2024-08-22"^^xsd:date ;
+    dc:modified "2024-08-22"^^xsd:date ;
+    owl:versionInfo "1.0" .
 
 # BUILDE Relation Properties
 

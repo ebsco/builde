@@ -11,6 +11,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
 
 # BUILDE Scholar Extension 📖🔍
 #
@@ -31,12 +32,14 @@
 # We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
 # For versioning, updates, and more detailed documentation, please visit [https://bibfra.me/?].
 #
-# ------------------------------
-# Created by: EBSCO Information Systems
-# Version: 1.0
-# Created: November 11, 2023
-# Updated: July 26, 2024
-# ------------------------------
+scholar: a rdfs:Vocabulary ;
+    rdfs:label "Builde Scholar" ;
+    rdfs:comment "Builde vocabulary for scholarly research" ;
+    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:created "2024-07-22"^^xsd:date ;
+    dc:issued "2024-08-22"^^xsd:date ;
+    dc:modified "2024-08-22"^^xsd:date ;
+    owl:versionInfo "1.0" .
 
 ## BF Scholar Classes (from Crossref)
 
