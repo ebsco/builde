@@ -37,7 +37,7 @@
 # For versioning, updates, and more detailed documentation, please visit [https://bibfra.me/?].
 
 rel: a rdfs:Vocabulary ;
-    rdfs:label "Builde Relation" ;
+    rdfs:label "Relation" ;
     rdfs:comment "Builde vocabulary for relationships between resources" ;
     dc:creator "EBSCO Information Systems"^^xsd:date ;
     dc:created "2024-07-22"^^xsd:date ;
