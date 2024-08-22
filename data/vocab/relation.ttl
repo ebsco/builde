@@ -42,7 +42,7 @@
 # Updated: July 30, 2024
 # ------------------------------
 
-# BUILDE Relation Properties
+## Relationships between Works
 
 rel:absorbed a rdf:Property ;
     rdfs:label "absorbed"@en ;
@@ -110,6 +110,12 @@ rel:hasDerivative a rdf:Property ;
     rdfs:range lite:Resource ;
     rdfs:domain lite:Resource .
 
+rel:hasEdition a rdf:Property ;
+    rdfs:label "has edition"@en ;
+    rdfs:comment "Target resource is a particular version of a source resource that has been revised or created."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
 rel:hasExpression a rdf:Property ;
     rdfs:label "has expression"@en ;
     rdfs:comment "Resource has a related expression. For use to connect Works under FRBR/RDA rules."@en ;
@@ -146,15 +152,33 @@ rel:isDerivativeOf a rdf:Property ;
     rdfs:range lite:Resource ;
     rdfs:domain lite:Resource .
 
+rel:isEditionOf a rdf:Property ;
+    rdfs:label "is edition of"@en ;
+    rdfs:comment "Source resource is a particular version of a target resource that has been revised or created."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
 rel:isPartOf a rdf:Property ;
     rdfs:label "is part of"@en ;
     rdfs:comment "Relationship that connects things that are part of other things."@en ;
     rdfs:range lite:Resource ;
     rdfs:domain lite:Resource .
 
+rel:isTranslationOf a rdf:Property ;
+    rdfs:label "is translation of"@en ;
+    rdfs:comment "Work that has been translated, i.e., the text expressed in a language different from that of the original work."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
 rel:hasAdaptation a rdf:Property ;
     rdfs:label "has adaptation"@en ;
     rdfs:comment "Target resource is an adaptation of the source resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource .
+
+rel:hasTranslation a rdf:Property ;
+    rdfs:label "has translation"@en ;
+    rdfs:comment "Work that translates the text of the source entity into a language different from that of the original."@en ;
     rdfs:range lite:Resource ;
     rdfs:domain lite:Resource .
 
@@ -212,3 +236,96 @@ rel:unionOf a rdf:Property ;
     rdfs:domain lite:Resource ;
     rdfs:range lite:Resource .
 
+## Relationships derived from MARC relator terms
+
+rel:abridger a rdf:Property ;
+    rdfs:label "abridger"@en ;
+    rdfs:comment "Professional contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:actor a rdf:Property ;
+    rdfs:label "actor"@en ;
+    rdfs:comment "Performer contributing to an expression of a work by acting as a cast member or player in a musical or dramatic presentation, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:adapter a rdf:Property ;
+    rdfs:label "adapter"@en ;
+    rdfs:comment "Person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:addressee a rdf:Property ;
+    rdfs:label "addressee"@en ;
+    rdfs:comment "Person, family, or organization to whom the correspondence in a work is addressed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:analyst a rdf:Property ;
+    rdfs:label "analyst"@en ;
+    rdfs:comment "Person or organization that reviews, examines and interprets data or information in a specific area."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:animator a rdf:Property ;
+    rdfs:label "animator"@en ;
+    rdfs:comment "Person contributing to a moving image work or computer program by giving apparent movement to inanimate objects or drawings."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:annotator a rdf:Property ;
+    rdfs:label "annotator"@en ;
+    rdfs:comment "Person who makes manuscript annotations on an item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:appellant a rdf:Property ;
+    rdfs:label "appellant"@en ;
+    rdfs:comment "Person or organization who appeals a lower court's decision."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:appellee a rdf:Property ;
+    rdfs:label "appellee"@en ;
+    rdfs:comment "Person or organization against whom an appeal is taken."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:applicant a rdf:Property ;
+    rdfs:label "applicant"@en ;
+    rdfs:comment "Person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:appraiser a rdf:Property ;
+    rdfs:label "appraiser"@en ;
+    rdfs:comment "Professional who evaluates and determines the value of property, assets, or goods, often for purposes such as insurance, taxation, or sale."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:architect a rdf:Property ;
+    rdfs:label "architect"@en ;
+    rdfs:comment "Professional responsible for creating an architectural design, including a pictorial representation intended to show how a building, etc., will look when completed. Architects also oversees the construction of structures."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:arranger a rdf:Property ;
+    rdfs:label "arranger"@en ;
+    rdfs:comment "Professional contributing to a musical work by rewriting the composition for a medium of performance different from that for which the work was originally intended, or modifying the work for the same medium of performance, etc., such that the musical substance of the original composition remains essentially unchanged. For extensive modification that effectively results in the creation of a new musical work, see composer."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:arrangerOfMusic a rdf:Property ;
+    rdfs:label "arranger of music"@en ;
+    rdfs:comment "Professional musician who adapts and organizes musical compositions, modifying elements like instrumentation, harmony, or structure to suit a particular performance or style."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+rel:graphicTechnician a rdf:Property ;
+    rdfs:label "graphic technician"@en ;
+    rdfs:comment "Professional who operates and maintains graphic equipment, designs visual content, and ensures the quality of printed or digital media."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource .
+
+    ## Note to self: I stopped at artcopyist on 9/22/24
