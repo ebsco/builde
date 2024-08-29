@@ -425,6 +425,11 @@ scholar:DOI a rdfs:Class ;
     rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
     rdfs:subClassOf lite:Identifier .
 
+scholar:OpenAlexID a rdfs:Class ;
+    rdfs:label "Open Alex ID"@en ;
+    rdfs:comment "A persistent identifier used to uniquely identify various entities within the OpenAlex dataset, including scholarly works, authors, and institutions."@en ;
+    rdfs:subClassOf lite:Identifier .
+
 ## Scholar Properties for Person
 
 scholar:orcid a rdf:Property ;
