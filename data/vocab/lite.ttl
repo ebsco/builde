@@ -76,7 +76,7 @@ lite:Work a rdfs:Class ;
 lite:Concept a rdfs:Class ;
     rdfs:label "Concept"@en, "Concepto"@es ;
     rdfs:comment "Term describing the subject, aboutness, idea or notion of a resource."@en,
-                 "Término que describe el tema, aboutness, idea o concepto de un recurso."@en ;
+                 "Término que describe el tema, aboutness, idea o concepto de un recurso."@es ;
     rdfs:subClassOf skos:Concept .
 
 lite:Authority a rdfs:Class ;
