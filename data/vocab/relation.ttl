@@ -6,6 +6,8 @@
 @prefix schema: <http://schema.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix lcrel: <http://id.loc.gov/vocabulary/relators/> .
+@prefix lcroles: <http://id.loc.gov/entities/roles/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -45,10 +47,2638 @@ rel: a rdfs:Vocabulary ;
     dc:modified "2024-08-22"^^xsd:date ;
     owl:versionInfo "1.0" .
 
-# BUILDE Relation Properties
+## Relationships between Works
 
-lite:isPartOf a rdf:Property ;
+rel:absorbed a rdf:Property ;
+    rdfs:label "absorbed"@en ;
+    rdfs:comment "Work that has been incorporated into another Work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:absorbedBy a rdf:Property ;
+    rdfs:label "absorbed by"@en ;
+    rdfs:comment "Resource was absorbed by another resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:absorbedInPart a rdf:Property ;
+    rdfs:label "absorbed in part"@en ;
+    rdfs:comment "Work that has been partially incorporated into another work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:absorbedInPartBy a rdf:Property ;
+    rdfs:label "absorbed in part by"@en ;
+    rdfs:comment "Resource was partially absorbed by another resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:changedBackTo a rdf:Property ;
+    rdfs:label "changed back to"@en ;
+    rdfs:comment "Work that has been changed back into another work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:continueBy a rdf:Property ;
+    rdfs:label "continue by"@en ;
+    rdfs:comment "Work whose content continues an earlier work under a new title."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:continues a rdf:Property ;
+    rdfs:label "continues"@en ;
+    rdfs:comment "Work that is continued by the content of a later work under a new title."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:continuesInPart a rdf:Property ;
+    rdfs:label "continues in part"@en ;
+    rdfs:comment "Work that split into two or more separate works with new titles."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:continuedInPartBy a rdf:Property ;
+    rdfs:label "continued in part by"@en ;
+    rdfs:comment "Content of a previous resource is partially continued in a new resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasBasis a rdf:Property ;
+    rdfs:label "has basis"@en ;
+    rdfs:comment "Trarget resource is the basis of the source resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasDerivative a rdf:Property ;
+    rdfs:label "has derivative"@en ;
+    rdfs:comment "Target resource is a modification of the source resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasEdition a rdf:Property ;
+    rdfs:label "has edition"@en ;
+    rdfs:comment "Target resource is a particular version of a source resource that has been revised or created."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasExpression a rdf:Property ;
+    rdfs:label "has expression"@en ;
+    rdfs:comment "Resource has a related expression. For use to connect Works under FRBR/RDA rules."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasEquivalent a rdf:Property ;
+    rdfs:label "has equivalent"@en ;
+    rdfs:comment "Embodies the same as the resource being described."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasPart a rdf:Property ;
+    rdfs:label "has part"@en ;
+    rdfs:comment "Resource that is included either physically or logically contained in the described resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:isAdaptationOf a rdf:Property ;
+    rdfs:label "is adaptation of"@en ;
+    rdfs:comment "Source resource is an adaptation of the target resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:isBasedOn a rdf:Property ;
+    rdfs:label "is based on"@en ;
+    rdfs:comment "Source resource is based on the target resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    owl:sameAs schema:isBasedOn ;
+    rdfs:subPropertyOf lite:related .
+
+rel:isDerivativeOf a rdf:Property ;
+    rdfs:label "is derivative of"@en ;
+    rdfs:comment "Source resource is a modification of the target resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:isEditionOf a rdf:Property ;
+    rdfs:label "is edition of"@en ;
+    rdfs:comment "Source resource is a particular version of a target resource that has been revised or created."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:isPartOf a rdf:Property ;
     rdfs:label "is part of"@en ;
     rdfs:comment "Relationship that connects things that are part of other things."@en ;
     rdfs:range lite:Resource ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:isTranslationOf a rdf:Property ;
+    rdfs:label "is translation of"@en ;
+    rdfs:comment "Work that has been translated, i.e., the text expressed in a language different from that of the original work."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasAdaptation a rdf:Property ;
+    rdfs:label "has adaptation"@en ;
+    rdfs:comment "Target resource is an adaptation of the source resource."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:hasTranslation a rdf:Property ;
+    rdfs:label "has translation"@en ;
+    rdfs:comment "Work that translates the text of the source entity into a language different from that of the original."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:mergesWith a rdf:Property ;
+    rdfs:label "merges with"@en ;
+    rdfs:comment "Two or more resources combine to create a single resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:mergedWith a rdf:Property ;
+    rdfs:label "merged with"@en ;
+    rdfs:comment "One of two or more works that come together to form a new work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:separatedFrom a rdf:Property ;
+    rdfs:label "separated from"@en ;
+    rdfs:comment "Work that spun off a part of its content to form a new work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:splitInto a rdf:Property ;
+    rdfs:label "split into"@en ;
+    rdfs:comment "One of two or more works resulting from the division of an earlier work into separate works."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:supersedes a rdf:Property ;
+    rdfs:label "supersedes"@en ;
+    rdfs:comment "Earlier work whose content has been replaced by a later work, usually because the later work contains updated or new information."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:supersededBy a rdf:Property ;
+    rdfs:label "superseded by"@en ;
+    rdfs:comment "Later Work used in place of an earlier work, usually because the later work contains updated or new information."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:supersedesInPart a rdf:Property ;
+    rdfs:label "supersedes in part"@en ;
+    rdfs:comment "Earlier work whose content has been partially replaced by a later work, usually because the later work contains updated or new information."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:supersededInPartBy a rdf:Property ;
+    rdfs:label "superseded in part by"@en ;
+    rdfs:comment "Resource has been partially superseded by another resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+rel:unionOf a rdf:Property ;
+    rdfs:label "union of"@en ;
+    rdfs:comment "One of two or more works which came together to form a new work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:related .
+
+## Relationships derived from MARC relator terms
+
+rel:abridger a rdf:Property ;
+    rdfs:label "abridger"@en ;
+    rdfs:comment "Professional contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:abr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:actor a rdf:Property ;
+    rdfs:label "actor"@en ;
+    rdfs:comment "Performer contributing to an expression of a work by acting as a cast member or player in a musical or dramatic presentation, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:act ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:adapter a rdf:Property ;
+    rdfs:label "adapter"@en ;
+    rdfs:comment "Person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:adp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:addressee a rdf:Property ;
+    rdfs:label "addressee"@en ;
+    rdfs:comment "Person, family, or organization to whom the correspondence in a work is addressed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rcp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:analyst a rdf:Property ;
+    rdfs:label "analyst"@en ;
+    rdfs:comment "Person or organization that reviews, examines and interprets data or information in a specific area."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:anl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:animator a rdf:Property ;
+    rdfs:label "animator"@en ;
+    rdfs:comment "Person contributing to a moving image work or computer program by giving apparent movement to inanimate objects or drawings."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:anm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:annotator a rdf:Property ;
+    rdfs:label "annotator"@en ;
+    rdfs:comment "Person who makes manuscript annotations on an item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ann ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:appellant a rdf:Property ;
+    rdfs:label "appellant"@en ;
+    rdfs:comment "Person or organization who appeals a lower court's decision."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:apl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:appellee a rdf:Property ;
+    rdfs:label "appellee"@en ;
+    rdfs:comment "Person or organization against whom an appeal is taken."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ape ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:applicant a rdf:Property ;
+    rdfs:label "applicant"@en ;
+    rdfs:comment "Person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:app ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:appraiser a rdf:Property ;
+    rdfs:label "appraiser"@en ;
+    rdfs:comment "Professional who evaluates and determines the value of property, assets, or goods, often for purposes such as insurance, taxation, or sale."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:exp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:architect a rdf:Property ;
+    rdfs:label "architect"@en ;
+    rdfs:comment "Professional responsible for creating an architectural design, including a pictorial representation intended to show how a building, etc., will look when completed. Architects also oversees the construction of structures."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:arc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:arranger a rdf:Property ;
+    rdfs:label "arranger"@en ;
+    rdfs:comment "Professional contributing to a musical work by rewriting the composition for a medium of performance different from that for which the work was originally intended, or modifying the work for the same medium of performance, etc., such that the musical substance of the original composition remains essentially unchanged. For extensive modification that effectively results in the creation of a new musical work, see composer."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:arr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:arrangerOfMusic a rdf:Property ;
+    rdfs:label "arranger of music"@en ;
+    rdfs:comment "Professional musician who adapts and organizes musical compositions, modifying elements like instrumentation, harmony, or structure to suit a particular performance or style."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcroles:arrangerofmusic ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:artCopyist a rdf:Property ;
+    rdfs:label "art copyist"@en ;
+    rdfs:comment "Professional (e.g., a painter or sculptor) who makes copies of works of visual art."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:acp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:artDirector a rdf:Property ;
+    rdfs:label "art director"@en ;
+    rdfs:comment "Professional contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:adi ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:artist a rdf:Property ;
+    rdfs:label "artist"@en ;
+    rdfs:comment "Professional responsible for creating a work by conceiving, and implementing, an original graphic design, drawing, painting, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:art ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:artisticDirector a rdf:Property ;
+    rdfs:label "artistic director"@en ;
+    rdfs:comment "Professional responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ard ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:assignee a rdf:Property ;
+    rdfs:label "assignee"@en ;
+    rdfs:comment "Person or organization to whom a license for printing or publishing has been transferred."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:asg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:associatedName a rdf:Property ;
+    rdfs:label "associated name"@en ;
+    rdfs:comment "Person or organization associated with or found in an item or collection, which cannot be determined to be that of a former owner or other designated relationship indicative of provenance."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:asn ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:attributedName a rdf:Property ;
+    rdfs:label "attributed name"@en ;
+    rdfs:comment "An author, artist, etc., relating him/her to a resource for which there is or once was substantial authority for designating that person as author, creator, etc. of the work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:att ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:auctioneer a rdf:Property ;
+    rdfs:label "auctioneer"@en ;
+    rdfs:comment "Person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:auc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:author a rdf:Property ;
+    rdfs:label "author"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating a work that is primarily textual in content, regardless of media type (e.g., printed text, spoken word, electronic text, tactile text) or genre (e.g., poems, novels, screenplays, blogs). Use also for persons, etc., creating a new work by paraphrasing, rewriting, or adapting works by another creator such that the modification has substantially changed the nature and content of the original or changed the medium of expression."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:aut ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:authorInQuotationsOrTextAbstracts a rdf:Property ;
+    rdfs:label "author in quotations or text abstracts"@en ;
+    rdfs:comment "Person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:aqt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:authorOfAfterwordColophonEtc a rdf:Property ;
+    rdfs:label "author of afterword, colophon, etc."@en ;
+    rdfs:comment "Person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:aft ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:authorOfDialog a rdf:Property ;
+    rdfs:label "author of dialog"@en ;
+    rdfs:comment "Person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:aud ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:authorOfIntroductionEtc a rdf:Property ;
+    rdfs:label "author of introduction"@en ;
+    rdfs:comment "Person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:aui ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:authorOfScreenplayEtc a rdf:Property ;
+    rdfs:label "author of screenplay"@en ;
+    rdfs:comment "Person or organization responsible for writing a screenplay, script, or other narrative material for a performance or production."@en ; 
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:autographer a rdf:Property ;
+    rdfs:label "autographer"@en ;
+    rdfs:comment "Person whose manuscript signature appears on an item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ato ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bibliographicAntecedent a rdf:Property ;
+    rdfs:label "bibliographic antecedent"@en ;
+    rdfs:comment "Person or organization responsible for a resource upon which the resource represented by the bibliographic description is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ant ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:binder a rdf:Property ;
+    rdfs:label "binder"@en ;
+    rdfs:comment "Person who binds an item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:bnd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bindingDesigner a rdf:Property ;
+    rdfs:label "binding designer"@en ;
+    rdfs:comment "Person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:bdd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:blurbWriter a rdf:Property ;
+    rdfs:label "blurb writer"@en ;
+    rdfs:comment "Person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:blw ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bookDesigner a rdf:Property ;
+    rdfs:label "book designer"@en ;
+    rdfs:comment "Person or organization involved in manufacturing a manifestation by being responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:bkd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bookProducer a rdf:Property ;
+    rdfs:label "book producer"@en ;
+    rdfs:comment "Person or organization responsible for the production of books and other print media."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:bkp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bookJacketDesigner a rdf:Property ;
+    rdfs:label "bookjacket designer"@en ;
+    rdfs:comment "Person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:bjd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bookplateDesigner a rdf:Property ;
+    rdfs:label "bookplate designer"@en ;
+    rdfs:comment "Person or organization responsible for the design of a book owner's identification label that is most commonly pasted to the inside front cover of a book."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:bpd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bookseller a rdf:Property ;
+    rdfs:label "bookseller"@en ;
+    rdfs:comment "Person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:bsl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:bowdlerizer a rdf:Property ;
+    rdfs:label "bowdlerizer"@en ;
+    rdfs:comment "Person or organization responsible for removing or altering content deemed inappropriate or offensive from a work, particularly a text."@en ; 
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:brailleEmbosser a rdf:Property ;
+    rdfs:label "braille embosser"@en ;
+    rdfs:comment "Person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:brl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:broadcaster a rdf:Property ;
+    rdfs:label "broadcaster"@en ;
+    rdfs:comment "Person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:brd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:calligrapher a rdf:Property ;
+    rdfs:label "calligrapher"@en ;
+    rdfs:comment "Person or organization who writes in an artistic hand, usually as a copyist and or engrosser."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cll ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:cartographer a rdf:Property ;
+    rdfs:label "cartographer"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating a map, atlas, globe, or other cartographic work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ctg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:caster a rdf:Property ;
+    rdfs:label "caster"@en ;
+    rdfs:comment "Person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cas ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:censor a rdf:Property ;
+    rdfs:label "censor"@en ;
+    rdfs:comment "Person or organization who examines bibliographic resources for the purpose of suppressing parts deemed objectionable on moral, political, military, or other grounds."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cns ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:chiefElectrician a rdf:Property ;
+    rdfs:label "chief electrician"@en ;
+    rdfs:comment "Person responsible for overseeing the electrical work on a production, ensuring that lighting and electrical systems are properly installed and maintained."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:choreographer a rdf:Property ;
+    rdfs:label "choreographer"@en ;
+    rdfs:comment "Person responsible for creating or contributing to a work of movement."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:chr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:cinematographer a rdf:Property ;
+    rdfs:label "cinematographer"@en ;
+    rdfs:comment "Person in charge of photographing a motion picture, who plans the technical aspects of lighting and photographing of scenes, and often assists the director in the choice of angles, camera setups, and lighting moods. May also supervise the further processing of filmed material up to the completion of the work print. Cinematographer is also referred to as director of photography. Do not confuse with videographer."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cng ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:client a rdf:Property ;
+    rdfs:label "client"@en ;
+    rdfs:comment "Person or organization for whom another person or organization is acting."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cli ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:collaborator a rdf:Property ;
+    rdfs:label "collaborator"@en ;
+    rdfs:comment "Person or organization that works jointly on an activity or project."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:collectionRegistrar a rdf:Property ;
+    rdfs:label "collection registrar"@en ;
+    rdfs:comment "Curator who lists or inventories the items in an aggregate work such as a collection of items or works."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cor ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:collector a rdf:Property ;
+    rdfs:label "collector"@en ;
+    rdfs:comment "Curator who brings together items from various sources that are then arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:col ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:collotyper a rdf:Property ;
+    rdfs:label "collotyper"@en ;
+    rdfs:comment "Person, family, or organization involved in manufacturing a manifestation of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:clt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:colorist a rdf:Property ;
+    rdfs:label "colorist"@en ;
+    rdfs:comment "Person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:clr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:commentator a rdf:Property ;
+    rdfs:label "commentator"@en ;
+    rdfs:comment "Performer contributing to a work by providing interpretation, analysis, or a discussion of the subject matter on a recording, film, or other audiovisual medium."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cmm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:commentatorForWrittenText a rdf:Property ;
+    rdfs:label "commentator for written text"@en ;
+    rdfs:comment "Person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cwt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:compiler a rdf:Property ;
+    rdfs:label "compiler"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating a new work (e.g., a bibliography, a directory) through the act of compilation, e.g., selecting, arranging, aggregating, and editing data, information, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:com ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:complainant a rdf:Property ;
+    rdfs:label "complainant"@en ;
+    rdfs:comment "Person or organization who applies to the courts for redress, usually in an equity proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cpl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:complainantAppellant a rdf:Property ;
+    rdfs:label "complainant appellant"@en ;
+    rdfs:comment "Complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cpt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:complainantAppellee a rdf:Property ;
+    rdfs:label "complainant appellee"@en ;
+    rdfs:comment "Complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cpe ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:composer a rdf:Property ;
+    rdfs:label "composer"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating or contributing to a musical resource by adding music to a work that originally lacked it or supplements it."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cmp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:compositor a rdf:Property ;
+    rdfs:label "compositor"@en ;
+    rdfs:comment "Person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cmt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:conceptor a rdf:Property ;
+    rdfs:label "conceptor"@en ;
+    rdfs:comment "Person or organization responsible for the original idea on which a work is based, including the scientific author of an audiovisual item and the conceptor of an advertisement."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ccp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:conductor a rdf:Property ;
+    rdfs:label "conductor"@en ;
+    rdfs:comment "Performer contributing to a musical resource by leading a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cnd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:conservator a rdf:Property ;
+    rdfs:label "conservator"@en ;
+    rdfs:comment "Person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:con ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:consultant a rdf:Property ;
+    rdfs:label "consultant"@en ;
+    rdfs:comment "Person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:csl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:consultantToAProject a rdf:Property ;
+    rdfs:label "consultant to a project"@en ;
+    rdfs:comment "Person or organization relevant to a resource, engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:csp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contestant a rdf:Property ;
+    rdfs:label "contestant"@en ;
+    rdfs:comment "Person(s) or organization who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cos ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contestantAppellant a rdf:Property ;
+    rdfs:label "contestant-appellant"@en ;
+    rdfs:comment "Contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cot ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contestantAppellee a rdf:Property ;
+    rdfs:label "contestant-appellee"@en ;
+    rdfs:comment "Contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cpe ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contestee a rdf:Property ;
+    rdfs:label "contestee"@en ;
+    rdfs:comment "Person(s) or organization defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cts ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contesteeAppellant a rdf:Property ;
+    rdfs:label "contestee appellant"@en ;
+    rdfs:comment "Contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ctt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contesteeAppellee a rdf:Property ;
+    rdfs:label "contestee appellee"@en ;
+    rdfs:comment "Contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cte ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contractor a rdf:Property ;
+    rdfs:label "contractor"@en ;
+    rdfs:comment "Person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ctr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:copier a rdf:Property ;
+    rdfs:label "copier"@en ;
+    rdfs:comment "Person or organization responsible for copying content, typically in a manual or mechanical manner."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:copyrightClaimant a rdf:Property ;
+    rdfs:label "copyright claimant"@en ;
+    rdfs:comment "Person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cpc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:copyrightHolder a rdf:Property ;
+    rdfs:label "copyright holder"@en ;
+    rdfs:comment "Person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cph ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:corrector a rdf:Property ;
+    rdfs:label "corrector"@en ;
+    rdfs:comment "Person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:crr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:correspondent a rdf:Property ;
+    rdfs:label "correspondent"@en ;
+    rdfs:comment "Person or organization who was either the writer or recipient of a letter or other communication."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:crp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:costumeDesigner a rdf:Property ;
+    rdfs:label "costume designer"@en ;
+    rdfs:comment "Person, family, or organization that designs the costumes for a moving image production or for a musical or dramatic presentation or entertainment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cst ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:counterfeiter a rdf:Property ;
+    rdfs:label "counterfeiter"@en ;
+    rdfs:comment "Person or organization responsible for creating unauthorized copies or imitations of something, typically with the intent to deceive."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:courtGoverned a rdf:Property ;
+    rdfs:label "court governed"@en ;
+    rdfs:comment "Court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cou ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:courtReporter a rdf:Property ;
+    rdfs:label "court reporter"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by preparing a court's opinions for publication."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:crt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:coverDesigner a rdf:Property ;
+    rdfs:label "cover designer"@en ;
+    rdfs:comment "Person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cov ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:contributor a rdf:Property ;
+    rdfs:label "contributor"@en ;
+    rdfs:comment "Person, family or organization responsible for making contributions to the resource. This includes those whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. If a more specific role is available, prefer that, e.g. editor, compiler, illustrator."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ctb ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:creator a rdf:Property ;
+    rdfs:label "creator"@en ;
+    rdfs:comment "Person or organization responsible for the intellectual or artistic content of a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cre ;
+    rdfs:subPropertyOf lite:creator .
+
+rel:curator a rdf:Property ;
+    rdfs:label "curator"@en ;
+    rdfs:comment "Person, family, or organization conceiving, aggregating, and/or organizing an exhibition, collection, or other item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:cur ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:curatorOfAnExhibition a rdf:Property ;
+    rdfs:label "curator of an exhibition"@en ;
+    rdfs:comment "Person, family, or organization responsible for organizing and overseeing an exhibition."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:currentOwner a rdf:Property ;
+    rdfs:label "current owner"@en ;
+    rdfs:comment "Person or organization currently in possession of an item or resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dancer a rdf:Property ;
+    rdfs:label "dancer"@en ;
+    rdfs:comment "Performer who dances in a musical, dramatic, etc., presentation."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dnc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dataContributor a rdf:Property ;
+    rdfs:label "data contributor"@en ;
+    rdfs:comment "Person or organization that submits data for inclusion in a database or other collection of data."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dtc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dataManager a rdf:Property ;
+    rdfs:label "data manager"@en ;
+    rdfs:comment "Person or organization responsible for managing databases or other data sources."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dtm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dedicatee a rdf:Property ;
+    rdfs:label "dedicatee"@en ;
+    rdfs:comment "Person, family, or organization to whom a resource is dedicated."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dte ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dedicateeOfItem a rdf:Property ;
+    rdfs:label "dedicatee of item"@en ;
+    rdfs:comment "Person, family, or organization to whom a specific item or resource is dedicated."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dedicator a rdf:Property ;
+    rdfs:label "dedicator"@en ;
+    rdfs:comment "Person who writes a dedication, which may be a formal statement or in epistolary or verse form."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dto ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:defendant a rdf:Property ;
+    rdfs:label "defendant"@en ;
+    rdfs:comment "Person or organization who is accused in a criminal proceeding or sued in a civil proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dfd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:defendantAppellant a rdf:Property ;
+    rdfs:label "defendant-appellant"@en ;
+    rdfs:comment "Defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dft ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:defendantAppellee a rdf:Property ;
+    rdfs:label "defendant-appellee"@en ;
+    rdfs:comment "Defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dfe ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:degreeGrantingInstitution a rdf:Property ;
+    rdfs:label "degree granting institution"@en ;
+    rdfs:comment "Organization granting an academic degree."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dgg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:degreeGrantor a rdf:Property ;
+    rdfs:label "degree grantor"@en ;
+    rdfs:comment "Person or organization responsible for conferring an academic degree."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:degreeSupervisor a rdf:Property ;
+    rdfs:label "degree supervisor"@en ;
+    rdfs:comment "Person overseeing a higher-level academic degree."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dgs ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:delineator a rdf:Property ;
+    rdfs:label "delineator"@en ;
+    rdfs:comment "Person or organization executing technical drawings from others' designs."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dln ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:depicted a rdf:Property ;
+    rdfs:label "depicted"@en ;
+    rdfs:comment "Entity depicted or portrayed in a work, particularly in a work of art."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dpc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:deponent a rdf:Property ;
+    rdfs:label "deponent"@en ;
+    rdfs:comment "Person or organization who gives sworn evidence or testimony."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:depositor a rdf:Property ;
+    rdfs:label "depositor"@en ;
+    rdfs:comment "Current owner of an item who deposited the item into the custody of another person, family, or organization, while still retaining ownership."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dpt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:designer a rdf:Property ;
+    rdfs:label "designer"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating a design for an object."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dsr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:designerOfBinding a rdf:Property ;
+    rdfs:label "designer of binding"@en ;
+    rdfs:comment "Person, family, or organization responsible for the design of a book's binding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:designerOfBook a rdf:Property ;
+    rdfs:label "designer of book"@en ;
+    rdfs:comment "Person, family, or organization responsible for the overall design of a book."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:designerOfBookJacket a rdf:Property ;
+    rdfs:label "designer of bookjacket"@en ;
+    rdfs:comment "Person, family, or organization responsible for the design of a book's jacket."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:designerOfCover a rdf:Property ;
+    rdfs:label "designer of cover"@en ;
+    rdfs:comment "Person, family, or organization responsible for the design of a book's cover."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:designerOfEBook a rdf:Property ;
+    rdfs:label "designer of e-book"@en ;
+    rdfs:comment "Person, family, or organization responsible for the design of an e-book."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:designerOfType a rdf:Property ;
+    rdfs:label "designer of type"@en ;
+    rdfs:comment "Person, family, or organization responsible for the design of typography or fonts used in a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:director a rdf:Property ;
+    rdfs:label "director"@en ;
+    rdfs:comment "Person responsible for the general management and supervision of a filmed performance, a radio or television program, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:drt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:directorOfPhotography a rdf:Property ;
+    rdfs:label "director of photography"@en ;
+    rdfs:comment "Person responsible for overseeing the cinematography of a film, including lighting, camera angles, and shot composition."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dissertant a rdf:Property ;
+    rdfs:label "dissertant"@en ;
+    rdfs:comment "Person who presents a thesis for a university or higher-level educational degree."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dis ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:distributionPlace a rdf:Property ;
+    rdfs:label "distribution place"@en ;
+    rdfs:comment "Place from which a resource, e.g., a serial, is distributed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dbp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:distributor a rdf:Property ;
+    rdfs:label "distributor"@en ;
+    rdfs:comment "Person or organization that has exclusive or shared marketing rights for a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dst ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:donor a rdf:Property ;
+    rdfs:label "donor"@en ;
+    rdfs:comment "Former owner of an item who donated that item to another owner."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dnr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:draftsman a rdf:Property ;
+    rdfs:label "draftsman"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by an architect, inventor, etc., by making detailed plans or drawings for buildings, ships, aircraft, machines, objects, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:drm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:dubiousAuthor a rdf:Property ;
+    rdfs:label "dubious author"@en ;
+    rdfs:comment "Person or organization to which authorship has been dubiously or incorrectly ascribed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:dub ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:editor a rdf:Property ;
+    rdfs:label "editor"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by revising or elucidating the content, e.g., adding an introduction, notes, or other critical matter. An editor may also prepare a resource for production, publication, or distribution. For major revisions, adaptations, etc., that substantially change the nature and content of the original work, resulting in a new work, see author."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:edt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:editorOfCompilation a rdf:Property ;
+    rdfs:label "editor of compilation"@en ;
+    rdfs:comment "Person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:edc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:editorOfMovingImageWork a rdf:Property ;
+    rdfs:label "editor of moving image work"@en ;
+    rdfs:comment "Person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:edm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:electrician a rdf:Property ;
+    rdfs:label "electrician"@en ;
+    rdfs:comment "Person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:elg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:electrotyper a rdf:Property ;
+    rdfs:label "electrotyper"@en ;
+    rdfs:comment "Person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:elt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:enactingJurisdiction a rdf:Property ;
+    rdfs:label "enacting jurisdiction"@en ;
+    rdfs:comment "Jurisdiction enacting a law, regulation, constitution, court rule, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:enj ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:encoder a rdf:Property ;
+    rdfs:label "encoder"@en ;
+    rdfs:comment "Person or organization responsible for converting information into a coded format."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:engineer a rdf:Property ;
+    rdfs:label "engineer"@en ;
+    rdfs:comment "Person or organization that is responsible for technical planning and design, particularly with construction."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:eng ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:engraver a rdf:Property ;
+    rdfs:label "engraver"@en ;
+    rdfs:comment "Person or organization who cuts letters, figures, etc., on a surface, such as a wooden or metal plate used for printing."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:egr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:etcher a rdf:Property ;
+    rdfs:label "etcher"@en ;
+    rdfs:comment "Person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:etr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:eventPlace a rdf:Property ;
+    rdfs:label "event place"@en ;
+    rdfs:comment "Place where an event such as a conference or a concert took place."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:evp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:expert a rdf:Property ;
+    rdfs:label "expert"@en ;
+    rdfs:comment "Person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:exp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:expurgator a rdf:Property ;
+    rdfs:label "expurgator"@en ;
+    rdfs:comment "Person or organization responsible for removing or altering parts of a work deemed offensive or inappropriate."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:eyewitness a rdf:Property ;
+    rdfs:label "eyewitness"@en ;
+    rdfs:comment "Person who has directly seen or experienced an event and can give a firsthand account of it."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:facsimilist a rdf:Property ;
+    rdfs:label "facsimilist"@en ;
+    rdfs:comment "Person or organization that executed the facsimile."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fac ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:fieldDirector a rdf:Property ;
+    rdfs:label "field director"@en ;
+    rdfs:comment "Person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fld ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:filmDirector a rdf:Property ;
+    rdfs:label "film director"@en ;
+    rdfs:comment "Director responsible for the general management and supervision of a filmed performance."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fmd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:filmDistributor a rdf:Property ;
+    rdfs:label "film distributor"@en ;
+    rdfs:comment "Person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fds ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:filmEditor a rdf:Property ;
+    rdfs:label "film editor"@en ;
+    rdfs:comment "Person who, following the script and in creative cooperation with the director, selects, arranges, and assembles the filmed material, controls the synchronization of picture and sound, and participates in other post-production tasks such as sound mixing and visual effects processing. Today, picture editing is often performed digitally."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:flm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:filmProducer a rdf:Property ;
+    rdfs:label "film producer"@en ;
+    rdfs:comment "Producer responsible for most of the business aspects of a film."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fmp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:filmmaker a rdf:Property ;
+    rdfs:label "filmmaker"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fmk ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:firstParty a rdf:Property ;
+    rdfs:label "first party"@en ;
+    rdfs:comment "Person or organization who is identified as the only party or the party of the first party. In the case of transfer of rights, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fpy ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:forger a rdf:Property ;
+    rdfs:label "forger"@en ;
+    rdfs:comment "Person or organization who makes or imitates something of value or importance, especially with the intent to defraud."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:frg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:formerOwner a rdf:Property ;
+    rdfs:label "former owner"@en ;
+    rdfs:comment "Person, family, or organization formerly having legal possession of an item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fmo ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:funder a rdf:Property ;
+    rdfs:label "funder"@en ;
+    rdfs:comment "Person or organization that furnished financial support for the production of the work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:fnd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:geographicInformationSpecialist a rdf:Property ;
+    rdfs:label "geographic information specialist"@en ;
+    rdfs:comment "Person responsible for geographic information system (GIS) development and integration with global positioning system data."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:gis ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:geospatialInformationSpecialist a rdf:Property ;
+    rdfs:label "geospatial information specialist"@en ;
+    rdfs:comment "Person responsible for developing and managing geospatial information systems, including data integration with global positioning system (GPS) data."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:graphicTechnician a rdf:Property ;
+    rdfs:label "graphic technician"@en ;
+    rdfs:comment "Professional who operates and maintains graphic equipment, designs visual content, and ensures the quality of printed or digital media."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:honoree a rdf:Property ;
+    rdfs:label "honoree"@en ;
+    rdfs:comment "Person, family, or organization honored by a work or item (e.g., the honoree of a festschrift, a person to whom a copy is presented)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:hnr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:honouree a rdf:Property ;
+    rdfs:label "honouree"@en ;
+    rdfs:comment "Person, family, or organization honored by a work or item, particularly in British English."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:honoureeOfItem a rdf:Property ;
+    rdfs:label "honouree of item"@en ;
+    rdfs:comment "Person, family, or organization specifically honored by a particular item or resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:host a rdf:Property ;
+    rdfs:label "host"@en ;
+    rdfs:comment "Performer contributing to a resource by leading a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:hst ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:hostInstitution a rdf:Property ;
+    rdfs:label "host institution"@en ;
+    rdfs:comment "Organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:his ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:hostSupporting a rdf:Property ;
+    rdfs:label "supporting host"@en ;
+    rdfs:comment "Person or organization supporting the host in a program or event."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:hostHouseElectrician a rdf:Property ;
+    rdfs:label "house electrician"@en ;
+    rdfs:comment "Person responsible for managing and maintaining the electrical systems within a specific venue or house."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:illuminator a rdf:Property ;
+    rdfs:label "illuminator"@en ;
+    rdfs:comment "Person providing decoration to a specific item using precious metals or color, often with elaborate designs and motifs."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ilu ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:illustrator a rdf:Property ;
+    rdfs:label "illustrator"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by supplementing the primary content with drawings, diagrams, photographs, etc. If the work is primarily the artistic content created by this entity, use artist or photographer."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ill ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:imprimatur a rdf:Property ;
+    rdfs:label "imprimatur"@en ;
+    rdfs:comment "Official approval for printing or publication, often associated with religious works."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:inscriber a rdf:Property ;
+    rdfs:label "inscriber"@en ;
+    rdfs:comment "Person who has written a statement of dedication or gift."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ins ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:instructor a rdf:Property ;
+    rdfs:label "instructor"@en ;
+    rdfs:comment "Person responsible for teaching or providing instruction, typically in an educational context."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:instrumentalist a rdf:Property ;
+    rdfs:label "instrumentalist"@en ;
+    rdfs:comment "Performer contributing to a resource by playing a musical instrument."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:itr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:interviewee a rdf:Property ;
+    rdfs:label "interviewee"@en ;
+    rdfs:comment "Person, family or organization responsible for creating or contributing to a resource by responding to an interviewer, usually a reporter, pollster, or some other information gathering agent."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ive ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:interviewer a rdf:Property ;
+    rdfs:label "interviewer"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating or contributing to a resource by acting as an interviewer, reporter, pollster, or some other information gathering agent."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ivr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:inventor a rdf:Property ;
+    rdfs:label "inventor"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating a new device or process."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:inv ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:issuingBody a rdf:Property ;
+    rdfs:label "issuing body"@en ;
+    rdfs:comment "Person, family or organization issuing a work, such as an official organ of the body."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:isb ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:jointAuthor a rdf:Property ;
+    rdfs:label "joint author"@en ;
+    rdfs:comment "Person, family, or organization who shares responsibility with another author for creating a work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:judge a rdf:Property ;
+    rdfs:label "judge"@en ;
+    rdfs:comment "Person who hears and decides on legal matters in court."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:jud ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:jurisdictionGoverned a rdf:Property ;
+    rdfs:label "jurisdiction governed"@en ;
+    rdfs:comment "Jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:jug ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:labDirector a rdf:Property ;
+    rdfs:label "lab director"@en ;
+    rdfs:comment "Person responsible for overseeing the operations of a laboratory."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:laboratory a rdf:Property ;
+    rdfs:label "laboratory"@en ;
+    rdfs:comment "Organization that provides scientific analyses of material samples."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lbr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:laboratoryDirector a rdf:Property ;
+    rdfs:label "laboratory director"@en ;
+    rdfs:comment "Person or organization that manages or supervises work done in a controlled setting or environment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ldr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:landscapeArchitect a rdf:Property ;
+    rdfs:label "landscape architect"@en ;
+    rdfs:comment "Architect responsible for creating landscape works. This work involves coordinating the arrangement of existing and proposed land features and structures."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lsa ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:lead a rdf:Property ;
+    rdfs:label "lead"@en ;
+    rdfs:comment "Person or organization that takes primary responsibility for a particular activity or endeavor. May be combined with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:led ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:lender a rdf:Property ;
+    rdfs:label "lender"@en ;
+    rdfs:comment "Person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:len ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:libelant a rdf:Property ;
+    rdfs:label "libelant"@en ;
+    rdfs:comment "Person or organization who files a libel in an ecclesiastical or admiralty case."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lil ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:libelantAppellant a rdf:Property ;
+    rdfs:label "libelant appellant"@en ;
+    rdfs:comment "Libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lit ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:libelantAppellee a rdf:Property ;
+    rdfs:label "libelant appellee"@en ;
+    rdfs:comment "Libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lie ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:libelee a rdf:Property ;
+    rdfs:label "libelee"@en ;
+    rdfs:comment "Person or organization against whom a libel has been filed in an ecclesiastical court or admiralty."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lel ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:libeleeAppellant a rdf:Property ;
+    rdfs:label "libelee appellant"@en ;
+    rdfs:comment "Libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:let ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:libeleeAppellee a rdf:Property ;
+    rdfs:label "libelee appellee"@en ;
+    rdfs:comment "Libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lee ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:librettist a rdf:Property ;
+    rdfs:label "librettist"@en ;
+    rdfs:comment "Author of a libretto of an opera or other stage work, or an oratorio."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lbt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:licensee a rdf:Property ;
+    rdfs:label "licensee"@en ;
+    rdfs:comment "Person or organization who is an original recipient of the right to print or publish."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lse ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:licensor a rdf:Property ;
+    rdfs:label "licensor"@en ;
+    rdfs:comment "Person or organization who is a signer of the license, imprimatur, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lso ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:lightingDesigner a rdf:Property ;
+    rdfs:label "lighting designer"@en ;
+    rdfs:comment "Person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lgd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:lithographer a rdf:Property ;
+    rdfs:label "lithographer"@en ;
+    rdfs:comment "Person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ltg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:lyricist a rdf:Property ;
+    rdfs:label "lyricist"@en ;
+    rdfs:comment "Author of the words of a non-dramatic musical work (e.g. the text of a song), except for oratorios."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:lyr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:manufacturePlace a rdf:Property ;
+    rdfs:label "manufacture place"@en ;
+    rdfs:comment "Place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mfp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:manufacturer a rdf:Property ;
+    rdfs:label "manufacturer"@en ;
+    rdfs:comment "Person or organization responsible for printing, duplicating, casting, etc., a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mfr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:marbler a rdf:Property ;
+    rdfs:label "marbler"@en ;
+    rdfs:comment "Entity responsible for marbling paper, cloth, leather, etc., used in the construction of a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mrb ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:markupEditor a rdf:Property ;
+    rdfs:label "markup editor"@en ;
+    rdfs:comment "Person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mrk ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:masterElectrician a rdf:Property ;
+    rdfs:label "master electrician"@en ;
+    rdfs:comment "Person responsible for overseeing electrical work, ensuring safety and compliance in various settings."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:medium a rdf:Property ;
+    rdfs:label "medium"@en ;
+    rdfs:comment "Person held to be a channel of communication between the earthly world and a spiritual world."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:med ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:metadataContact a rdf:Property ;
+    rdfs:label "metadata contact"@en ;
+    rdfs:comment "Person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mdc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:metalEngraver a rdf:Property ;
+    rdfs:label "metal-engraver"@en ;
+    rdfs:comment "Engraver responsible for decorations, illustrations, letters, etc., cut on a metal surface for printing or decoration."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mte ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:minuteTaker a rdf:Property ;
+    rdfs:label "minute taker"@en ;
+    rdfs:comment "Person, family, or organization responsible for recording the minutes of a meeting."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mtk ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:moderator a rdf:Property ;
+    rdfs:label "moderator"@en ;
+    rdfs:comment "Performer contributing to a resource by leading a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mod ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:monitor a rdf:Property ;
+    rdfs:label "monitor"@en ;
+    rdfs:comment "Person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mon ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:motionPictureEditor a rdf:Property ;
+    rdfs:label "motion picture editor"@en ;
+    rdfs:comment "Person responsible for assembling, arranging, and trimming film or video to create a coherent final product."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:movingImageWorkEditor a rdf:Property ;
+    rdfs:label "moving image work editor"@en ;
+    rdfs:comment "Person responsible for editing and arranging moving images to form a coherent visual narrative."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:musicCopyist a rdf:Property ;
+    rdfs:label "music copyist"@en ;
+    rdfs:comment "Person who transcribes or copies musical notation."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mcp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:musicalDirector a rdf:Property ;
+    rdfs:label "musical director"@en ;
+    rdfs:comment "Person who coordinates the activities of the composer, the sound editor, and sound mixers for a moving image production or for a musical or dramatic presentation or entertainment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:msd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:musician a rdf:Property ;
+    rdfs:label "musician"@en ;
+    rdfs:comment "Person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:mus ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:narrator a rdf:Property ;
+    rdfs:label "narrator"@en ;
+    rdfs:comment "Performer contributing to a resource by reading or speaking in order to give an account of an act, occurrence, course of events, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:nrt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:observer a rdf:Property ;
+    rdfs:label "observer"@en ;
+    rdfs:comment "Person or organization who observes and records an event, typically without participating directly."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:onlooker a rdf:Property ;
+    rdfs:label "onlooker"@en ;
+    rdfs:comment "Person who watches an event or scene without participating."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:onscreenPresenter a rdf:Property ;
+    rdfs:label "onscreen presenter"@en ;
+    rdfs:comment "Performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., narrator, host) is either not applicable or not desired."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:osp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:opponent a rdf:Property ;
+    rdfs:label "opponent"@en ;
+    rdfs:comment "Person or organization responsible for opposing a thesis or dissertation."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:opn ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:organizer a rdf:Property ;
+    rdfs:label "organizer"@en ;
+    rdfs:comment "Person, family, or organization organizing the exhibit, event, conference, etc., which gave rise to a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:orm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:organizerOfMeeting a rdf:Property ;
+    rdfs:label "organizer of meeting"@en ;
+    rdfs:comment "Person, family, or organization responsible for organizing a meeting or gathering."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:originator a rdf:Property ;
+    rdfs:label "originator"@en ;
+    rdfs:comment "Person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:org ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:other a rdf:Property ;
+    rdfs:label "other"@en ;
+    rdfs:comment "Role that has no equivalent in the MARC list."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:oth ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:owner a rdf:Property ;
+    rdfs:label "owner"@en ;
+    rdfs:comment "Person, family, or organization that currently owns an item or collection, i.e., has legal possession of a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:own ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:panelist a rdf:Property ;
+    rdfs:label "panelist"@en ;
+    rdfs:comment "Performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pan ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:papermaker a rdf:Property ;
+    rdfs:label "papermaker"@en ;
+    rdfs:comment "Person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ppm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:patentApplicant a rdf:Property ;
+    rdfs:label "patent applicant"@en ;
+    rdfs:comment "Person or organization that applied for a patent."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pta ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:patentHolder a rdf:Property ;
+    rdfs:label "patent holder"@en ;
+    rdfs:comment "Person or organization that was granted the patent referred to by the item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pth ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:patentInventor a rdf:Property ;
+    rdfs:label "patent inventor"@en ;
+    rdfs:comment "Person or organization responsible for creating a new invention for which a patent application is filed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:patentee a rdf:Property ;
+    rdfs:label "patentee"@en ;
+    rdfs:comment "Person or organization to whom a patent has been granted."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:patron a rdf:Property ;
+    rdfs:label "patron"@en ;
+    rdfs:comment "Person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pat ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:performer a rdf:Property ;
+    rdfs:label "performer"@en ;
+    rdfs:comment "Person contributing to a resource by performing music, acting, dancing, speaking, etc., often in a musical or dramatic presentation, etc. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:prf ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:performerOfResearch a rdf:Property ;
+    rdfs:label "performer of research"@en ;
+    rdfs:comment "Person or organization responsible for carrying out research activities related to a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:permittingAgency a rdf:Property ;
+    rdfs:label "permitting agency"@en ;
+    rdfs:comment "Organization (usually a government agency) that issues permits under which work is accomplished."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pma ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:photographer a rdf:Property ;
+    rdfs:label "photographer"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating a photographic work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pht ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:plaintiff a rdf:Property ;
+    rdfs:label "plaintiff"@en ;
+    rdfs:comment "Person or organization who brings a suit in a civil proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ptf ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:plaintiffAppellant a rdf:Property ;
+    rdfs:label "plaintiff appellant"@en ;
+    rdfs:comment "Plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:
+
+rel:productionCompany a rdf:Property ;
+    rdfs:label "production company"@en ;
+    rdfs:comment "Organization responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:prn ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:productionDesigner a rdf:Property ;
+    rdfs:label "production designer"@en ;
+    rdfs:comment "Person or organization responsible for designing the overall visual appearance of a moving image production."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:prs ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:productionManager a rdf:Property ;
+    rdfs:label "production manager"@en ;
+    rdfs:comment "Person responsible for all technical and business matters in a production."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pmn ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:productionPersonnel a rdf:Property ;
+    rdfs:label "production personnel"@en ;
+    rdfs:comment "Person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:prd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:productionPlace a rdf:Property ;
+    rdfs:label "production place"@en ;
+    rdfs:comment "Place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:prp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:programmer a rdf:Property ;
+    rdfs:label "programmer"@en ;
+    rdfs:comment "Person, family, or organization responsible for creating a computer program."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:prg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:projectDirector a rdf:Property ;
+    rdfs:label "project director"@en ;
+    rdfs:comment "Person or organization with primary responsibility for all essential aspects of a project, has overall responsibility for managing projects, or provides overall direction to a project manager."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pdr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:promoter a rdf:Property ;
+    rdfs:label "promoter"@en ;
+    rdfs:comment "Person or organization responsible for publicizing or supporting a project, event, or production."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:proofreader a rdf:Property ;
+    rdfs:label "proofreader"@en ;
+    rdfs:comment "Person who corrects printed matter. For manuscripts, use Corrector [crr]."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pfr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:provider a rdf:Property ;
+    rdfs:label "provider"@en ;
+    rdfs:comment "Person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl])."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:prv ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:publicationPlace a rdf:Property ;
+    rdfs:label "publication place"@en ;
+    rdfs:comment "Place where a resource is published."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pup ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:publisher a rdf:Property ;
+    rdfs:label "publisher"@en ;
+    rdfs:comment "Person or organization responsible for publishing, releasing, or issuing a resource."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pbl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:publishingDirector a rdf:Property ;
+    rdfs:label "publishing director"@en ;
+    rdfs:comment "Person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:pbd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:puppeteer a rdf:Property ;
+    rdfs:label "puppeteer"@en ;
+    rdfs:comment "Performer contributing to a resource by manipulating, controlling, or directing puppets or marionettes in a moving image production or a musical or dramatic presentation or entertainment."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ppt ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:radioDirector a rdf:Property ;
+    rdfs:label "radio director"@en ;
+    rdfs:comment "Director responsible for the general management and supervision of a radio program."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rdd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:radioProducer a rdf:Property ;
+    rdfs:label "radio producer"@en ;
+    rdfs:comment "Producer responsible for most of the business aspects of a radio program."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rpc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:recipient a rdf:Property ;
+    rdfs:label "recipient"@en ;
+    rdfs:comment "Person or organization receiving a resource or item, particularly in the context of a dedication, gift, or transfer of ownership."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:recordingEngineer a rdf:Property ;
+    rdfs:label "recording engineer"@en ;
+    rdfs:comment "Person contributing to a resource by supervising the technical aspects of a sound or video recording session."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rce ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:recordist a rdf:Property ;
+    rdfs:label "recordist"@en ;
+    rdfs:comment "Person or organization who uses a recording device to capture sounds and/or video during a recording session, including field recordings of natural sounds, folkloric events, music, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rcd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:redaktor a rdf:Property ;
+    rdfs:label "redaktor"@en ;
+    rdfs:comment "Person or organization who writes or develops the framework for an item without being intellectually responsible for its content."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:red ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:renderer a rdf:Property ;
+    rdfs:label "renderer"@en ;
+    rdfs:comment "Person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ren ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:reporter a rdf:Property ;
+    rdfs:label "reporter"@en ;
+    rdfs:comment "Person or organization who writes or presents reports of news or current events on air or in print."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rpt ;
+    rdfs:subPropertyOf lite:contributor
+
+rel:researchTeamMember a rdf:Property ;
+    rdfs:label "research team member"@en ;
+    rdfs:comment "Person who participated in a research project but whose role did not involve direction or management of it."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rtm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:researcher a rdf:Property ;
+    rdfs:label "researcher"@en ;
+    rdfs:comment "Person or organization responsible for performing research."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:res ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:respondent a rdf:Property ;
+    rdfs:label "respondent"@en ;
+    rdfs:comment "Person or organization who makes an answer to the courts pursuant to an application for redress (usually in an equity proceeding) or a candidate for a degree who defends or opposes a thesis provided by the praeses in an academic disputation."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rsp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:respondentAppellant a rdf:Property ;
+    rdfs:label "respondent-appellant"@en ;
+    rdfs:comment "Respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rst ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:respondentAppellee a rdf:Property ;
+    rdfs:label "respondent-appellee"@en ;
+    rdfs:comment "Respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rse ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:responsibleParty a rdf:Property ;
+    rdfs:label "responsible party"@en ;
+    rdfs:comment "Person or organization legally responsible for the content of the published material."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rpy ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:restager a rdf:Property ;
+    rdfs:label "restager"@en ;
+    rdfs:comment "Person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rsg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:restorationist a rdf:Property ;
+    rdfs:label "restorationist"@en ;
+    rdfs:comment "Person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rsr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:reviewer a rdf:Property ;
+    rdfs:label "reviewer"@en ;
+    rdfs:comment "Person or organization responsible for the review of a book, motion picture, performance, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rev ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:rubricator a rdf:Property ;
+    rdfs:label "rubricator"@en ;
+    rdfs:comment "Person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:rbr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:scenarist a rdf:Property ;
+    rdfs:label "scenarist"@en ;
+    rdfs:comment "Person or organization who is the author of a motion picture screenplay, generally the person who wrote the scenarios for a motion picture during the silent era."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sce ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:scientificAdvisor a rdf:Property ;
+    rdfs:label "scientific advisor"@en ;
+    rdfs:comment "Person or organization who brings scientific, pedagogical, or historical competence to the conception and realization of a work, particularly in the case of audio-visual items."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sad ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:screenwriter a rdf:Property ;
+    rdfs:label "screenwriter"@en ;
+    rdfs:comment "Author of a screenplay, script, or scene."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:aus ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:scribe a rdf:Property ;
+    rdfs:label "scribe"@en ;
+    rdfs:comment "Person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac]."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:scr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:sculptor a rdf:Property ;
+    rdfs:label "sculptor"@en ;
+    rdfs:comment "Artist responsible for creating a three-dimensional work by modeling, carving, or similar technique."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:scl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:secondParty a rdf:Property ;
+    rdfs:label "second party"@en ;
+    rdfs:comment "Person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:spy ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:secretary a rdf:Property ;
+    rdfs:label "secretary"@en ;
+    rdfs:comment "Person or organization who is a recorder, redactor, or other person responsible for expressing the views of an organization."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sec ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:seller a rdf:Property ;
+    rdfs:label "seller"@en ;
+    rdfs:comment "Former owner of an item who sold that item to another owner."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sll ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:setDesigner a rdf:Property ;
+    rdfs:label "set designer"@en ;
+    rdfs:comment "Person who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:std ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:setting a rdf:Property ;
+    rdfs:label "setting"@en ;
+    rdfs:comment "Entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:stg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:signer a rdf:Property ;
+    rdfs:label "signer"@en ;
+    rdfs:comment "Person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins]."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sgn ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:singer a rdf:Property ;
+    rdfs:label "singer"@en ;
+    rdfs:comment "Performer contributing to a resource by using their voice, with or without instrumental accompaniment, to produce music. A singer's performance may or may not include actual words."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sng ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:soundDesigner a rdf:Property ;
+    rdfs:label "sound designer"@en ;
+    rdfs:comment "Person who produces and reproduces the sound score (both live and recorded), installs microphones, sets sound levels, and coordinates sources of sound for a production."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sds ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:speaker a rdf:Property ;
+    rdfs:label "speaker"@en ;
+    rdfs:comment "Performer contributing to a resource by speaking words, such as in a lecture, speech, etc."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:spk ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:sponsor a rdf:Property ;
+    rdfs:label "sponsor"@en ;
+    rdfs:comment "Person, family, or organization sponsoring some aspect of a resource, e.g., funding research, sponsoring an event."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:spn ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:sponsoringBody a rdf:Property ;
+    rdfs:label "sponsoring body"@en ;
+    rdfs:comment "Organization that sponsors or supports a resource, event, or project."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:stageDirector a rdf:Property ;
+    rdfs:label "stage director"@en ;
+    rdfs:comment "Person or organization contributing to a stage resource through the overall management and supervision of a performance."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sgd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:stageManager a rdf:Property ;
+    rdfs:label "stage manager"@en ;
+    rdfs:comment "Person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:stm ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:standardsBody a rdf:Property ;
+    rdfs:label "standards body"@en ;
+    rdfs:comment "Organization responsible for the development or enforcement of a standard."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:stn ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:stereotyper a rdf:Property ;
+    rdfs:label "stereotyper"@en ;
+    rdfs:comment "Person or organization who creates a new plate for printing by molding or copying another printing surface."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:str ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:storyteller a rdf:Property ;
+    rdfs:label "storyteller"@en ;
+    rdfs:comment "Performer contributing to a resource by relaying a creator's original story with dramatic or theatrical interpretation."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:stl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:supportingHost a rdf:Property ;
+    rdfs:label "supporting host"@en ;
+    rdfs:comment "Person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:sht ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:supposedName a rdf:Property ;
+    rdfs:label "supposed name"@en ;
+    rdfs:comment "Name used for a person or entity that is believed to be correct but is not verified."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:surveyor a rdf:Property ;
+    rdfs:label "surveyor"@en ;
+    rdfs:comment "Person, family, or organization contributing to a cartographic resource by providing measurements or dimensional relationships for the geographic area represented."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:srv ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:teacher a rdf:Property ;
+    rdfs:label "teacher"@en ;
+    rdfs:comment "Performer contributing to a resource by giving instruction or providing a demonstration."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:tch ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:technicalDirector a rdf:Property ;
+    rdfs:label "technical director"@en ;
+    rdfs:comment "Person who is ultimately in charge of scenery, props, lights, and sound for a production."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:tcd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:technicalDraftsman a rdf:Property ;
+    rdfs:label "technical draftsman"@en ;
+    rdfs:comment "Person responsible for creating detailed technical drawings for architectural or engineering projects."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:televisionDirector a rdf:Property ;
+    rdfs:label "television director"@en ;
+    rdfs:comment "Director responsible for the general management and supervision of a television program."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:tld ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:televisionProducer a rdf:Property ;
+    rdfs:label "television producer"@en ;
+    rdfs:comment "Producer responsible for most of the business aspects of a television program."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:tlp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:testifier a rdf:Property ;
+    rdfs:label "testifier"@en ;
+    rdfs:comment "Person who provides testimony in a legal setting or official proceeding."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:thesisAdvisor a rdf:Property ;
+    rdfs:label "thesis advisor"@en ;
+    rdfs:comment "Person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:ths ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:transcriber a rdf:Property ;
+    rdfs:label "transcriber"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by changing it from one system of notation to another. For a work transcribed for a different instrument or performing group, see Arranger [arr]. For makers of pen-facsimiles, use Facsimilist [fac]."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:trc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:translator a rdf:Property ;
+    rdfs:label "translator"@en ;
+    rdfs:comment "Person or organization who renders a text from one language into another, or from an older form of a language into the modern form."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:trl ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:typeDesigner a rdf:Property ;
+    rdfs:label "type designer"@en ;
+    rdfs:comment "Person or organization who designs the typeface used in a particular item."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:tyd ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:typesetter a rdf:Property ;
+    rdfs:label "typesetter"@en ;
+    rdfs:comment "Person responsible for arranging the type used in printing a publication."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:typographer a rdf:Property ;
+    rdfs:label "typographer"@en ;
+    rdfs:comment "Person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:tyg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:universityPlace a rdf:Property ;
+    rdfs:label "university place"@en ;
+    rdfs:comment "Place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:uvp ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:videographer a rdf:Property ;
+    rdfs:label "videographer"@en ;
+    rdfs:comment "Person in charge of a video production, e.g., the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:vdg ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:vocalist a rdf:Property ;
+    rdfs:label "vocalist"@en ;
+    rdfs:comment "Performer contributing to a resource by using his/her/their voice, with or without instrumental accompaniment, to produce music. A singer's performance may or may not include actual words."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:voiceActor a rdf:Property ;
+    rdfs:label "voice actor"@en ;
+    rdfs:comment "Performer who provides voiceover work for characters in animated films, radio dramas, or other media."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:vac ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:witness a rdf:Property ;
+    rdfs:label "witness"@en ;
+    rdfs:comment "Person who verifies the truthfulness of an event or action."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wit ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:woodEngraver a rdf:Property ;
+    rdfs:label "wood engraver"@en ;
+    rdfs:comment "Person or organization who makes prints by cutting the image in relief on the end-grain of a wood block."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wde ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:woodcutter a rdf:Property ;
+    rdfs:label "woodcutter"@en ;
+    rdfs:comment "Person or organization who makes prints by cutting the image in relief on the plank side of a wood block."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wdc ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:writerOfAccompanyingMaterial a rdf:Property ;
+    rdfs:label "writer of accompanying material"@en ;
+    rdfs:comment "Person or organization who writes significant material which accompanies a sound recording or other audiovisual material."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wam ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:writerOfAddedCommentary a rdf:Property ;
+    rdfs:label "writer of added commentary"@en ;
+    rdfs:comment "Person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wac ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:writerOfAddedLyrics a rdf:Property ;
+    rdfs:label "writer of added lyrics"@en ;
+    rdfs:comment "Writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wal ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:writerOfAddedText a rdf:Property ;
+    rdfs:label "writer of added text"@en ;
+    rdfs:comment "Person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps)."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wat ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:writerOfIntroduction a rdf:Property ;
+    rdfs:label "writer of introduction"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by providing an introduction to the original work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:win ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:writerOfPreface a rdf:Property ;
+    rdfs:label "writer of preface"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by providing a preface to the original work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wpr ;
+    rdfs:subPropertyOf lite:contributor .
+
+rel:writerOfSupplementaryTextualContent a rdf:Property ;
+    rdfs:label "writer of supplementary textual content"@en ;
+    rdfs:comment "Person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Resource ;
+    owl:sameAs lcrel:wst ;
+    rdfs:subPropertyOf lite:contributor .
