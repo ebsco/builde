@@ -67,7 +67,7 @@ lite:Item a rdfs:Class ;
     rdfs:subClassOf lite:Resource .
 
 lite:Work a rdfs:Class ;
-    rdfs:label "Work"@en, "Obra"@en ;
+    rdfs:label "Work"@en, "Obra"@es ;
     rdfs:comment "A distinct intellectual or artistic creation."@en,
                  "Creación intelectual o artística distinta"@es ;
     owl:sameAs bf:Work ;
@@ -81,7 +81,7 @@ lite:Concept a rdfs:Class ;
 
 lite:Authority a rdfs:Class ;
     rdfs:label "Authority"@en ;
-    rdfs:comment "Credible, curated description of a person, place or thing."@en ;
+    rdfs:comment "Credible, curated description of a person, place or thing."@es ;
     rdfs:subClassOf lite:Resource .
 
 lite:Topic a rdfs:Class ;
