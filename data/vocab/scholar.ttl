@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lite: <http://bibfra.me/vocab/lite/> .
 @prefix scholar: <http://bibfra.me/vocab/scholar/> .
+@prefix rel: <http://bibfra.me/vocab/relation/> .
 @prefix library: <http://bibfra.me/vocab/marc/> .
 @prefix link: <http://library.link/identifier/> .
 @prefix dc: <http://purl.org/dc/terms/> .
@@ -418,7 +419,7 @@ scholar:ActionEvent a rdfs:Class ;
     rdfs:comment "Represents an action or event within the lifecycle of a scholarly activity, such as the awarding of a grant, submission of a paper, or any other significant occurrence that has implications for the research or academic work."@en ;
     rdfs:subClassOf lite:Event .
 
-## BF Scholar Identifier Classes
+## Scholar Identifier Classes
 	
 scholar:DOI a rdfs:Class ;
     rdfs:label "DOI"@en ;
@@ -468,15 +469,22 @@ scholar:mostCitedWork a rdf:Property ;
     rdfs:range lite:Work ;
     rdfs:domain lite:Person .
 
-## Crossref ID properties
+## ID properties
 
 scholar:fainId a rdf:Property ;
     rdfs:label "fain ID"@en ;
     rdfs:comment "A unique identifier for a funding award."@en ;
     rdfs:domain scholar:FundingAward ;
     rdfs:range rdfs:Literal .
+
+scholar:openalexId a rdf:Property ;
+    rdfs:label "openalex ID"@en ;
+    rdfs:comment "A unique identifier used in the OpenAlex database to reference various scholarly entities, such as works, authors, institutions, publishers, and topics."@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 	
 scholar:doi a rdf:Property ;
+
     rdfs:label "doi"@en ;
     rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
     rdfs:domain scholar:Article ;
@@ -634,6 +642,13 @@ scholar:lastAuthor a rdf:Property ;
     rdfs:comment "Identifies the author listed last in a multi-authored article, often signifying a senior or supervising role in the research."@en ;
     rdfs:range lite:Person ;
     rdfs:domain scholar:Article .
+
+scholar:publishedIn a rdf:Property ;
+    rdfs:label "published in"@en ;
+    rdfs:comment "Relates an article or paper to the journal where it was published."@en ;
+    rdfs:range lite:Article ;
+    rdfs:subPropertyOf rel:isPartOf ;
+    rdfs:domain scholar:Journal .
 
 ### Publisher Policy Edges
 
