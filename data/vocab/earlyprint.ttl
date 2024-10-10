@@ -66,128 +66,131 @@ earlyprint:Firm a rdfs:Class ;
 # Early Print Trade Properties
 
 earlyprint:employment a rdf:Property ;
-    rdfs:label "employment"@en ;
+    rdfs:label "employment"@en , "empleo"@es ;
     rdfs:range earlyprint:EmploymentEvent ;
-    rdfs:comment "Employment event associated with a Person."@en ;
+    rdfs:comment "Connects a person to a related Employment Event."@en , 
+                 "Conecta a una persona con un evento de empleo relacionado."@es ;
     rdfs:domain lite:Person .
 
 earlyprint:trade a rdf:Property ;
-    rdfs:label "trade"@en ;
+    rdfs:label "trade"@en , "comercio"@es ;
     rdfs:range rdfs:Literal ;
-    rdfs:comment "Topic associated with an employment event. Skilled job, typically one requiring manual skills and special training."@en ;
+    rdfs:comment "Topic associated with an Employment Event. Skilled job, typically one requiring manual skills and special training."@en , 
+                 "Tema asociado a un evento laboral. Trabajo especializado, que generalmente requiere habilidades manuales y capacitación especial."@es ;
     rdfs:domain lite:EmploymentEvent .
 
 earlyprint:firm a rdf:Property ;
-	rdfs:label "firm"@en ;
+	rdfs:label "firm"@en , "firme"@es ;
 	rdfs:range lite:Organization ;
-	rdfs:comment "Organization associated with an employment event."@en ;
+	rdfs:comment "Organization associated with an Employment Event."@en , 
+                 "Organización asociada a un Evento de Empleo."@es ;
 	rdfs:domain lite:EmploymentEvent .
 
 earlyprint:employmentAgent a rdf:Property ;
-	rdfs:label "employment agent"@en ;
+	rdfs:label "employment agent"@en , "agente de empleo"@es ;
 	rdfs:range lite:Agent ;
-	rdfs:comment "Agent associated with an employment event."@en ;
+	rdfs:comment "Agent associated with an Employment Event."@en , 
+                 "Agente asociado a un Evento de Empleo."@es ;
 	rdfs:domain lite:EmploymentEvent .
 
 earlyprint:employmentPlace a rdf:Property ;
-	rdfs:label "employment place"@en ;
+	rdfs:label "employment place"@en , "lugar de empleo"@es ;
 	rdfs:range lite:Place ;
-	rdfs:comment "Place associated with the employment of a person."@en ;
+	rdfs:comment "Place associated with the employment of a Person."@en , 
+                 "Lugar asociado al empleo de una Persona."@es ;
 	rdfs:domain lite:EmploymentEvent .
 
 earlyprint:employmentStartDate a rdf:Property ;
-	rdfs:label "employment start date"@en ;
+	rdfs:label "employment start date"@en , "fecha de inicio del empleo"@es ;
 	rdfs:range rdfs:Literal ;
-	rdfs:comment "Start date associated with the employment of a person."@en ;
+	rdfs:comment "Start date associated with the employment of a person."@en , 
+                 "Fecha de inicio asociada al empleo de una persona."@es ;
     rdfs:subPropertyOf lite:date ;
 	rdfs:domain lite:EmploymentEvent .
 
 earlyprint:employmentEndDate a rdf:Property ;
-	rdfs:label "employment end date"@en ;
+	rdfs:label "employment end date"@en , "fecha de finalización del empleo"@es ;
 	rdfs:range rdfs:Literal ;
-	rdfs:comment "End date associated with the employment of a person."@en ;
+	rdfs:comment "End date associated with the employment of a person."@en , 
+                 "Fecha de finalización asociada al empleo de una persona."@es ;
     rdfs:subPropertyOf lite:date ;
 	rdfs:domain lite:EmploymentEvent .
 
 earlyprint:employmentNote a rdf:Property ;
-	rdfs:label "employment note"@en ;
+	rdfs:label "employment note"@en , "nota de empleo"@es ;
 	rdfs:range rdfs:Literal ;
-	rdfs:comment "Note associated with the employment of a person."@en ;
+	rdfs:comment "Note associated with the employment of a person."@en , 
+                 "Nota asociada al empleo de una persona."@es ;
     rdfs:subPropertyOf lite:note ;
 	rdfs:domain lite:EmploymentEvent .
 
 earlyprint:printer a rdf:Property ;
-	rdfs:label "Printer"@en ;
+	rdfs:label "printer"@en , "impresor"@es ;
 	rdfs:range lite:Agent ;
-	rdfs:comment "Person whose job or business is printing."@en ;
+	rdfs:comment "Person whose job or business is printing."@en , 
+                 "Persona cuyo trabajo o negocio es la impresión."@es ;
 	rdfs:domain lite:Item .
 
 earlyprint:capturedDuring a rdf:Property ;
-	rdfs:label "captured during"@en ;
+	rdfs:label "captured during"@en , "capturado durante"@es ;
 	rdfs:range lite:Event ;
-	rdfs:comment "Event, typically a war, that a Person was captured during."@en ;
+	rdfs:comment "Event, typically a war, that a Person was captured during."@en , 
+                 "Acontecimiento, típicamente una guerra, durante el cual una persona fue capturada."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
 
 earlyprint:servedIn a rdf:Property ;
-	rdfs:label "served in"@en ;
+	rdfs:label "served in"@en , "servido en"@es ;
 	rdfs:range lite:Resource ;
-	rdfs:comment "Connects a Person to an Event or entity in which they served in some capacity. This includes service in a military role, a governmental position, participation in a significant historical event."@en ;
+	rdfs:comment "Connects a Person to an Event or entity in which they served in some capacity. This includes service in a military role, a governmental position, participation in a significant historical event."@en , 
+                 "Conecta a una persona con un evento o entidad en la que prestó servicios de alguna manera. Esto incluye el servicio en un rol militar, un puesto gubernamental o la participación en un evento histórico significativo."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
 
 earlyprint:presidentOf a rdf:Property ;
-	rdfs:label "president of"@en ;
+	rdfs:label "president of"@en , "presidente de"@es ;
     rdfs:range lite:Place, lite:Organization ;
-	rdfs:comment "Connects a Person to the Place or Organization they serve or served as president."@en ;
+	rdfs:comment "Connects a Person to the Place or Organization they serve or served as president."@en , 
+                 "Conecta a una persona con el lugar u organización en el que sirve o presidió."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
 
 earlyprint:brotherOf a rdf:Property ;
-	rdfs:label "brother of"@en ;
+	rdfs:label "brother of"@en , "hermano de"@es ;
     rdfs:range lite:Person ;
-	rdfs:comment "Connects a Person to their brother."@en ;
+	rdfs:comment "Connects a Person to their brother."@en , 
+                 "Conecta a una persona con su hermano."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
 
 earlyprint:sisterOf a rdf:Property ;
-	rdfs:label ""@en ;
+	rdfs:label "sister of"@en , "hermana de"@es ;
     rdfs:range lite:Person ;
-	rdfs:comment "Connects a Person to their sister."@en ;
+	rdfs:comment "Connects a Person to their sister."@en , 
+                 "Conecta a una persona con su hermana."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
 
 earlyprint:daughterOf a rdf:Property ;
-	rdfs:label "daughter of"@en ;
+	rdfs:label "daughter of"@en , "hija de"@es ;
     rdfs:range lite:Person ;
-	rdfs:comment "Connects a daughter to their parent."@en ;
+	rdfs:comment "Connects a daughter to their parent."@en , 
+                 "Conecta a una hija con su padre."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
 
 earlyprint:sonOf a rdf:Property ;
-	rdfs:label "sonOf"@en ;
+	rdfs:label "son of"@en , "hijo de"@es ;
     rdfs:range lite:Person ;
-	rdfs:comment "Connects a daughter to their parent."@en ;
+	rdfs:comment "Connects a daughter to their parent."@en , 
+                 "Conecta a una hija con su padre."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
 
 earlyprint:marriedTo a rdf:Property ;
-	rdfs:label "married to"@en ;
+	rdfs:label "married to"@en , "casado con"@es ;
     rdfs:range lite:Person ;
-	rdfs:comment "Connects a Person to their spouse."@en ;
-    rdfs:subPropertyOf lite:related ;
-	rdfs:domain lite:Person .
-
-earlyprint: a rdf:Property ;
-	rdfs:label ""@en ;
-    rdfs:range lite:Person ;
-	rdfs:comment "definition"@en ;
-    rdfs:subPropertyOf lite:related ;
-	rdfs:domain lite:Person .
-
-earlyprint: a rdf:Property ;
-	rdfs:label ""@en ;
-    rdfs:range lite:Person ;
-	rdfs:comment "definition"@en ;
+	rdfs:comment "Connects a Person to their spouse."@en , 
+                 "Conecta a una persona con su cónyuge."@es ;
     rdfs:subPropertyOf lite:related ;
 	rdfs:domain lite:Person .
