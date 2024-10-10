@@ -1,0 +1,193 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lite: <http://bibfra.me/vocab/lite/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+
+# BIBFRAME Linked Data Extension aka BUILDE Early Printing Trade 📖🔍
+
+# This RDF vocabulary encompasses a wide range of classes and properties suitable for describing various
+# types of entities from the early printing trade. BUILDE Early Print Trade includes a basic set of 
+# core classes and properties known as the 'early printing' layer described here, as well as several extensions:
+
+#	archive: things found in archives
+#	scholar: things found in scholarly research and publishing
+#	library: things found in libraries
+
+# This vocabulary is ideal for librarians, information scientists, data curators, and developers working
+# in academic and research settings. It can be employed in creating digital libraries, scholarly databases,
+# cataloging systems, and other applications requiring structured bibliographic information.
+
+# Key Features:
+# - Compatibility with existing ontologies including Schema.org, SKOS, FOAF, and Dublin Core for enhanced interoperability.
+# - Extension of BIBFRAME from the Library of Congress
+# - Comprehensive coverage of bibliographic and scholarly domains.
+# - Clear, self-explanatory labels and definitions for each class and property.
+# - Hierarchical organization of classes using rdfs:subClassOf for structured representation.
+
+# We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
+# For versioning, updates, and more detailed documentation, please visit https://bibfra.me/.
+
+earlyprint: a rdfs:Vocabulary ;
+    rdfs:label "Early Printing Trade" ;
+    rdfs:comment "BUILDE for the Early Printing Trade" ;
+    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:created "2024-10-01"^^xsd:date ;
+    dc:issued "2024-10-10"^^xsd:date ;
+    dc:modified "2024-10-10"^^xsd:date ;
+    owl:versionInfo "1.0" .
+
+# Early Print Trade Classes
+
+earlyprint:EmploymentEvent a rdfs:Class ;
+	rdfs:label "Employment Event"@en, "EventoEmpleo"@es ;
+	rdfs:comment "Employment event associated with a Person."@en, 
+                 "Evento laboral asociado a una Persona."@es ;
+    rdfs:subClassOf lite:Event .
+
+earlyprint:Trade a rdfs:Class ;
+	rdfs:label "Trade"@en, "Comercio"@es ;
+	rdfs:comment "Category associated with a Person's Trade."@en, 
+                 "Categoría asociada al oficio de una persona."@es ;
+    rdfs:subClassOf lite:Category .
+
+earlyprint:Firm a rdfs:Class ;
+	rdfs:label "Firm"@en, "Firme"@es ;
+	rdfs:comment "Organization whose job or business is printing."@en, 
+                 "Organización cuyo trabajo o negocio es la impresión."@es ;
+    rdfs:subClassOf lite:Organization .
+
+# Early Print Trade Properties
+
+earlyprint:employment a rdf:Property ;
+    rdfs:label "employment"@en ;
+    rdfs:range earlyprint:EmploymentEvent ;
+    rdfs:comment "Employment event associated with a Person."@en ;
+    rdfs:domain lite:Person .
+
+earlyprint:trade a rdf:Property ;
+    rdfs:label "trade"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "Topic associated with an employment event. Skilled job, typically one requiring manual skills and special training."@en ;
+    rdfs:domain lite:EmploymentEvent .
+
+earlyprint:firm a rdf:Property ;
+	rdfs:label "firm"@en ;
+	rdfs:range lite:Organization ;
+	rdfs:comment "Organization associated with an employment event."@en ;
+	rdfs:domain lite:EmploymentEvent .
+
+earlyprint:employmentAgent a rdf:Property ;
+	rdfs:label "employment agent"@en ;
+	rdfs:range lite:Agent ;
+	rdfs:comment "Agent associated with an employment event."@en ;
+	rdfs:domain lite:EmploymentEvent .
+
+earlyprint:employmentPlace a rdf:Property ;
+	rdfs:label "employment place"@en ;
+	rdfs:range lite:Place ;
+	rdfs:comment "Place associated with the employment of a person."@en ;
+	rdfs:domain lite:EmploymentEvent .
+
+earlyprint:employmentStartDate a rdf:Property ;
+	rdfs:label "employment start date"@en ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Start date associated with the employment of a person."@en ;
+    rdfs:subPropertyOf lite:date ;
+	rdfs:domain lite:EmploymentEvent .
+
+earlyprint:employmentEndDate a rdf:Property ;
+	rdfs:label "employment end date"@en ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "End date associated with the employment of a person."@en ;
+    rdfs:subPropertyOf lite:date ;
+	rdfs:domain lite:EmploymentEvent .
+
+earlyprint:employmentNote a rdf:Property ;
+	rdfs:label "employment note"@en ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Note associated with the employment of a person."@en ;
+    rdfs:subPropertyOf lite:note ;
+	rdfs:domain lite:EmploymentEvent .
+
+earlyprint:printer a rdf:Property ;
+	rdfs:label "Printer"@en ;
+	rdfs:range lite:Agent ;
+	rdfs:comment "Person whose job or business is printing."@en ;
+	rdfs:domain lite:Item .
+
+earlyprint:capturedDuring a rdf:Property ;
+	rdfs:label "captured during"@en ;
+	rdfs:range lite:Event ;
+	rdfs:comment "Event, typically a war, that a Person was captured during."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint:servedIn a rdf:Property ;
+	rdfs:label "served in"@en ;
+	rdfs:range lite:Resource ;
+	rdfs:comment "Connects a Person to an Event or entity in which they served in some capacity. This includes service in a military role, a governmental position, participation in a significant historical event."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint:presidentOf a rdf:Property ;
+	rdfs:label "president of"@en ;
+    rdfs:range lite:Place, lite:Organization ;
+	rdfs:comment "Connects a Person to the Place or Organization they serve or served as president."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint:brotherOf a rdf:Property ;
+	rdfs:label "brother of"@en ;
+    rdfs:range lite:Person ;
+	rdfs:comment "Connects a Person to their brother."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint:sisterOf a rdf:Property ;
+	rdfs:label ""@en ;
+    rdfs:range lite:Person ;
+	rdfs:comment "Connects a Person to their sister."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint:daughterOf a rdf:Property ;
+	rdfs:label "daughter of"@en ;
+    rdfs:range lite:Person ;
+	rdfs:comment "Connects a daughter to their parent."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint:sonOf a rdf:Property ;
+	rdfs:label "sonOf"@en ;
+    rdfs:range lite:Person ;
+	rdfs:comment "Connects a daughter to their parent."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint:marriedTo a rdf:Property ;
+	rdfs:label "married to"@en ;
+    rdfs:range lite:Person ;
+	rdfs:comment "Connects a Person to their spouse."@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint: a rdf:Property ;
+	rdfs:label ""@en ;
+    rdfs:range lite:Person ;
+	rdfs:comment "definition"@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
+
+earlyprint: a rdf:Property ;
+	rdfs:label ""@en ;
+    rdfs:range lite:Person ;
+	rdfs:comment "definition"@en ;
+    rdfs:subPropertyOf lite:related ;
+	rdfs:domain lite:Person .
