@@ -8,6 +8,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
 
 # BIBFRAME Linked Data Extension aka BUILDE 📖🔍
 
@@ -32,48 +33,55 @@
 # - Hierarchical organization of classes using rdfs:subClassOf for structured representation.
 
 # We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
-# For versioning, updates, and more detailed documentation, please visit [https://bibfra.me/?].
+# For versioning, updates, and more detailed documentation, please visit https://bibfra.me/.
 
-# ------------------------------
-# Created by: EBSCO Information Systems
-# Version: 1.0
-# Created: July 22, 2024
-# Updated: July 30, 2024
-# ------------------------------
+lite: a rdfs:Vocabulary ;
+    rdfs:label "Builde" ;
+    rdfs:comment "BIBFRAME Linked Data Extension aka BUILDE" ;
+    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:created "2024-07-22"^^xsd:date ;
+    dc:issued "2024-08-22"^^xsd:date ;
+    dc:modified "2024-08-22"^^xsd:date ;
+    owl:versionInfo "1.0" .
 
 # BUILDE Classes
 
 lite:Resource a rdfs:Class ;
-    rdfs:label "Resource"@en ;
-    rdfs:comment "Most generic Bibframe entity."@en ;
+    rdfs:label "Resource"@en, "Recurso"@es ;
+    rdfs:comment "Most generic Bibframe entity."@en, 
+                 "Cadena de texto que representa el nombre del recurso."@es ;
     owl:sameAs schema:Thing .
 
 lite:Instance a rdfs:Class ;
-	rdfs:label "Instance"@en ;
-	rdfs:comment "A material embodiment of a distinct intellectual or artistic creation."@en ;
+	rdfs:label "Instance"@en, "Instancia"@es ;
+	rdfs:comment "A material embodiment of a distinct intellectual or artistic creation."@en, 
+                 "Realización individual de una obra."@es ;
     rdfs:subClassOf lite:Resource ;
     owl:sameAs bf:Instance .
 
 lite:Item a rdfs:Class ;
-    rdfs:label "Item"@en ;
-    rdfs:comment "An Item represents a specific, individual, material embodiment of a distinct intellectual or artistic creation."@en ;
+    rdfs:label "Item"@en, "Ítem"@es ;
+    rdfs:comment "An Item represents a specific, individual, material embodiment of a distinct intellectual or artistic creation."@en,
+                 "Un Ítem representa una manifestación material específica, individual, de una creación intelectual o artística distinta."@es ;
     owl:sameAs bf:Item ;
     rdfs:subClassOf lite:Resource .
 
 lite:Work a rdfs:Class ;
-    rdfs:label "Work"@en ;
-    rdfs:comment "A distinct intellectual or artistic creation."@en ;
+    rdfs:label "Work"@en, "Obra"@es ;
+    rdfs:comment "A distinct intellectual or artistic creation."@en,
+                 "Creación intelectual o artística distinta"@es ;
     owl:sameAs bf:Work ;
     rdfs:subClassOf lite:Resource .
 
 lite:Concept a rdfs:Class ;
-    rdfs:label "Concept"@en ;
-    rdfs:comment "Term describing the subject, aboutness, idea or notion of a resource."@en ;
+    rdfs:label "Concept"@en, "Concepto"@es ;
+    rdfs:comment "Term describing the subject, aboutness, idea or notion of a resource."@en,
+                 "Término que describe el tema, aboutness, idea o concepto de un recurso."@es ;
     rdfs:subClassOf skos:Concept .
 
 lite:Authority a rdfs:Class ;
     rdfs:label "Authority"@en ;
-    rdfs:comment "Credible, curated description of a person, place or thing."@en ;
+    rdfs:comment "Credible, curated description of a person, place or thing."@es ;
     rdfs:subClassOf lite:Resource .
 
 lite:Topic a rdfs:Class ;
