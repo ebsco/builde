@@ -45,12 +45,6 @@ earlyprint: a rdfs:Vocabulary ;
 
 # Early Print Trade Classes
 
-earlyprint:EmploymentEvent a rdfs:Class ;
-	rdfs:label "Employment Event"@en, "EventoEmpleo"@es ;
-	rdfs:comment "Employment event associated with a Person."@en, 
-                 "Evento laboral asociado a una Persona."@es ;
-    rdfs:subClassOf lite:Event .
-
 earlyprint:Trade a rdfs:Class ;
 	rdfs:label "Trade"@en, "Comercio"@es ;
 	rdfs:comment "Category associated with a Person's Trade."@en, 
@@ -65,13 +59,6 @@ earlyprint:Firm a rdfs:Class ;
 
 # Early Print Trade Properties
 
-earlyprint:employment a rdf:Property ;
-    rdfs:label "employment"@en , "empleo"@es ;
-    rdfs:comment "Connects a person to a related Employment Event."@en , 
-                 "Conecta a una persona con un evento de empleo relacionado."@es ;
-    rdfs:domain lite:Person ;
-    rdfs:range earlyprint:EmploymentEvent .
-
 earlyprint:trade a rdf:Property ;
     rdfs:label "trade"@en , "comercio"@es ;
     rdfs:comment "Topic associated with an Employment Event. Skilled job, typically one requiring manual skills and special training."@en , 
@@ -85,44 +72,6 @@ earlyprint:firm a rdf:Property ;
                  "Organización asociada a un Evento de Empleo."@es ;
 	rdfs:domain lite:EmploymentEvent ;
 	rdfs:range lite:Organization .
-
-earlyprint:employmentAgent a rdf:Property ;
-	rdfs:label "employment agent"@en , "agente de empleo"@es ;
-	rdfs:comment "Agent associated with an Employment Event."@en , 
-                 "Agente asociado a un Evento de Empleo."@es ;
-	rdfs:domain lite:EmploymentEvent ;
-	rdfs:range lite:Agent .
-
-earlyprint:employmentPlace a rdf:Property ;
-	rdfs:label "employment place"@en , "lugar de empleo"@es ;
-	rdfs:comment "Place associated with the employment of a Person."@en , 
-                 "Lugar asociado al empleo de una Persona."@es ;
-	rdfs:domain lite:EmploymentEvent ;
-	rdfs:range lite:Place .
-
-earlyprint:employmentStartDate a rdf:Property ;
-	rdfs:label "employment start date"@en , "fecha de inicio del empleo"@es ;
-	rdfs:comment "Start date associated with the employment of a person."@en , 
-                 "Fecha de inicio asociada al empleo de una persona."@es ;
-    rdfs:subPropertyOf lite:date ;
-	rdfs:domain lite:EmploymentEvent ;
-	rdfs:range rdfs:Literal .
-
-earlyprint:employmentEndDate a rdf:Property ;
-	rdfs:label "employment end date"@en , "fecha de finalización del empleo"@es ;
-	rdfs:comment "End date associated with the employment of a person."@en , 
-                 "Fecha de finalización asociada al empleo de una persona."@es ;
-    rdfs:subPropertyOf lite:date ;
-	rdfs:domain lite:EmploymentEvent ;
-	rdfs:range rdfs:Literal .
-
-earlyprint:employmentNote a rdf:Property ;
-	rdfs:label "employment note"@en , "nota de empleo"@es ;
-	rdfs:comment "Note associated with the employment of a person."@en , 
-                 "Nota asociada al empleo de una persona."@es ;
-    rdfs:subPropertyOf lite:note ;
-	rdfs:domain lite:EmploymentEvent ;
-	rdfs:range rdfs:Literal .
 
 earlyprint:printer a rdf:Property ;
 	rdfs:label "printer"@en , "impresor"@es ;
