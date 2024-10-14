@@ -35,7 +35,7 @@
 # For versioning, updates, and more detailed documentation, please visit https://bibfra.me/.
 
 earlyprint: a rdfs:Vocabulary ;
-    rdfs:label "Earllsy Printing Trade" ;
+    rdfs:label "Early Printing Trade" ;
     rdfs:comment "BUILDE for the Early Printing Trade" ;
     dc:creator "EBSCO Information Systems"^^xsd:date ;
     dc:created "2024-10-01"^^xsd:date ;
