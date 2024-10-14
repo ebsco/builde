@@ -1,7 +1,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lite: <http://bibfra.me/vocab/lite/> .
-@prefix library: <http://bibfra.me/vocab/marc/> .
+@prefix library: <http://bibfra.me/vocab/library/> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -48,23 +48,23 @@ library: a rdfs:Vocabulary ;
 
 library:Book a rdfs:Class ;
 	rdfs:label "Book"@en ;
-	rdfs:comment "A Work that has bibliographic characterisics."@en ;
+	rdfs:comment "Work that has bibliographic characterisics."@en ;
     rdfs:subClassOf lite:Work ;
     owl:sameAs schema:Book .
 
 library:ContinuingResources a rdfs:Class ;
-	rdfs:label "Book"@en ;
-	rdfs:comment "A Work that has continuing resource characteristics."@en ;
+	rdfs:label "Continuing Resources"@en ;
+	rdfs:comment "Work that has continuing resource characteristics."@en ;
     rdfs:subClassOf lite:Work .
 
 library:Music a rdfs:Class ;
 	rdfs:label "Music"@en ;
-	rdfs:comment "A Work that has music characteristics."@en ;
+	rdfs:comment "Work that has music characteristics."@en ;
     rdfs:subClassOf lite:Work .
 
 library:Map a rdfs:Class ;
 	rdfs:label "Map"@en ;
-	rdfs:comment "A Work that has map characteristics."@en ;
+	rdfs:comment "Work that has map characteristics."@en ;
     rdfs:subClassOf lite:Work .
 
 
@@ -103,7 +103,7 @@ library:index a rdf:Property ;
 
 library:literaryForm a rdf:Property ;
     rdfs:label "literary form"@en ;
-    rdfs:comment "Indicates the literary form of a Work."@en ;
+    rdfs:comment "Indicates the literary form of the Work."@en ;
     rdfs:domain library:Work ;
     rdfs:range rdfs:Literal .
 
@@ -115,19 +115,19 @@ library:biographical a rdf:Property ;
 
 library:language a rdf:Property ;
     rdfs:label "language" ;
-    rdfs:comment "The language of a Work." ;
+    rdfs:comment "The language of the Work." ;
     rdfs:domain bf:Work ;
     rdfs:range rdfs:Literal .
 
 library:frequency a rdf:Property ;
     rdfs:label "frequency" ;
-    rdfs:comment "Indicates the frequency of a Work." ;
+    rdfs:comment "Indicates the frequency of the Work." ;
     rdfs:domain bf:Work ;
     rdfs:range rdfs:Literal .
 
 library:regularity a rdf:Property ;
     rdfs:label "regularity" ;
-    rdfs:comment "Indicates the regularity of a Work." ;
+    rdfs:comment "Indicates the regularity of the Work." ;
     rdfs:domain bf:Work ;
     rdfs:range rdfs:Literal .
 
