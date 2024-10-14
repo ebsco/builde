@@ -1,0 +1,204 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lite: <http://bibfra.me/vocab/lite/> .
+@prefix library: <http://bibfra.me/vocab/library/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+
+# BIBFRAME Linked Data Extension aka BUILDE Library 📖🔍
+
+# This RDF vocabulary encompasses a wide range of classes and properties suitable for describing various
+# types of entities from the early printing trade. BUILDE Early Print Trade includes a basic set of 
+# core classes and properties known as the 'early printing' layer described here, as well as several extensions:
+
+#	archive: things found in archives
+#	scholar: things found in scholarly research and publishing
+#	early printing trade: things found in the early printing trade
+
+# This vocabulary is ideal for librarians, information scientists, data curators, and developers working
+# in academic and research settings. It can be employed in creating digital libraries, scholarly databases,
+# cataloging systems, and other applications requiring structured bibliographic information.
+
+# Key Features:
+# - Compatibility with existing ontologies including Schema.org, SKOS, FOAF, and Dublin Core for enhanced interoperability.
+# - Extension of BIBFRAME from the Library of Congress
+# - Comprehensive coverage of bibliographic and scholarly domains.
+# - Clear, self-explanatory labels and definitions for each class and property.
+# - Hierarchical organization of classes using rdfs:subClassOf for structured representation.
+
+# We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
+# For versioning, updates, and more detailed documentation, please visit https://bibfra.me/.
+
+library: a rdfs:Vocabulary ;
+    rdfs:label "Library" ;
+    rdfs:comment "BUILDE for Library Collections" ;
+    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:created "2024-10-01"^^xsd:date ;
+    dc:issued "2024-10-10"^^xsd:date ;
+    dc:modified "2024-10-10"^^xsd:date ;
+    owl:versionInfo "1.0" .
+
+# Library Classes
+
+library:Book a rdfs:Class ;
+	rdfs:label "Book"@en ;
+	rdfs:comment "Work that has bibliographic characterisics."@en ;
+    rdfs:subClassOf lite:Work ;
+    owl:sameAs schema:Book .
+
+library:ContinuingResources a rdfs:Class ;
+	rdfs:label "Continuing Resources"@en ;
+	rdfs:comment "Work that has continuing resource characteristics."@en ;
+    rdfs:subClassOf lite:Work .
+
+library:Music a rdfs:Class ;
+	rdfs:label "Music"@en ;
+	rdfs:comment "Work that has music characteristics."@en ;
+    rdfs:subClassOf lite:Work .
+
+library:Map a rdfs:Class ;
+	rdfs:label "Map"@en ;
+	rdfs:comment "Work that has map characteristics."@en ;
+    rdfs:subClassOf lite:Work .
+
+
+# Library Work Properties
+
+library:illustrations a rdf:Property ;
+    rdfs:label "illustrations"@en ;
+    rdfs:comment "Indicates the presence of types of illustrations in the work."@en ;
+    rdfs:domain library:Work ;
+    rdfs:range rdfs:Literal .
+
+library:targetAudience a rdf:Property ;
+    rdfs:label "target audience"@en ;
+    rdfs:comment "Target audience of the Work."@en ;
+    rdfs:subPropertyOf lite:audience ;
+    rdfs:domain library:Work ;
+    rdfs:range rdfs:Literal .
+
+library:natureOfContents a rdf:Property ;
+    rdfs:label "nature of contents"@en ;
+    rdfs:comment "Indicates whether a significant part of the item is or contains certain types of material."@en ;
+    rdfs:domain library:Work ;
+    rdfs:range rdfs:Literal .
+
+library:governmentPublication a rdf:Property ;
+    rdfs:label "government publication."@en ;
+    rdfs:comment "Indicates whether or not the item is published or produced by or for an international, national, state, provincial, or local government agency, or by any subdivision of such a body."@en ;
+    rdfs:domain library:Work ;
+    rdfs:range rdfs:Literal .
+
+library:index a rdf:Property ;
+    rdfs:label "index"@en ;
+    rdfs:comment "Information for this data element is derived from mention of an index in another part of the bibliographic record."@en ;
+    rdfs:domain library:Work ;
+    rdfs:range rdfs:Literal .
+
+library:literaryForm a rdf:Property ;
+    rdfs:label "literary form"@en ;
+    rdfs:comment "Indicates the literary form of the Work."@en ;
+    rdfs:domain library:Work ;
+    rdfs:range rdfs:Literal .
+
+library:biographical a rdf:Property ;
+    rdfs:label "biographical"@en ;
+    rdfs:comment "Indicates what the biographical characteristics are of the Work."@en ;
+    rdfs:domain library:Work ;
+    rdfs:range rdfs:Literal .
+
+library:language a rdf:Property ;
+    rdfs:label "language" ;
+    rdfs:comment "The language of the Work." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:frequency a rdf:Property ;
+    rdfs:label "frequency" ;
+    rdfs:comment "Indicates the frequency of the Work." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:regularity a rdf:Property ;
+    rdfs:label "regularity" ;
+    rdfs:comment "Indicates the regularity of the Work." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:natureOfEntireWork a rdf:Property ;
+    rdfs:label "nature of entire work" ;
+    rdfs:comment "Indicates the nature of the Work." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:originalAlphabetOrScriptOfTitle a rdf:Property ;
+    rdfs:label "original alphabet or script of title" ;
+    rdfs:comment "Indicates the original alphabet or script of the language of the title on the source item upon which the key title." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:entryConvention a rdf:Property ;
+    rdfs:label "entry convention" ;
+    rdfs:comment "Indicates the type of entry convention." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:characteristic a rdf:Property ;
+    rdfs:label "characteristic" ;
+    rdfs:comment "Feature or quality belonging typically to a person, place, or thing." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:formOfComposition a rdf:Property ;
+    rdfs:label "form of composition" ;
+    rdfs:comment "Indicates the form of the conposition." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:formatOfMusic a rdf:Property ;
+    rdfs:label "format of music" ;
+    rdfs:comment "Indicates the format of Music." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+ 
+ library:musicParts a rdf:Property ;
+    rdfs:label "musicParts" ;
+    rdfs:comment "Indicates whether the work being cataloged is, or contains parts." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:accompanyingMatter a rdf:Property ;
+    rdfs:label "accompanying matter" ;
+    rdfs:comment "Indicates the contents of program notes and other accompanying material for sound recording, music manuscripts, or notated music." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:literaryTextForSoundRecordings a rdf:Property ;
+    rdfs:label "literary text for sound recordings" ;
+    rdfs:comment "Indicates the type of literary text contained in a nonmusical sound recording." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+ 
+ library:transpositionAndArrangement a rdf:Property ;
+    rdfs:label "transposition and arrangement" ;
+    rdfs:comment "Indicates whether all or part of the Work being cataloged is a transposition and/or arrangement of another Work." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:relief a rdf:Property ;
+    rdfs:label "relief" ;
+    rdfs:comment "Indicates the relief type specified." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
+
+library:projection a rdf:Property ;
+    rdfs:label "projection" ;
+    rdfs:comment "Indicates the projection used in producing the Work." ;
+    rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal .
