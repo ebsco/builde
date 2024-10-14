@@ -228,15 +228,15 @@ lite:PostalAddress a rdfs:Class ;
 lite:hasInstance a rdf:Property ;
     rdfs:label "has instance"@en ;
     rdfs:comment "Relationship used to connect Works to Instances."@en ;
-    rdfs:range lite:Instance ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Instance .
 
 lite:audience a rdf:Property ;
     rdfs:label "audience"@en ;
     rdfs:comment "Class of user for which the content of a resource is intended, or for whom the content is considered suitable."@en ;
     skos:note "A target audience can be formed of people of a certain age group, gender, marital status, etc. Other groups, although not the main focus, may also be interested. The value of this property is intended to be a code list."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 
 lite:authorityLink a rdf:Property ;
     rdfs:label "authority link"@en ;
@@ -253,8 +253,8 @@ lite:wikipediaArticle a rdf:Property ;
 lite:controlCode a rdf:Property ;
     rdfs:label "control code"@en ;
     rdfs:comment "Alphanumeric string or indicator used to find and identify the resource."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 
 lite:date a rdf:Property ;
     rdfs:label "date"@en ;
@@ -265,16 +265,16 @@ lite:date a rdf:Property ;
 lite:note a rdf:Property ;
     rdfs:label "note"@en ;
     rdfs:comment "Additional descriptive information associated with the resource."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 
 lite:description a rdf:Property ;
     rdfs:label "description"@en ;
     rdfs:comment "Description of the resource."@en ;
     owl:equivalentProperty schema:description, dc:description ;
     rdfs:subPropertyOf lite:note ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 
 lite:equivalent  a rdf:Property ;
     rdfs:label "equivalent"@en ;
@@ -293,23 +293,23 @@ lite:language a rdf:Property ;
     rdfs:label "language"@en ;
     rdfs:comment "Language associated with the resource."@en ;
     owl:equivalentProperty bf:language, dc:language ;
-    rdfs:range lite:LanguageCategory ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:LanguageCategory .
 
 lite:label a rdf:Property ;
     rdfs:label "label"@en ;
     rdfs:comment "Text string representing the name of resource."@en ;
     owl:equivalentProperty schema:name, rdfs:label ;
-    rdfs:range lite:Literal ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Literal .
 
 lite:prefLabel a rdf:Property ;
     rdfs:label "preferred label"@en ;
     rdfs:comment "Preferred human readable label of the resource."@en ;
+    rdfs:subPropertyOf lite:label ;
     owl:equivalentProperty skos:prefLabel ;
-    rdfs:range rdfs:Literal ;
     rdfs:domain lite:Resource ;
-    rdfs:subPropertyOf lite:label .
+    rdfs:range rdfs:Literal .
 
 lite:link a rdf:Property ;
     rdfs:label "link"@en ;
@@ -319,15 +319,15 @@ lite:link a rdf:Property ;
 lite:related a rdf:Property ;
     rdfs:label "related"@en ;
     rdfs:comment "Resource related to the origin resource."@en ;
-    rdfs:range lite:Resource ;
-    owl:equivalentProperty dc:related .
+    owl:equivalentProperty dc:related ;
+    rdfs:range lite:Resource .
 
 lite:rightsStatement a rdf:Property ;
     rdfs:label "rights statement"@en ;
     rdfs:comment "Rights statement associated with the origin resource."@en ;
     owl:equivalentProperty dc:rights ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Resource .
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 
 lite:createdDate a rdf:Property ;
     rdfs:label "created date"@en ;
@@ -350,47 +350,47 @@ lite:creator a rdf:Property ;
     rdfs:comment "Entity (or entities) responsible with the creation of the origin resource."@en ;
     rdfs:subPropertyOf lite:contributor ;
     owl:equivalentProperty dc:creator , schema:creator ;
-    rdfs:range lite:Agent ;
     rdfs:domain [
         a owl:Class ;
         owl:unionOf (lite:Work lite:Instance)
-    ] .
+    ] ;
+    rdfs:range lite:Agent .
 
 lite:contributor a rdf:Property ;
     rdfs:label "contributor"@en ;
     rdfs:comment "Entity (or entities) who contribute to the origin resource."@en ;
-    rdfs:range lite:Agent ;
     owl:equivalentProperty dc:contributor , schema:contributor ;
     rdfs:domain [
         a owl:Class ;
         owl:unionOf (lite:Work lite:Instance)
-    ] .
+    ] ;
+    rdfs:range lite:Agent .
 
 lite:genre a rdf:Property ;
     rdfs:label "genre"@en ;
     rdfs:comment "Category of artistic composition characterized by similarities in form, style, or subject matter."@en ;
     rdfs:subPropertyOf lite:Authority ;
-    rdfs:range lite:Form ;
     rdfs:domain [
         a owl:Class ;
         owl:unionOf (lite:Work lite:Instance)
-    ] .
+    ] ;
+    rdfs:range lite:Form .
 
 lite:subject a rdf:Property ;
     rdfs:label "subject"@en ;
     rdfs:comment "Index term, subject term, subject heading, or descriptor, a term for information retrieval which captures the essence of the topic of a resource."@en ;
-    rdfs:range lite:Concept ;
-    rdfs:domain lite:Work .
+    rdfs:domain lite:Work ;
+    rdfs:range lite:Concept .
 
 lite:title a rdf:Property ;
     rdfs:label "title"@en ;
-    rdfs:range rdfs:Literal ;
     owl:equivalentProperty dc:title ;
     rdfs:comment "Title of the resource."@en ;
     rdfs:domain [
         a owl:Class ;
         owl:unionOf (lite:Work lite:Instance)
-    ] .
+    ] ;
+    rdfs:range rdfs:Literal .
 
 lite:titleAlternative a rdf:Property ;
     rdfs:label "title alternative"@en ;
@@ -404,8 +404,8 @@ lite:titleAlternative a rdf:Property ;
 lite:isVersionOf a rdf:Property ;
     rdfs:label "is version of"@en ;
     rdfs:comment "Work of which this is a version."@en ;
-    rdfs:range lite:Work ;
-    rdfs:domain lite:Work .
+    rdfs:domain lite:Work ;
+    rdfs:range lite:Work .
 
 # Instance properties
 
@@ -431,31 +431,31 @@ lite:format a rdf:Property ;
 lite:medium a rdf:Property ;
     rdfs:label "medium"@en ;
     owl:equivalentProperty bf:media ;
-    rdfs:range rdfs:Literal ;
     rdfs:comment "Medium of the Instance."@en ;
-    rdfs:domain lite:Instance .
+    rdfs:domain lite:Instance ;
+    rdfs:range rdfs:Literal .
 
 lite:extent a rdf:Property ;
     rdfs:label "extent"@en ;
     owl:equivalentProperty bf:extent ;
-    rdfs:range rdfs:Literal ;
     rdfs:comment "Number of physical pages, volumes, cassettes, total playing time, etc., of of each type of unit."@en ;
-    rdfs:domain lite:Instance .
+    rdfs:domain lite:Instance ;
+    rdfs:range rdfs:Literal .
 
 lite:dimensions a rdf:Property ;
     rdfs:label "dimensions"@en ;
     rdfs:comment "Measurement of size."@en ;
     owl:equivalentProperty bf:dimensions ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Instance .
+    rdfs:domain lite:Instance ;
+    rdfs:range rdfs:Literal .
 
 lite:instantiates a rdf:Property ;
     rdfs:label "instantiates"@en ;
     rdfs:comment "Work the resource instantiates or manifests."@en ;
-    rdfs:range lite:Work ;
     owl:equivalentProperty bf:instanceOf ;
     rdfs:subPropertyOf lite:related ;
-    rdfs:domain lite:Instance .
+    rdfs:domain lite:Instance ;
+    rdfs:range lite:Work .
 
 ## Item properties
 
@@ -463,57 +463,57 @@ lite:itemizes a rdf:Property ;
     rdfs:label "itemizes"@en ;
     rdfs:comment "Instance for which the described Item is an example."@en ;
     owl:equivalentProperty bf:itemOf ;
-    rdfs:range rdf:Instance ;
-    rdfs:domain lite:Item .
+    rdfs:domain lite:Item ;
+    rdfs:range rdf:Instance .
 
 lite:heldBy a rdf:Property ;
     rdfs:label "held by"@en ;
     rdfs:comment "Agent holding the item or from which it is available."@en ;
     owl:equivalentProperty bf:heldBy ;
-    rdfs:range rdf:Agent ;
-    rdfs:domain lite:Item .
+    rdfs:domain lite:Item ;
+    rdfs:range rdf:Agent .
 
 ## Authority properties
 
 lite:name a rdf:Property ;
     rdfs:label "name"@en ;
-    rdfs:range rdfs:Literal ;
     rdfs:comment "Name of an authority."@en ;
     rdfs:subPropertyOf lite:label ;
-    rdfs:domain lite:Authority .
+    rdfs:domain lite:Authority ;
+    rdfs:range rdfs:Literal .
 
 lite:nameAlternative a rdf:Property ;
     rdfs:label "alternative name"@en ;
-    rdfs:range rdfs:Literal ;
     owl:equivalentProperty schema:alternateName ;
     rdfs:comment "Alias for a resource."@en ;
-    rdfs:domain lite:Authority .
+    rdfs:domain lite:Authority ;
+    rdfs:range rdfs:Literal .
 
 ## Agent properties
 
 lite:email a rdf:Property ;
     rdfs:label "The agent's e-mail address."@en ;
-    rdfs:range rdfs:Literal ;
     rdfs:comment "Address that identifies an email box to which email messages are delivered to an Agent."@en ;
-    rdfs:domain lite:Agent .
+    rdfs:domain lite:Agent ;
+    rdfs:range rdfs:Literal .
 
 lite:placeAssociated a rdf:Property ;
     rdfs:label "associated place."@en ;
     rdfs:comment "The place associated with an Agent."@en ;
-    rdfs:range lite:Place ;
-    rdfs:domain lite:Agent .
+    rdfs:domain lite:Agent ;
+    rdfs:range lite:Place .
 
 lite:placeResidence a rdf:Property ;
     rdfs:label "place of residence."@en ;
     rdfs:comment "The Agent's place of residence."@en ;
-    rdfs:range lite:Place ;
-    rdfs:domain lite:Agent .
+    rdfs:domain lite:Agent ;
+    rdfs:range lite:Place .
 
 lite:address  a rdf:Property ;
     rdfs:label "address"@en ;
     rdfs:comment "The Agent's physical address."@en ;
-    rdfs:range lite:PostalAddress ;
-    rdfs:domain lite:Agent .
+    rdfs:domain lite:Agent ;
+    rdfs:range lite:PostalAddress .
 
 ## Person properties
 lite:dateBirth a rdf:Property ;
@@ -522,49 +522,49 @@ lite:dateBirth a rdf:Property ;
     owl:equivalentProperty schema:birthDate ;
     rdfs:subPropertyOf lite:date ;
     skos:note "Recommended ISO 8601 date."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Person .
+    rdfs:domain lite:Person ;
+    rdfs:range rdfs:Literal .
 
 lite:dateDeath a rdf:Property ;
     rdfs:label "death date"@en ;
     rdfs:comment "Death date associated with the Person."@en ;
-    owl:equivalentProperty schema:deathDate ;
-    rdfs:subPropertyOf lite:date ;
     skos:note "Recommended ISO 8601 date"@en ;
+    rdfs:subPropertyOf lite:date ;
+    owl:equivalentProperty schema:deathDate ;
     rdfs:range rdfs:Literal .
 
 lite:givenName a rdf:Property ;
     rdfs:label "given name"@en ;
     rdfs:comment "First name of a Person, also known as forename."@en ;
     owl:equivalentProperty schema:givenName ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Person .
+    rdfs:domain lite:Person ;
+    rdfs:range rdfs:Literal .
 
 lite:familyName a rdf:Property ;
     rdfs:label "family name"@en ;
     rdfs:comment "Last name of a Person, also known as surname."@en ;
     owl:equivalentProperty schema:familyName ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Person .
+    rdfs:domain lite:Person ;
+    rdfs:range rdfs:Literal .
 
 lite:gender a rdf:Property ;
     rdfs:label "gender"@en ;
     rdfs:comment "Gender of the Person. While male (M) and female (F) may be used, other text strings are also acceptable for people who do not identify as a binary gender."@en ;
     owl:equivalentProperty schema:gender ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Person .
+    rdfs:domain lite:Person ;
+    rdfs:range rdfs:Literal .
 
 lite:placeBirth a rdf:Property ;
     rdfs:label "place of birth"@en ;
     rdfs:comment "The Person's place of birth."@en ;
-    rdfs:range lite:Place ;
-    rdfs:domain lite:Person .
+    rdfs:domain lite:Person ;
+    rdfs:range lite:Place .
 
 lite:placeDeath a rdf:Property ;
     rdfs:label "place of death"@en ;
     rdfs:comment "An Person's place of death."@en ;
-    rdfs:domain lite:Person ;
-    rdfs:range lite:Place .
+    rdfs:range lite:Place ;
+    rdfs:domain lite:Person .
 
 ## Family, Meeting, and/or Organization related properties
 lite:dateStart a rdf:Property ;
@@ -573,11 +573,11 @@ lite:dateStart a rdf:Property ;
     owl:equivalentProperty schema:startDate ;
     rdfs:subPropertyOf lite:date ;
     skos:note "Recommended ISO 8601 date"@en ;
-    rdfs:range rdfs:Literal ;
     rdfs:domain [
         a owl:Class ;
         owl:unionOf (lite:Family lite:Meeting lite:Organization)
-    ] .
+    ] ;
+    rdfs:range rdfs:Literal .
 
 lite:dateEnd a rdf:Property ;
     rdfs:label "end date"@en ;
@@ -585,11 +585,11 @@ lite:dateEnd a rdf:Property ;
     owl:equivalentProperty schema:endDate ;
     rdfs:subPropertyOf lite:date ;
     skos:note "Recommended ISO 8601 date."@en ;
-    rdfs:range rdfs:Literal ;
     rdfs:domain [
         a owl:Class ;
         owl:unionOf (lite:Family lite:Meeting lite:Organization)
-    ] .
+    ] ;
+    rdfs:range rdfs:Literal .
 
 lite:subOrganization a rdf:Property ;
 	rdfs:label "sub organization"@en ;
@@ -754,8 +754,8 @@ lite:street a rdf:Property ;
 lite:city a rdf:Property ;
     rdfs:label "locality"@en ;
     rdfs:comment "Incorporated municipality or city, usually governed by a mayor and a board of aldermen or councilmen."@en ;
-    rdfs:domain lite:PostalAddress ;
     owl:equivalentProperty schema:addressLocality ;
+    rdfs:domain lite:PostalAddress ;
     rdfs:range rdfs:Literal .
 
 lite:region a rdf:Property ;
