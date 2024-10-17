@@ -469,6 +469,36 @@ scholar:mostCitedWork a rdf:Property ;
     rdfs:range lite:Work ;
     rdfs:domain lite:Person .
 
+scholar:totalCoAuthoredWorks a rdf:Property ;
+    rdfs:label "total co-authored works"@en ;
+    rdfs:comment "The total number of works a person has co-authored."@en ;
+    rdfs:domain lite:Person ;
+    rdfs:range xsd:integer .
+
+scholar:totalWorks a rdf:Property ;
+    rdfs:label "total works"@en ;
+    rdfs:comment "The total number of works authored or co-authored by the person."@en ;
+    rdfs:domain lite:Person ;
+    rdfs:range xsd:integer .
+
+scholar:totalUniqueCoAuthors a rdf:Property ;
+    rdfs:label "total unique co-authors"@en ;
+    rdfs:comment "The total number of unique co-authors associated with the person."@en ;
+    rdfs:domain lite:Person ;
+    rdfs:range xsd:integer .
+
+scholar:totalWorksWithMultipleContributors a rdf:Property ;
+    rdfs:label "total works with multiple contributors"@en ;
+    rdfs:comment "The total number of works with multiple contributors authored or co-authored by the person."@en ;
+    rdfs:domain lite:Person ;
+    rdfs:range xsd:integer .
+
+scholar:citedByCount a rdf:Property ;
+    rdfs:label "cited by count"@en ;
+    rdfs:comment "The number of times the person’s works have been cited."@en ;
+    rdfs:domain lite:Person ;
+    rdfs:range xsd:integer .
+
 ## ID properties
 
 scholar:fainId a rdf:Property ;
