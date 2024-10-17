@@ -742,6 +742,15 @@ lite:memberOf a rdf:Property ;
     rdfs:domain lite:Collection ;
     rdfs:range rdf:Work .
 
+## Used to map resources to Identifiers
+
+lite:map a rdf:Property ;
+    rdfs:label "map"@en ;
+    rdfs:comment "Connects Resources to persistent Identifiers like DOI, ISBN, etc."@en ;
+    owl:equivalentProperty schema:postalCode ;
+    rdfs:domain lite:Resource ;
+    rdfs:range lite:Identifier .
+
 ## PostalAddress properties
 
 lite:street a rdf:Property ;
