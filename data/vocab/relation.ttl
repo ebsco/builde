@@ -2033,7 +2033,7 @@ rel:plaintiffAppellant a rdf:Property ;
     rdfs:comment "Plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding."@en ;
     rdfs:domain lite:Resource ;
     rdfs:range lite:Resource ;
-    owl:sameAs lcrel: pla;
+    owl:sameAs lcrel:pla;
     rdfs:subPropertyOf lite:contributor .
 
 rel:productionCompany a rdf:Property ;
@@ -2208,7 +2208,7 @@ rel:reporter a rdf:Property ;
     rdfs:domain lite:Resource ;
     rdfs:range lite:Resource ;
     owl:sameAs lcrel:rpt ;
-    rdfs:subPropertyOf lite:contributor
+    rdfs:subPropertyOf lite:contributor .
 
 rel:researchTeamMember a rdf:Property ;
     rdfs:label "research team member"@en ;
