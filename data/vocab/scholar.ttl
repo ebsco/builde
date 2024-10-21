@@ -197,7 +197,7 @@ scholar:Nonprofit a rdfs:Class ;
     rdfs:label "Nonprofit"@en ;
     rdfs:comment "An organization dedicated to furthering a particular social cause or advocating for a shared point of view, not for profit."@en ;
     rdfs:subClassOf lite:Organization .
-	
+
 scholar:Facility a rdfs:Class ;
     rdfs:label "Facility"@en ;
     rdfs:comment "A place, amenity, or piece of equipment provided for a particular purpose within the scholarly context, such as research laboratories or lecture halls."@en ;
@@ -237,7 +237,7 @@ scholar:Department a rdfs:Class ;
     rdfs:label "Department"@en ;
     rdfs:comment "A division of a larger organization such as a university, dealing with a specific subject of study or research."@en ;
     rdfs:subClassOf lite:Organization .
-	
+
 scholar:College a rdfs:Class ;
     rdfs:label "College"@en ;
     rdfs:comment "An educational institution or a constituent part of one that awards degrees in various academic disciplines."@en ;
@@ -258,7 +258,7 @@ scholar:Chapter a rdfs:Class ;
     rdfs:label "Chapter"@en ;
     rdfs:comment "A main division of a book, typically with a number or title."@en ;
     rdfs:subClassOf lite:Work .
-	
+
 scholar:Part a rdfs:Class ;
     rdfs:label "Part"@en ;
     rdfs:comment "A division within a book or publication that may contain chapters or other sections."@en ;
@@ -268,12 +268,12 @@ scholar:Repository a rdfs:Class ;
     rdfs:label "Repository"@en ;
     rdfs:comment "A central location in which data is stored and managed, often used in the context of academic and scholarly research for the storage of datasets, publications, and digital archives."@en ;
     rdfs:subClassOf lite:Resource .
-	
+
 scholar:Magazine a rdfs:Class ;
     rdfs:label "Magazine"@en ;
     rdfs:comment "A periodical publication containing articles and illustrations, typically covering a particular subject or area of interest."@en ;
     rdfs:subClassOf lite:Resource .
-	
+
 scholar:Trade a rdfs:Class ;
     rdfs:label "Trade"@en ;
     rdfs:comment "A trade publication is a magazine or journal dedicated to topics relevant to a specific industry or professional field, aimed at professionals within that field."@en ;
@@ -420,7 +420,7 @@ scholar:ActionEvent a rdfs:Class ;
     rdfs:subClassOf lite:Event .
 
 ## Scholar Identifier Classes
-	
+
 scholar:DOI a rdfs:Class ;
     rdfs:label "DOI"@en ;
     rdfs:comment "A persistent identifier or handle used to uniquely identify various objects, standardized by the International Organization for Standardization."@en ;
@@ -469,22 +469,15 @@ scholar:mostCitedWork a rdf:Property ;
     rdfs:range lite:Work ;
     rdfs:domain lite:Person .
 
-scholar:totalCoAuthoredWorks a rdf:Property ;
-    rdfs:label "total co-authored works"@en ;
-    rdfs:comment "The total number of works a person has co-authored."@en ;
-    rdfs:domain lite:Person ;
-    rdfs:range xsd:integer .
-
 scholar:totalWorks a rdf:Property ;
     rdfs:label "total works"@en ;
-    rdfs:comment "The total number of works authored or co-authored by the person."@en ;
+    rdfs:comment "The total number of works authored or co-authored by the person, as reported by external sources."@en ;
     rdfs:domain lite:Person ;
     rdfs:range xsd:integer .
 
 scholar:totalUniqueCoAuthors a rdf:Property ;
     rdfs:label "total unique co-authors"@en ;
-    rdfs:comment "The total number of unique co-authors associated with the person."@en ;
-    rdfs:domain lite:Person ;
+    rdfs:comment "The total number of distinct authors with whom the person has collaborated across all their works. This count includes only unique individuals, regardless of the number of joint works."@en ;    rdfs:domain lite:Person ;
     rdfs:range xsd:integer .
 
 scholar:totalWorksWithMultipleContributors a rdf:Property ;
@@ -493,11 +486,17 @@ scholar:totalWorksWithMultipleContributors a rdf:Property ;
     rdfs:domain lite:Person ;
     rdfs:range xsd:integer .
 
-scholar:citedByCount a rdf:Property ;
-    rdfs:label "cited by count"@en ;
-    rdfs:comment "The number of times the person’s works have been cited."@en ;
-    rdfs:domain lite:Person ;
-    rdfs:range xsd:integer .
+scholar:Contribution a rdfs:Class ;
+    rdfs:label "Contribution"@en ;
+    rdfs:comment "Represents a contribution by a person to a work with additional metadata such as order."@en ;
+    rdfs:subClassOf rdf:Statement .
+
+scholar:contributor a rdf:Property ;
+    rdfs:label "contributor"@en ;
+    rdfs:comment "Entity (or entities) who contribute to the origin resource."@en ;
+    rdfs:domain scholar:Contribution ;
+    rdfs:range lite:Agent ;
+    owl:equivalentProperty schema:contributor, dc:contributor .
 
 ## ID properties
 
@@ -512,7 +511,7 @@ scholar:openalexId a rdf:Property ;
     rdfs:comment "A unique identifier used in the OpenAlex database to reference various scholarly entities, such as works, authors, institutions, publishers, and topics."@en ;
     rdfs:domain lite:Resource ;
     rdfs:range rdfs:Literal .
-	
+
 scholar:doi a rdf:Property ;
 
     rdfs:label "doi"@en ;
@@ -520,7 +519,7 @@ scholar:doi a rdf:Property ;
     rdfs:domain scholar:Article ;
     rdfs:range rdfs:Literal ;
     rdfs:range rdfs:Literal .
-	
+
 ## Crossref property for Award
 
 scholar:award a rdf:Property ;
@@ -642,7 +641,7 @@ scholar:coAwardedTo a rdf:Property ;
     rdfs:comment "Indicates additional recipients who are co-awarded a grant or honor."@en ;
     rdfs:range lite:Agent ;
     rdfs:domain scholar:Award .
-	
+
 scholar:supportedBy a rdf:Property ;
     rdfs:label "supported by"@en ;
     rdfs:comment "Identifies the supporting entity or funding source for a project, publication, or award."@en ;
@@ -737,3 +736,9 @@ scholar:officer a rdf:Property ;
     rdfs:comment "A person holding an official position in an organization, typically related to oversight or management of a program or project."@en ;
     rdfs:range lite:Program ;
     rdfs:domain lite:Work .
+
+scholar:order a rdf:Property ;
+    rdfs:label "order"@en ;
+    rdfs:comment "Specifies the order of a contributor in a work."@en ;
+    rdfs:domain scholar:Contribution ;
+    rdfs:range xsd:string .
