@@ -476,7 +476,7 @@ scholar:totalWorks a rdf:Property ;
     rdfs:range xsd:nonNegativeInteger .
 
 scholar:totalCoAuthors a rdf:Property ;
-    rdfs:label "total unique co-authors"@en ;
+    rdfs:label "total co-authors"@en ;
     rdfs:comment "The total number of distinct authors with whom the person has collaborated across all their works. This count includes only unique individuals, regardless of the number of joint works."@en ;    rdfs:domain lite:Person ;
     rdfs:range xsd:integer .
 
