@@ -481,12 +481,6 @@ scholar:totalCoAuthors a rdf:Property ;
     rdfs:domain lite:Person ;
     rdfs:range xsd:integer .
 
-scholar:totalWorksWithMultipleContributors a rdf:Property ;
-    rdfs:label "total works with multiple contributors"@en ;
-    rdfs:comment "The total number of works with multiple contributors authored or co-authored by the person."@en ;
-    rdfs:domain lite:Person ;
-    rdfs:range xsd:integer .
-
 scholar:Contribution a rdfs:Class ;
     rdfs:label "Contribution"@en ;
     rdfs:comment "Represents a contribution by a person to a work with additional metadata such as order."@en ;
