@@ -471,7 +471,7 @@ scholar:mostCitedWork a rdf:Property ;
 
 scholar:totalWorks a rdf:Property ;
     rdfs:label "total works"@en ;
-    rdfs:comment "The total number of works authored or co-authored by the person, as reported by external sources."@en ;
+    rdfs:comment "Total number of works authored or co-authored by the person, as reported by external sources."@en ;
     rdfs:domain lite:Person ;
     rdfs:range xsd:integer .
 
