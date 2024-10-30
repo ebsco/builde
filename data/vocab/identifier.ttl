@@ -1,0 +1,100 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lite: <http://bibfra.me/vocab/lite/> .
+@prefix archive: <http://bibfra.me/vocab/archive/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+
+# BIBFRAME Linked Data Extension aka BUILDE Identifier 📖🔍
+
+# This RDF vocabulary encompasses a wide range of classes and properties suitable for describing various
+# types of persistent identifiers. BUILDE Identifier includes a basic set of 
+# core classes and properties known as the 'identifier' layer described here, as well as several extensions:
+
+#	library: things found in libraries
+#	scholar: things found in scholarly research and publishing
+#	early printing trade: things found in the early printing trade
+#   archive: things found in archives
+
+# This vocabulary is ideal for librarians, information scientists, data curators, and developers working
+# in academic and research settings. It can be employed in creating digital libraries, scholarly databases,
+# cataloging systems, and other applications requiring structured bibliographic information.
+
+# Key Features:
+# - Compatibility with existing ontologies including Schema.org, SKOS, FOAF, and Dublin Core for enhanced interoperability.
+# - Extension of BIBFRAME from the Library of Congress
+# - Comprehensive coverage of bibliographic and scholarly domains.
+# - Clear, self-explanatory labels and definitions for each class and property.
+# - Hierarchical organization of classes using rdfs:subClassOf for structured representation.
+
+# We encourage users to provide feedback and suggestions to continually improve and update this vocabulary.
+# For versioning, updates, and more detailed documentation, please visit https://bibfra.me/.
+
+ID: a rdfs:Vocabulary ;
+    rdfs:label "Identifier" ;
+    rdfs:comment "BUILDE for Persistent Identifiers" ;
+    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:created "2024-10-29"^^xsd:date ;
+    dc:issued "2024-10-29"^^xsd:date ;
+    dc:modified "2024-10-29"^^xsd:date ;
+    owl:versionInfo "1.0" .
+
+# Identifier Classes
+
+ID:FederalAwardID a rdfs:Class ;
+	rdfs:label "Federal Award ID"@en ;
+	rdfs:comment "Unique identifier assigned to a federal grant or award by the funding agency."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:WikiID a rdfs:Class ;
+	rdfs:label "Wikidata ID"@en ;
+	rdfs:comment "Unique identifier associated with entities in Wikidata, a collaborative knowledge base. Each WikiID links to a specific entry, allowing users and systems to reference and retrieve structured information about that item across Wikimedia projects and external applications."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:WikipediaID a rdfs:Class ;
+	rdfs:label "Wikipedia ID"@en ;
+	rdfs:comment "Unique identifier for entries in Wikipedia, allowing direct reference to a specific article. This ID helps users and systems retrieve and link information about a topic consistently across various platforms that integrate Wikipedia content."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:DOI a rdfs:Class ;
+	rdfs:label "DOI"@en ;
+	rdfs:comment "Unique identifier for digital objects, similar to a DOI. It provides a permanent link to content, ensuring consistent access even if the item's location changes. HDLs are commonly used in academic and research contexts to manage and cite digital resources like datasets, publications, and reports."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:ISBN a rdfs:Class ;
+	rdfs:label "ISBN"@en ;
+	rdfs:comment "Unique identifier for books, allowing publishers, libraries, and retailers to identify and catalog books accurately. Each ISBN is specific to an edition of a book, ensuring precise reference and ease of access for readers and book distribution systems worldwide."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:ISSN a rdfs:Class ;
+	rdfs:label "ISSN"@en ;
+	rdfs:comment "Unique identifier for periodicals, such as journals, magazines, and newspapers. It ensures accurate cataloging and easy identification of serial publications, allowing libraries, databases, and readers to track and access specific titles across editions and formats globally."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:ISSN a rdfs:Class ;
+	rdfs:label "ISSN"@en ;
+	rdfs:comment "Unique identifier specifically for the electronic versions of serial publications, such as online journals and magazines. It enables precise identification, cataloging, and access to digital serial content, distinguishing it from the print version, which is identified by the ISSN."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:VIAF a rdfs:Class ;
+	rdfs:label "VIAF"@en ;
+	rdfs:comment "Unique identifier assigned to names of persons, organizations, and other entities by aggregating authority records from national libraries worldwide. It standardizes and links variations of names across databases, helping users and systems accurately identify and access information about individuals and institutions globally."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+ID:FAST a rdfs:Class ;
+	rdfs:label "FAST"@en ;
+	rdfs:comment "Unique identifier and controlled vocabulary system used for indexing and retrieving subjects in library catalogs and databases. Based on the Library of Congress Subject Headings, Faceted Application of Subject Terminology (FAST) simplifies and organizes subject headings into distinct facets, allowing for efficient, consistent subject tagging and improved searchability across library and information systems."@en ;
+    rdfs:subClassOf lite:Identifier .
+
+# EBSCO Identifier Classes
+
+ID:EANID a rdfs:Class ;
+	rdfs:label "EAN ID"@en ;
+	rdfs:comment "Identifier assigned to content within EBSCO's databases. An EBSCO Accession Number ID allows users and systems to locate and reference specific articles, reports, or other resources directly, ensuring consistent access and accurate citation within EBSCO platforms."@en ;
+    rdfs:subClassOf lite:Identifier .

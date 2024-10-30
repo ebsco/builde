@@ -9,6 +9,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix librarylink: <http://library.link/vocab/map>.
 
 # BIBFRAME Linked Data Extension aka BUILDE 📖🔍
 
@@ -748,7 +749,7 @@ lite:map a rdf:Property ;
     rdfs:label "map"@en ;
     rdfs:comment "Connects Resources to persistent Identifiers like DOI, ISBN, etc."@en ;
     owl:equivalentProperty schema:postalCode ;
-    owl:equivalentProperty http://library.link/vocab/map ;
+    owl:equivalentProperty librarylink:map ;
     rdfs:domain lite:Resource ;
     rdfs:range lite:Identifier .
 
