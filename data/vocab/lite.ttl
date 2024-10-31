@@ -200,6 +200,12 @@ lite:Event a rdfs:Class ;
     owl:sameAs bf:Event , schema:Event ;
     rdfs:subClassOf lite:Resource .
 
+lite:EmploymentEvent a rdfs:Class ;
+	rdfs:label "Employment Event"@en, "EventoEmpleo"@es ;
+	rdfs:comment "Employment event associated with a Person."@en, 
+                 "Evento laboral asociado a una Persona."@es ;
+    rdfs:subClassOf lite:Event .
+
 lite:Collection a rdfs:Class ;
     rdfs:label "Collection"@en ;
     rdfs:comment "Aggregation or gathering of works."@en ;
@@ -644,6 +650,51 @@ lite:why a rdf:Property ;
     rdfs:subPropertyOf lite:Resource ;
     rdfs:domain lite:Event ;
     rdfs:range lite:Concept .
+
+lite:employment a rdf:Property ;
+    rdfs:label "employment"@en , "empleo"@es ;
+    rdfs:comment "Connects a person to a related Employment Event."@en , 
+                 "Conecta a una persona con un evento de empleo relacionado."@es ;
+    rdfs:domain lite:Person ;
+    rdfs:range lite:EmploymentEvent .
+
+lite:employmentAgent a rdf:Property ;
+	rdfs:label "employment agent"@en , "agente de empleo"@es ;
+	rdfs:comment "Agent associated with an Employment Event."@en , 
+                 "Agente asociado a un Evento de Empleo."@es ;
+	rdfs:domain lite:EmploymentEvent ;
+	rdfs:range lite:Agent .
+
+lite:employmentPlace a rdf:Property ;
+	rdfs:label "employment place"@en , "lugar de empleo"@es ;
+	rdfs:comment "Place associated with the employment of a Person."@en , 
+                 "Lugar asociado al empleo de una Persona."@es ;
+	rdfs:domain lite:EmploymentEvent ;
+	rdfs:range lite:Place .
+
+lite:employmentStartDate a rdf:Property ;
+	rdfs:label "employment start date"@en , "fecha de inicio del empleo"@es ;
+	rdfs:comment "Start date associated with the employment of a person."@en , 
+                 "Fecha de inicio asociada al empleo de una persona."@es ;
+    rdfs:subPropertyOf lite:date ;
+	rdfs:domain lite:EmploymentEvent ;
+	rdfs:range rdfs:Literal .
+
+lite:employmentEndDate a rdf:Property ;
+	rdfs:label "employment end date"@en , "fecha de finalización del empleo"@es ;
+	rdfs:comment "End date associated with the employment of a person."@en , 
+                 "Fecha de finalización asociada al empleo de una persona."@es ;
+    rdfs:subPropertyOf lite:date ;
+	rdfs:domain lite:EmploymentEvent ;
+	rdfs:range rdfs:Literal .
+
+lite:employmentNote a rdf:Property ;
+	rdfs:label "employment note"@en , "nota de empleo"@es ;
+	rdfs:comment "Note associated with the employment of a person."@en , 
+                 "Nota asociada al empleo de una persona."@es ;
+    rdfs:subPropertyOf lite:note ;
+	rdfs:domain lite:EmploymentEvent ;
+	rdfs:range rdfs:Literal .
 
 ## CopyrightEvent related properties
 
