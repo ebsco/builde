@@ -9,6 +9,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix earlyprint: <http://bibfra.me/vocab/earlyprint/> .
 
 # BIBFRAME Linked Data Extension aka BUILDE Early Printing Trade 📖🔍
 
