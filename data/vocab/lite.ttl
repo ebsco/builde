@@ -307,7 +307,7 @@ lite:label a rdf:Property ;
     rdfs:label "label"@en ;
     rdfs:comment "Text string representing the name of resource."@en ;
     owl:equivalentProperty schema:name, rdfs:label ;
-    rdfs:range lite:Literal ;
+    rdfs:range rdfs:Literal ;
     rdfs:domain lite:Resource .
 
 lite:prefLabel a rdf:Property ;
@@ -642,7 +642,7 @@ lite:when a rdf:Property ;
     rdfs:label "when"@en ;
     rdfs:comment "Date associated with an Event."@en ;
     rdfs:domain lite:Event ;
-    rdfs:range lite:Literal .
+    rdfs:range rdfs:Literal .
 
 lite:why a rdf:Property ;
     rdfs:label "why"@en ;
