@@ -78,8 +78,8 @@ ID:ISSN a rdfs:Class ;
 	rdfs:comment "Unique identifier for periodicals, such as journals, magazines, and newspapers. It ensures accurate cataloging and easy identification of serial publications, allowing libraries, databases, and readers to track and access specific titles across editions and formats globally."@en ;
     rdfs:subClassOf lite:Identifier .
 
-ID:ISSN a rdfs:Class ;
-	rdfs:label "ISSN"@en ;
+ID:ElectronicISSN a rdfs:Class ;
+	rdfs:label "eISSN"@en ;
 	rdfs:comment "Unique identifier specifically for the electronic versions of serial publications, such as online journals and magazines. It enables precise identification, cataloging, and access to digital serial content, distinguishing it from the print version, which is identified by the ISSN."@en ;
     rdfs:subClassOf lite:Identifier .
 
