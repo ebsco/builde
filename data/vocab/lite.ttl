@@ -499,7 +499,7 @@ lite:nameAlternative a rdf:Property ;
 ## Agent properties
 
 lite:email a rdf:Property ;
-    rdfs:label "The agent's e-mail address."@en ;
+    rdfs:label "e-mail address"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:comment "Address that identifies an email box to which email messages are delivered to an Agent."@en ;
     rdfs:domain lite:Agent .
