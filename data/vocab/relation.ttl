@@ -2084,14 +2084,6 @@ rel:proofreader a rdf:Property ;
     owl:sameAs lcrel:pfr ;
     rdfs:subPropertyOf lite:contributor .
 
-rel:provider a rdf:Property ;
-    rdfs:label "provider"@en ;
-    rdfs:comment "Person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl])."@en ;
-    rdfs:domain lite:Resource ;
-    rdfs:range lite:Resource ;
-    owl:sameAs lcrel:prv ;
-    rdfs:subPropertyOf lite:contributor .
-
 rel:publicationPlace a rdf:Property ;
     rdfs:label "publication place"@en ;
     rdfs:comment "Place where a resource is published."@en ;
