@@ -1429,13 +1429,6 @@ rel:honoree a rdf:Property ;
     owl:sameAs lcrel:hnr ;
     rdfs:subPropertyOf lite:contributor .
 
-rel:honouree a rdf:Property ;
-    rdfs:label "honouree"@en ;
-    rdfs:comment "Person, family, or organization honored by a work or item, particularly in British English."@en ;
-    rdfs:domain lite:Resource ;
-    rdfs:range lite:Resource ;
-    rdfs:subPropertyOf lite:contributor .
-
 rel:honoureeOfItem a rdf:Property ;
     rdfs:label "honouree of item"@en ;
     rdfs:comment "Person, family, or organization specifically honored by a particular item or resource."@en ;
