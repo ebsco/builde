@@ -589,9 +589,10 @@ scholar:awardedBy a rdf:Property ;
     rdfs:range lite:Agent ;
     rdfs:domain scholar:Award .
 
-scholar:recipient a rdf:Property ;
-    rdfs:label "recipient"@en ;
+scholar:awardRecipient a rdf:Property ;
+    rdfs:label "award recipient"@en ;
     rdfs:comment "The individual or organization that receives an award or grant."@en ;
+    rdfs:subPropertyOf rel:recipient ;
     rdfs:range lite:Agent ;
     rdfs:domain scholar:Award .
 
