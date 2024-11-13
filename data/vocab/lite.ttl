@@ -511,7 +511,7 @@ lite:placeAssociated a rdf:Property ;
     rdfs:domain lite:Agent .
 
 lite:placeResidence a rdf:Property ;
-    rdfs:label "place of residence."@en ;
+    rdfs:label "place of residence"@en ;
     rdfs:comment "The Agent's place of residence."@en ;
     rdfs:range lite:Place ;
     rdfs:domain lite:Agent .
