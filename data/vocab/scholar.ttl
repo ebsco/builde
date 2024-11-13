@@ -181,7 +181,7 @@ scholar:Insurance a rdfs:Class ;
 scholar:FundingAward a rdfs:Class ;
     rdfs:label "Funding Award"@en ;
     rdfs:comment "Financial support provided for research or a scholarly project."@en ;
-    rdfs:subClassOf lite:Award .
+    rdfs:subClassOf scholar:Award .
 
 scholar:Agency a rdfs:Class ;
     rdfs:label "Agency"@en ;
