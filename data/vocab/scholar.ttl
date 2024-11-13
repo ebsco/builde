@@ -677,7 +677,7 @@ scholar:issue a rdf:Property ;
     rdfs:range rdfs:Literal .
 
 scholar:volume a rdf:Property ;
-    rdfs:label "issue"@en ;
+    rdfs:label "volume"@en ;
     rdfs:comment "Specific volume of a journal in which a set of issues is published."@en ;
     rdfs:domain lite:Journal ;
     rdfs:range rdfs:Literal .
