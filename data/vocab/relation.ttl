@@ -942,22 +942,6 @@ rel:coverDesigner a rdf:Property ;
     owl:sameAs lcrel:cov ;
     rdfs:subPropertyOf lite:contributor .
 
-rel:contributor a rdf:Property ;
-    rdfs:label "contributor"@en ;
-    rdfs:comment "Person, family or organization responsible for making contributions to the resource. This includes those whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. If a more specific role is available, prefer that, e.g. editor, compiler, illustrator."@en ;
-    rdfs:domain lite:Resource ;
-    rdfs:range lite:Resource ;
-    owl:sameAs lcrel:ctb ;
-    rdfs:subPropertyOf lite:contributor .
-
-rel:creator a rdf:Property ;
-    rdfs:label "creator"@en ;
-    rdfs:comment "Person or organization responsible for the intellectual or artistic content of a resource."@en ;
-    rdfs:domain lite:Resource ;
-    rdfs:range lite:Resource ;
-    owl:sameAs lcrel:cre ;
-    rdfs:subPropertyOf lite:creator .
-
 rel:curator a rdf:Property ;
     rdfs:label "curator"@en ;
     rdfs:comment "Person, family, or organization conceiving, aggregating, and/or organizing an exhibition, collection, or other item."@en ;
