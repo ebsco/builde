@@ -505,7 +505,7 @@ lite:email a rdf:Property ;
     rdfs:domain lite:Agent .
 
 lite:placeAssociated a rdf:Property ;
-    rdfs:label "associated place."@en ;
+    rdfs:label "associated place"@en ;
     rdfs:comment "The place associated with an Agent."@en ;
     rdfs:range lite:Place ;
     rdfs:domain lite:Agent .
@@ -516,7 +516,7 @@ lite:placeResidence a rdf:Property ;
     rdfs:range lite:Place ;
     rdfs:domain lite:Agent .
 
-lite:address  a rdf:Property ;
+lite:address a rdf:Property ;
     rdfs:label "address"@en ;
     rdfs:comment "The Agent's physical address."@en ;
     rdfs:range lite:PostalAddress ;
