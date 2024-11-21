@@ -71,13 +71,13 @@ library:Title a rdfs:Class ;
     rdfs:label "Title"@en ;
     rdfs:comment "Title of a resource."@en ;
     rdfs:subClassOf lite:Resource ;
-    owl:sameAs bf:Title .
+    owl:equivalentClass bf:Title .
 
 library:VariantTitle a rdfs:Class ;
     rdfs:label "Variant Title"@en ;
     rdfs:comment "Varying form of title."@en ;
     rdfs:subClassOf library:Title ;
-    owl:sameAs bf:VariantTitle .
+    owl:equivalentClass bf:VariantTitle .
 
 library:ParallelTitle a rdfs:Class ;
     rdfs:label "Parallel Title"@en ;
@@ -88,7 +88,7 @@ library:ParallelTitle a rdfs:Class ;
 library:Status a rdfs:Class ;
     rdfs:label "Status"@en ;
     rdfs:comment "Designation of the validity or position of something, e.g., whether something is incorrect or available."@en ;
-    owl:sameAs bf:Status .
+    owl:equivalentClass bf:Status .
 
 # Library Properties
 
@@ -268,6 +268,12 @@ library:projection a rdf:Property ;
     rdfs:comment "Indicates the projection used in producing the Work." ;
     rdfs:domain bf:Work ;
     rdfs:range rdfs:Literal . 
+
+library:place a rdf:Property ;
+    rdfs:label "place"@en ;
+    rdfs:comment "Place associated with a resource"@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal .
 
 # Instance Properties
 
