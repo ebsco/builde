@@ -50,7 +50,7 @@ library:Book a rdfs:Class ;
 	rdfs:label "Book"@en ;
 	rdfs:comment "Work that has bibliographic characterisics."@en ;
     rdfs:subClassOf lite:Work ;
-    owl:sameAs schema:Book .
+    owl:equivalentClass schema:Book .
 
 library:ContinuingResources a rdfs:Class ;
 	rdfs:label "Continuing Resources"@en ;
