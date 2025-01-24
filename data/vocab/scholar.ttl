@@ -12,7 +12,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # BUILDE Scholar Extension 📖🔍
 #
@@ -36,7 +36,7 @@
 scholar: a rdfs:Vocabulary ;
     rdfs:label "Builde Scholar" ;
     rdfs:comment "Builde vocabulary for scholarly research" ;
-    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:creator "EBSCO Information Systems" ;
     dc:created "2024-07-22"^^xsd:date ;
     dc:issued "2024-08-22"^^xsd:date ;
     dc:modified "2024-08-22"^^xsd:date ;
@@ -502,12 +502,6 @@ scholar:award a rdf:Property ;
 
 ## Scholar properties for Work, Article, Award, and Journal
 
-scholar:isRetracted a rdf:Property ;
-    rdfs:label "is retracted"@en ;
-    rdfs:comment "Indicates whether an article has been formally withdrawn from publication due to errors or other significant issues."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Article .
-
 scholar:cites a rdf:Property ;
     rdfs:label "cites"@en ;
     rdfs:comment "Links the citing work to the cited work."@en ;
@@ -623,7 +617,7 @@ scholar:supportedBy a rdf:Property ;
 scholar:isRetracted a rdf:Property ;
     rdfs:label "is retracted"@en ;
     rdfs:comment "Indicates whether an article has been officially withdrawn from publication due to issues such as errors or ethical concerns."@en ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:boolean ;
     rdfs:domain scholar:Article .
 
 scholar:firstAuthor a rdf:Property ;
