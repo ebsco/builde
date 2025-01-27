@@ -12,7 +12,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # BUILDE Scholar Extension 📖🔍
 #
@@ -36,7 +36,7 @@
 scholar: a rdfs:Vocabulary ;
     rdfs:label "Builde Scholar" ;
     rdfs:comment "Builde vocabulary for scholarly research" ;
-    dc:creator "EBSCO Information Systems"^^xsd:date ;
+    dc:creator "EBSCO Information Systems" ;
     dc:created "2024-07-22"^^xsd:date ;
     dc:issued "2024-08-22"^^xsd:date ;
     dc:modified "2024-08-22"^^xsd:date ;
@@ -151,7 +151,7 @@ scholar:Award a rdfs:Class ;
 scholar:SubAward a rdfs:Class ;
     rdfs:label "Subaward"@en ;
     rdfs:comment "A subaward is a financial or contractual agreement made by the primary recipient (or \"prime\") of a grant, contract, or cooperative agreement to a secondary recipient, referred to as a subrecipient or subawardee."@en ;
-    rdfs:subClassOf lite:Award .
+    rdfs:subClassOf scholar:Award .
 
 scholar:Grant a rdfs:Class ;
     rdfs:label "Grant"@en ;
@@ -181,7 +181,7 @@ scholar:Insurance a rdfs:Class ;
 scholar:FundingAward a rdfs:Class ;
     rdfs:label "Funding Award"@en ;
     rdfs:comment "Financial support provided for research or a scholarly project."@en ;
-    rdfs:subClassOf lite:Award .
+    rdfs:subClassOf scholar:Award .
 
 scholar:Agency a rdfs:Class ;
     rdfs:label "Agency"@en ;
@@ -502,12 +502,6 @@ scholar:award a rdf:Property ;
 
 ## Scholar properties for Work, Article, Award, and Journal
 
-scholar:isRetracted a rdf:Property ;
-    rdfs:label "is retracted"@en ;
-    rdfs:comment "Indicates whether an article has been formally withdrawn from publication due to errors or other significant issues."@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:domain lite:Article .
-
 scholar:cites a rdf:Property ;
     rdfs:label "cites"@en ;
     rdfs:comment "Links the citing work to the cited work."@en ;
@@ -623,7 +617,7 @@ scholar:supportedBy a rdf:Property ;
 scholar:isRetracted a rdf:Property ;
     rdfs:label "is retracted"@en ;
     rdfs:comment "Indicates whether an article has been officially withdrawn from publication due to issues such as errors or ethical concerns."@en ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:boolean ;
     rdfs:domain scholar:Article .
 
 scholar:firstAuthor a rdf:Property ;
