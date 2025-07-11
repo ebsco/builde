@@ -253,6 +253,7 @@ scholar:BookReview a rdfs:Class ;
     rdfs:label "Book Review"@en ;
     rdfs:comment "A book review is a critical evaluation of a book, often published in a periodical, that discusses its content, style, and merit."@en ;
     rdfs:subClassOf lite:Work .
+    
 
 scholar:Chapter a rdfs:Class ;
     rdfs:label "Chapter"@en ;
