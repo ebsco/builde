@@ -469,49 +469,49 @@ scholar:mostCitedWork a rdf:Property ;
     rdfs:range lite:Work ;
     rdfs:domain lite:Person .
 
-lite:2yrMeanCitedness a rdf:Property ;
+scholar:2yrMeanCitedness a rdf:Property ;
     rdfs:label "2 year mean citedness"@en ;
     rdfs:comment "value used to determine the impact of a persons works in their field"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
 
-lite:hIndex a rdf:Property ;
+scholar:hIndex a rdf:Property ;
     rdfs:label "hindex"@en ;
     rdfs:comment "value used to determine the productivity and citation impact of a persons works"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
 
-lite:i10Index a rdf:Property ;
+scholar:i10Index a rdf:Property ;
     rdfs:label "i10 index"@en ;
     rdfs:comment "idicates the number of works published by the Person that have been cited by 10 or more other works"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
 
-lite:averageCitationCount a rdf:Property ;
+scholar:averageCitationCount a rdf:Property ;
     rdfs:label "average Citation Count"@en ;
     rdfs:comment "the average of a Person's citation count"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
 
-lite:topCitationPercentiles a rdf:Property ;
+scholar:topCitationPercentiles a rdf:Property ;
     rdfs:label "top citation percentiles"@en ;
     rdfs:comment "measures the number of a Person's publications that are present in the top 1%, 5%, and 10% of most-cited percentiles in ESG"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
 
-lite:selfCitationCount a rdf:Property ;
+scholar:selfCitationCount a rdf:Property ;
     rdfs:label "selfCitationCount"@en ;
     rdfs:comment "the number of a Person's citations that have been self-cited"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
 
-lite:fwciAverage a rdf:Property ;
+scholar:fwciAverage a rdf:Property ;
     rdfs:label "fwci average"@en ;
     rdfs:comment "the average of the FWCI scores of all works contributed to by a Person"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
 
-lite:fwciTop a rdf:Property ;
+scholar:fwciTop a rdf:Property ;
     rdfs:label "fwci top"@en ;
     rdfs:comment " the highest FWCI score of all works contributed to by a Person"@en ;
     rdfs:range rdfs:Literal ;
@@ -586,16 +586,16 @@ scholar:citationCount a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Work .
 
-lite:fwci a rdf:Property ;
+scholar:fwci a rdf:Property ;
     rdfs:label "fwci"@en ;
     rdfs:comment "Field-Weighted Citation Impact (FWCI), a works citation impact value calculated as the ratio of citations received / citations expected in the year of publications and three following years"@en ;
-    rdfs:range lite:Literal ;
+    rdfs:range rdfs:Literal ;
     rdfs:domain lite:Work .
 
-lite:citationNormalizedPercentile a rdf:Property ;
+scholar:citationNormalizedPercentile a rdf:Property ;
     rdfs:label "citation normalized percentile"@en ;
     rdfs:comment "Percentile of a work's citation count by work type, publication year, and subfield"@en ;
-    rdfs:range lite:Literal ;
+    rdfs:range rdfs:Literal ;
     rdfs:domain lite:Work .
 
 scholar:articleVersion a rdf:Property ;
