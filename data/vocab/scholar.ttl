@@ -488,7 +488,7 @@ scholar:i10Index a rdf:Property ;
     rdfs:domain lite:Person .
 
 scholar:averageCitationCount a rdf:Property ;
-    rdfs:label "average Citation Count"@en ;
+    rdfs:label "average citation count"@en ;
     rdfs:comment "the average of a Person's citation count"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
@@ -500,7 +500,7 @@ scholar:topCitationPercentiles a rdf:Property ;
     rdfs:domain lite:Person .
 
 scholar:selfCitationCount a rdf:Property ;
-    rdfs:label "selfCitationCount"@en ;
+    rdfs:label "self citation count"@en ;
     rdfs:comment "the number of a Person's citations that have been self-cited"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
