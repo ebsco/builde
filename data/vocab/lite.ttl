@@ -51,27 +51,27 @@ lite:Resource a rdfs:Class ;
     rdfs:label "Resource"@en, "Recurso"@es ;
     rdfs:comment "Most generic Bibframe entity."@en, 
                  "Cadena de texto que representa el nombre del recurso."@es ;
-    owl:sameAs schema:Thing .
+    owl:equivalentClass schema:Thing .
 
 lite:Instance a rdfs:Class ;
 	rdfs:label "Instance"@en, "Instancia"@es ;
 	rdfs:comment "A material embodiment of a distinct intellectual or artistic creation."@en, 
                  "Realización individual de una obra."@es ;
     rdfs:subClassOf lite:Resource ;
-    owl:sameAs bf:Instance .
+    owl:equivalentClass bf:Instance .
 
 lite:Item a rdfs:Class ;
     rdfs:label "Item"@en, "Ítem"@es ;
     rdfs:comment "An Item represents a specific, individual, material embodiment of a distinct intellectual or artistic creation."@en,
                  "Un Ítem representa una manifestación material específica, individual, de una creación intelectual o artística distinta."@es ;
-    owl:sameAs bf:Item ;
+    owl:equivalentClass bf:Item ;
     rdfs:subClassOf lite:Resource .
 
 lite:Work a rdfs:Class ;
     rdfs:label "Work"@en, "Obra"@es ;
     rdfs:comment "A distinct intellectual or artistic creation."@en,
                  "Creación intelectual o artística distinta"@es ;
-    owl:sameAs bf:Work ;
+    owl:equivalentClass bf:Work ;
     rdfs:subClassOf lite:Resource .
 
 lite:Concept a rdfs:Class ;
@@ -88,7 +88,7 @@ lite:Authority a rdfs:Class ;
 lite:Topic a rdfs:Class ;
     rdfs:label "Topic"@en ;
     rdfs:comment "Subject term describing a general concept, event or object."@en ;
-    owl:sameAs bf:Topic ;
+    owl:equivalentClass bf:Topic ;
     rdfs:subClassOf lite:Authority .
 
 lite:Temporal a rdfs:Class ;
@@ -99,105 +99,105 @@ lite:Temporal a rdfs:Class ;
 lite:Place a rdfs:Class ;
     rdfs:label "Place"@en ;
     rdfs:comment "Geographic location."@en ;
-    owl:sameAs schema:Place , bf:Place ;
+    owl:equivalentClass schema:Place , bf:Place ;
     rdfs:subClassOf lite:Authority .
 
 lite:Agent a rdfs:Class ;
     rdfs:label "Agent"@en ;
     rdfs:comment "Entity (e.g. person, organization, etc.) associated with a resource."@en ;
-    owl:sameAs bf:Agent ;
+    owl:equivalentClass bf:Agent ;
     rdfs:subClassOf lite:Authority .
 
 lite:Meeting a rdfs:Class ;
     rdfs:label "Meeting"@en ;
     rdfs:comment "Formal gathering of people for a particular purpose."@en ;
-    owl:sameAs bf:Meeting ;
+    owl:equivalentClass bf:Meeting ;
     rdfs:subClassOf lite:Agent .
 
 lite:Organization a rdfs:Class ;
     rdfs:label "Organization"@en ;
     rdfs:comment "Unit of people, e.g., an institution, an association, or corporate body."@en ;
-    owl:sameAs bf:Organization ;
+    owl:equivalentClass bf:Organization ;
     rdfs:subClassOf lite:Agent .
 
 lite:Family a rdfs:Class ;
     rdfs:label "Family"@en ;
     rdfs:comment "Social unit related by birth, marriage, adoption, civil union, or similar relationship."@en ;
-    owl:sameAs bf:Family ;
+    owl:equivalentClass bf:Family ;
     rdfs:subClassOf lite:Agent .
 
 lite:Person a rdfs:Class ;
     rdfs:label "Person"@en ;
     rdfs:comment "Individual (alive, dead, undead, or fictional) in relation to a resource."@en ;
-    owl:sameAs bf:Person , foaf:Person , schema:Person ;
+    owl:equivalentClass bf:Person , foaf:Person , schema:Person ;
     rdfs:subClassOf lite:Agent .
 
 lite:Library a rdfs:Class ;
     rdfs:label "Library"@en ;
     rdfs:comment "Organization responsible for the care of a collection of literary, musical, artistic, or reference materials, such as books, manuscripts, recordings, or films."@en ;
-    owl:sameAs schema:Library ;
+    owl:equivalentClass schema:Library ;
     rdfs:subClassOf lite:Organization .
 
 lite:Museum a rdfs:Class ;
     rdfs:label "Museum"@en ;
     rdfs:comment "Organization that holds artifacts and other objects of scientific, artistic, cultural, historical, or other importance."@en ;
-    owl:sameAs schema:Museum ;
+    owl:equivalentClass schema:Museum ;
     rdfs:subClassOf lite:Organization .
 
 lite:Archive a rdfs:Class ;
     rdfs:label "Archive"@en ;
     rdfs:comment "Organization responsible for the documents, photos, rare books, and artifacts selected for access and preservation."@en ;
-    owl:sameAs schema:ArchiveOrganization ;
+    owl:equivalentClass schema:ArchiveOrganization ;
     rdfs:subClassOf lite:Organization .
 
 lite:Identifier a rdfs:Class ;
     rdfs:label "Identifier"@en ;
     rdfs:comment "A string or number that identifies either a unique resource or class of resources."@en ;
     skos:note "Example identifiers include ISBN, ISSN, and MESH."@en ;
-    owl:sameAs bf:Identifier ;
+    owl:equivalentClass bf:Identifier ;
     rdfs:subClassOf lite:Resource .
 
 lite:Annotation a rdfs:Class ;
     rdfs:label "Annotation"@en ;
     rdfs:comment "Annotation, provides for loosely attached information about a resource"@en ;
     rdfs:subClassOf lite:Resource ;
-    owl:sameAs oa:Annotation .
+    owl:equivalentClass oa:Annotation .
 
 lite:Category a rdfs:Class ;
     rdfs:label "Category"@en ;
     rdfs:comment "List of things regarded as having particular shared characteristics"@en ;
-    owl:sameAs schema:Enumeration ;
+    owl:equivalentClass schema:Enumeration ;
     rdfs:subClassOf lite:Resource .
 
 lite:LanguageCategory a rdfs:Class ;
     rdfs:label "Language Category"@en ;
     rdfs:comment "List of languages"@en ;
-    owl:sameAs bf:Language ;
+    owl:equivalentClass bf:Language ;
     rdfs:subClassOf lite:Category ;
     skos:note "A controlled vocabulary."@en .
 
 lite:Form a rdfs:Class ;
     rdfs:label "Form"@en ;
     rdfs:comment "Category or genre that describes what the resource is."@en ;
-    owl:sameAs bf:GenreForm ;
+    owl:equivalentClass bf:GenreForm ;
     rdfs:subClassOf lite:Category .
 
 lite:ProviderEvent a rdfs:Class ;
     rdfs:label "Provider Event"@en ;
     rdfs:comment "Event associated with the publication, printing, distribution, issue, release or production of an Instance."@en ;
-    owl:sameAs bf:ProvisionActivity ;
+    owl:equivalentClass bf:ProvisionActivity ;
     rdfs:subClassOf lite:Event .
 
 lite:CopyrightEvent a rdfs:Class ;
     rdfs:label "Copyright Event"@en ;
     rdfs:comment "Copyright event associated with the intellectual property of an Instance."@en ;
-    owl:sameAs bf:CopyrightRegistration ;
+    owl:equivalentClass bf:CopyrightRegistration ;
     rdfs:subClassOf lite:Event .
 
 lite:Event a rdfs:Class ;
     rdfs:label "Event"@en ;
     rdfs:comment "Significant occurrence or happening."@en ;
-    owl:sameAs bf:Event , schema:Event ;
+    owl:equivalentClass bf:Event , schema:Event ;
     rdfs:subClassOf lite:Resource .
 
 lite:EmploymentEvent a rdfs:Class ;
@@ -209,24 +209,24 @@ lite:EmploymentEvent a rdfs:Class ;
 lite:Collection a rdfs:Class ;
     rdfs:label "Collection"@en ;
     rdfs:comment "Aggregation or gathering of works."@en ;
-    owl:sameAs bf:Collection ;
+    owl:equivalentClass bf:Collection ;
     rdfs:subClassOf lite:Work .
 
 lite:Series a rdfs:Class ;
     rdfs:label "Series"@en ;
     rdfs:comment "Set of related resources, especially of a specified kind."@en ;
-    owl:sameAs schema:CreativeWorkSeries ;
+    owl:equivalentClass schema:CreativeWorkSeries ;
     rdfs:subClassOf lite:Collection .
 
 lite:List a rdfs:Class ;
     rdfs:label "List"@en ;
     rdfs:comment "An ordered / unordered group of related resources."@en ;
-    owl:sameAs schema:ItemList ;
+    owl:equivalentClass schema:ItemList ;
     rdfs:subClassOf lite:Collection .
 
 lite:PostalAddress a rdfs:Class ;
     rdfs:label "Postal Address"@en ;
-    owl:sameAs schema:PostalAddress ;
+    owl:equivalentClass schema:PostalAddress ;
     rdfs:comment "The mailing address."@en ;
     rdfs:subClassOf lite:Resource .
 
