@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "precommit": "ttl data/vocab/lite.ttl data/vocab/relation.ttl data/vocab/scholar.ttl",
+    "precommit": "ttl data/vocab/lite.ttl data/vocab/relation.ttl data/vocab/scholar.ttl data/vocab/bflc.ttl data/vocab/library.ttl",
     "prepare": "husky"
   },
   "devDependencies": {
