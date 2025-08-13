@@ -550,6 +550,12 @@ scholar:award a rdf:Property ;
 
 ## Scholar properties for Work, Article, Award, and Journal
 
+scholar:abstract a rdf:Property ;
+    rdfs:label "abstract"@en ;
+    rdfs:comment "A concise summary of a scholarly work that provides an overview of the content."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Work .
+
 scholar:cites a rdf:Property ;
     rdfs:label "cites"@en ;
     rdfs:comment "Links the citing work to the cited work."@en ;
