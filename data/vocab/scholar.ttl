@@ -586,6 +586,12 @@ scholar:citationCount a rdf:Property ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Work .
 
+scholar:abstract a rdf:Property ;
+    rdfs:label "abstract"@en ;
+    rdfs:comment "A brief summary of the work."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Work .
+
 scholar:fwci a rdf:Property ;
     rdfs:label "fwci"@en ;
     rdfs:comment "Field-Weighted Citation Impact (FWCI), a works citation impact value calculated as the ratio of citations received / citations expected in the year of publications and three following years"@en ;
