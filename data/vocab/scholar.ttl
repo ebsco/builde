@@ -516,11 +516,12 @@ scholar:fwciTop a rdf:Property ;
     rdfs:comment " the highest FWCI score of all works contributed to by a Person"@en ;
     rdfs:range rdfs:Literal ;
     rdfs:domain lite:Person .
-    
-prov:wasDerivedFrom a rdf:Property ;
+
+scholar:wasDerivedFrom a rdf:Property ;
     rdfs:label "was derived from"@en ;
     rdfs:comment "refers to the id of the origin Person from which this data was derived post disambiguation processing"@en ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range rdfs:Literal;
+    owl:sameAs prov:wasDerivedFrom ;
     rdfs:domain lite:Person .
 
 ## ID properties
