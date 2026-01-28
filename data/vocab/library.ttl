@@ -67,6 +67,72 @@ library:Map a rdfs:Class ;
 	rdfs:comment "Work that has map characteristics."@en ;
     rdfs:subClassOf lite:Work .
 
+library:Title a rdfs:Class ;
+    rdfs:label "Title"@en ;
+    rdfs:comment "Title of a resource."@en ;
+    rdfs:subClassOf lite:Resource ;
+    owl:equivalentClass bf:Title .
+
+library:VariantTitle a rdfs:Class ;
+    rdfs:label "Variant Title"@en ;
+    rdfs:comment "Varying form of title."@en ;
+    rdfs:subClassOf library:Title ;
+    owl:equivalentClass bf:VariantTitle .
+
+library:ParallelTitle a rdfs:Class ;
+    rdfs:label "Parallel Title"@en ;
+    rdfs:comment "Title in another language and/or script."@en ;
+    rdfs:subClassOf library:Title ;
+    owl:sameAs bf:ParallelTitle .
+
+library:Status a rdfs:Class ;
+    rdfs:label "Status"@en ;
+    rdfs:comment "Designation of the validity or position of something, e.g., whether something is incorrect or available."@en ;
+    owl:equivalentClass bf:Status .
+
+# Library Properties
+
+library:assigningSource a rdf:Property ;
+    rdfs:label "assigning source"@en ;
+    rdfs:comment "Entity assigning metadata, such as a classification number, name, or identifier."@en ;
+    rdfs:range lite:Resource ;
+    rdfs:domain lite:Resource ;
+    owl:equivalentProperty bf:assigner .
+
+library:code a rdf:Property ;
+    rdfs:label "code"@en ;
+    rdfs:comment "Code representing an information."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Resource ;
+    owl:equivalentProperty bf:code .
+
+library:status a rdf:Property ;
+    rdfs:label "code"@en ;
+    rdfs:comment "Refers to the validity or standing of something, such as indicating if a classification number or identifier is canceled or invalid."@en ;
+    rdfs:range library:Status ;
+    rdfs:domain lite:Resource ;
+    owl:equivalentProperty bf:status .
+
+library:qualifier a rdf:Property ;
+    rdfs:label "qualifier"@en ;
+    rdfs:comment "Qualifier of information, such as an addition to a title to make it unique or qualifying information associated with an identifier."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Resource ;
+    owl:equivalentProperty bf:qualifier .
+
+library:media a rdf:Property ;
+    rdfs:label "media"@en ;
+    rdfs:comment "Categorization reflecting the general type of intermediation device required to view, play, run, etc., the content of a resource."@en ;
+    rdfs:range lite:Category ;
+    rdfs:domain lite:Resource ;
+    owl:equivalentProperty bf:media .
+
+library:source  a rdf:Property ;
+    rdfs:label "source"@en ;
+    rdfs:comment "The resource from which a value or label is obtained or derived, such as the formal source or scheme for a classification number, the list from which an agent's name is selected, or the system within which an identifier is unique."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Resource ;
+    owl:equivalentProperty bf:source . 
 
 # Library Work Properties
 
@@ -201,4 +267,131 @@ library:projection a rdf:Property ;
     rdfs:label "projection" ;
     rdfs:comment "Indicates the projection used in producing the Work." ;
     rdfs:domain bf:Work ;
+    rdfs:range rdfs:Literal . 
+
+library:place a rdf:Property ;
+    rdfs:label "place"@en ;
+    rdfs:comment "Place associated with a resource"@en ;
+    rdfs:domain lite:Resource ;
     rdfs:range rdfs:Literal .
+
+# Instance Properties
+
+library:statementOfResponsibility a rdf:Property ;
+    rdfs:label "statement of responsibility"@en ;
+    rdfs:comment "Names and roles of agents responsible for creating the content."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (lite:Instance lite:Work)
+    ] ;
+    owl:equivalentProperty bf:responsibilityStatement .
+
+library:edition a rdf:Property ;
+    rdfs:label "edition"@en ;
+    rdfs:comment "Edition statement, information identifying the edition or version of the resource."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty bf:editionStatement .
+
+library:publication a rdf:Property ;
+    rdfs:label "publication"@en ;
+    rdfs:comment "Information relating to publication of an instance."@en ;
+    rdfs:range lite:ProviderEvent ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty bf:provisionActivity ;
+    owl:equivalentProperty dc:publisher .
+
+library:production a rdf:Property ;
+    rdfs:label "production"@en ;
+    rdfs:comment "Information relating to production of an instance."@en ;
+    rdfs:range lite:ProviderEvent ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty bf:provisionActivity .
+
+library:distribution a rdf:Property ;
+    rdfs:label "distribution"@en ;
+    rdfs:comment "Information relating to distribution of an instance."@en ;
+    rdfs:range lite:ProviderEvent ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty bf:provisionActivity .
+
+library:manufacture a rdf:Property ;
+    rdfs:label "manufacture"@en ;
+    rdfs:comment "Information relating to manufacture of an instance."@en ;
+    rdfs:range lite:ProviderEvent ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty bf:provisionActivity .
+
+library:copyright a rdf:Property ;
+    rdfs:label "copyright"@en ;
+    rdfs:comment "Copyright event associated with the Instance."@en ;
+    rdfs:range lite:CopyrightEvent ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty bf:copyrightDate .    
+
+library:issuance a rdf:Property ;
+    rdfs:label "mode of issuance"@en ;
+    rdfs:comment "Categorization reflecting whether a resource is issued in one or more parts, the way it is updated, and its intended termination."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Instance ;
+    owl:equivalentProperty bf:issuance .  
+
+# Title Properties
+
+library:partNumber a rdf:Property ;
+    rdfs:label "part number"@en ;
+    rdfs:comment "Part or section enumeration of a title."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Title ;
+    owl:equivalentProperty bf:partNumber .
+
+library:partName a rdf:Property ;
+    rdfs:label "part name"@en ;
+    rdfs:comment "Part or section name of a title."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Title ;
+    owl:equivalentProperty bf:partName .
+
+# Agent Properties
+
+library:numeration  a rdf:Property ;
+    rdfs:label "numeration"@en ;
+    rdfs:comment "A Roman numeral alone or combined with a subsequent part of a given name."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (lite:Person lite:Family)
+    ] .
+
+library:titles  a rdf:Property ;
+    rdfs:label "titles"@en ;
+    rdfs:comment "Titles and other terms linked with a name, such as 'Dr.'"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (lite:Person lite:Family)
+    ] .
+
+library:attribution  a rdf:Property ;
+    rdfs:label "attribution"@en ;
+    rdfs:comment "Attribution qualifier."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (lite:Person lite:Family)
+    ] .
+
+library:subordinateUnit  a rdf:Property ;
+    rdfs:label "subordinateUnit"@en ;
+    rdfs:comment "Corporate names or corporate subheadings that follow the name of the highest hierarchical unit."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Organization .   
+
+# Category Properties
+
+library:term  a rdf:Property ;
+    rdfs:label "term"@en ;
+    rdfs:comment "Text description of the category."@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Category .     

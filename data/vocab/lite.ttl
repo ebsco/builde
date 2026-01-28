@@ -10,6 +10,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema> .
 @prefix librarylink: <http://library.link/vocab/map>.
+@prefix lc: <http://id.loc.gov/ontologies/bflc/> .
 
 # BIBFRAME Linked Data Extension aka BUILDE 📖🔍
 
@@ -268,6 +269,13 @@ lite:date a rdf:Property ;
     rdfs:comment "Date associated with the resource."@en ;
     owl:equivalentProperty bf:date, dc:date ;
     rdfs:domain lite:Resource .
+
+lite:place a rdf:Property ;
+    rdfs:label "place"@en ;
+    rdfs:comment "Place associated with a resource"@en ;
+    rdfs:domain lite:Resource ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty lc:simplePlace .
 
 lite:note a rdf:Property ;
     rdfs:label "note"@en ;
