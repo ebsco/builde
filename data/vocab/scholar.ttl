@@ -13,6 +13,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <https://www.w3.org/ns/prov/#> .
 
 # BUILDE Scholar Extension 📖🔍
 #
@@ -515,6 +516,13 @@ scholar:fwciTop a rdf:Property ;
     rdfs:label "fwci top"@en ;
     rdfs:comment " the highest FWCI score of all works contributed to by a Person"@en ;
     rdfs:range rdfs:Literal ;
+    rdfs:domain lite:Person .
+
+scholar:wasDerivedFrom a rdf:Property ;
+    rdfs:label "was derived from"@en ;
+    rdfs:comment "refers to the id of the origin Person from which this data was derived post disambiguation processing"@en ;
+    rdfs:range rdfs:Literal ;
+    owl:sameAs prov:wasDerivedFrom ;
     rdfs:domain lite:Person .
 
 ## ID properties
